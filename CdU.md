@@ -5,16 +5,18 @@
 Autor: vendedor
 
 1. Vendedor informa número do cliente
-2. Vendedor registra produto (sublinhado)
+2. Vendedor registra produto(s)(sublinhado)
 3. Vendedor informa forma de pagamento
 4. Vendedor informa forma de entrega
-5. Vendedor cadastra preço final do produto
+5. Sistema questiona se o preço foi negociado
 
 Extensões:
 
 1a. O número do cliente deve ser precedido de operadora e prefixo
 
 3a. As formas de pagamento válidas são via débito, fatura, pix ou dinheiro
+
+5a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
 ## Baixar venda
 
@@ -24,7 +26,8 @@ Autor: vendedor
 2. Vendedor informa data da baixa
 3. Sistema emite nota fiscal
 4. Sistema envia nota fiscal para o cliente (extends - Whatsapp, Email)
-
+5. Sistema atualiza status do(s) produto(s) como "Vendido"
+   
 Extensões:
 
 1a. Valor do preço final da venda tem que ser maior ou igual ao preço do produto
@@ -38,7 +41,9 @@ Autor: vendedor
 3. Vendedor informa categoria
 4. Vendedor informa preço
 5. Vendedor informa desconto
-6. Vendedor informa fornecedor 
+6. Vendedor informa fornecedor
+7. Vendedor informa quantidade
+8. Sistema põe status "Não vendido"
 
 Extensões:
 
@@ -61,7 +66,3 @@ Extensões:
 1a. Se o mês for menor que a sua venda mais antiga, solicitar novo mês
 
 2a. Se o ano for menor que a sua venda mais antiga, solicitar novo ano
-
-# Diagrama de CdU
-
-Abaixo o diagrama de CdU do sistema em questão
