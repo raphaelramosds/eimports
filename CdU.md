@@ -92,6 +92,8 @@ Ator: vendedor
 3. Vendedor preenche os campos
 4. Sistema retorna vendas relacionadas com a pesquisa
 
+Extensões:
+
 4a. Se nenhuma venda for encontrada, solicitar novo preenchimento
 
 ## Registrar devolução 
