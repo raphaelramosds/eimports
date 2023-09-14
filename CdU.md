@@ -46,7 +46,7 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 3. Sistema emite nota fiscal
 4. Sistema atualiza status do(s) produto(s) como "Vendido"
    
-## Adicionar produto
+## Cadastrar produto
 
 Autor: vendedor
 
@@ -68,6 +68,16 @@ Extensões:
 5a. O desconto do produto é um valor percentual
 
 6a. Se o produto não tem fornecedor, o vendedor pode deixar em branco
+
+## Cadastrar lote
+
+Autor: vendedor
+
+Pré-condições: O vendedor deve estar autenticado no sistema, deve haver no mínimo um fornecedor
+
+1. Vendedor informa fornecedor
+2. Vendedor cadastra produtos
+3. Sistema atualiza o estoque com os novos produtos
 
 ## Buscar vendas
 
@@ -109,6 +119,18 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 3. Sistema incrementa quantidade em estoque do produto devolvido
 4. Sistema decrementa quantidade em estoque do novo produto
 
+## Cadastrar fornecedor
+
+Ator: vendedor
+
+Pré-condições: O vendedor deve estar autenticado no sistema
+
+1. Vendedor informa nome do fornecedor
+2. Vendedor informa cidade do fornecedor
+3. Vendedor informa estado do fornecedor
+4. Vendedor informa CNPJ do fornecedor
+5. Sistema cadastra fornecedor
+
 ## Avaliar lucro mensal
 
 Ator: vendedor
@@ -133,10 +155,11 @@ Ator: vendendor
 Pré-condições: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa produto
-2. Vendedor informa mês e ano de início
-3. Vendedor informa mês e ano de fim
+2. Vendedor informa fornecedor 
+3. Vendedor informa mês e ano de início
+4. Vendedor informa mês e ano de fim
 5. Sistema apresenta gráfico número de vendas do produto versus mês
-4. Sistema apresenta Total de valor de vendas / Volume médio de vendas
+6. Sistema apresenta Total de valor de vendas / Volume médio de vendas
 
 Extensões:
 
