@@ -2,14 +2,14 @@
 
 ## Autenticar usuário
 
-Autor: vendedor
+Autor: usuário
 
-1. Vendedor inicia interação com o sistema
+1. Usuário inicia interação com o sistema
 2. Sistema exibe a tela de login
-3. Vendedor informa nome de usuário
-4. Vendedor informa senha
+3. Usuário informa nome de usuário
+4. Usuário informa senha
 5. Sistema verifica credenciais fornecidas
-6. Sistema autentica vendedor
+6. Sistema autentica usuário
 
 5a. Se nome de usuário incorreto, solicitar novo nome de usuário
 
