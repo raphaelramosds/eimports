@@ -71,8 +71,6 @@ Extensões:
 
 5a. O desconto do produto é um valor percentual
 
-6a. Se o produto não tem fornecedor, o vendedor pode deixar em branco
-
 ## Cadastrar lote
 
 Autor: vendedor
@@ -85,7 +83,7 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 
 Extensões:
 
-1a. Se fornecedor não informado, solicitar um fornecedor
+2a. Se apenas uma unidade foi cadastrado, solicitar mais unidades
 
 ## Buscar vendas
 
