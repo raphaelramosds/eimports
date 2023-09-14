@@ -11,6 +11,8 @@ Autor: usuário
 5. Sistema verifica credenciais fornecidas
 6. Sistema autentica usuário
 
+Extensões:
+
 5a. Se nome de usuário incorreto, solicitar novo nome de usuário
 
 5b. Se senha incorreta, solicitar nova senha
