@@ -26,6 +26,8 @@ Pré-condições: O vendedor deve estar autenticado no sistema, a venda deve con
 3. Vendedor informa forma de pagamento
 4. Vendedor informa forma de entrega
 5. Sistema questiona se o preço foi negociado
+6. Sistema registra hora e data da venda
+7. Sistema registra um código para a venda
 
 Extensões:
 
@@ -79,6 +81,8 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 2. Vendedor cadastra produtos
 3. Sistema atualiza o estoque com os novos produtos
 
+Extensões:
+
 1a. Se fornecedor não informado, solicitar um fornecedor
 
 ## Buscar vendas
@@ -92,9 +96,11 @@ Ator: vendedor
 - Nome do cliente
 - Intervalo de datas
 3. Vendedor preenche os campos
-4. Sistema retorna vendas relacionadas com a pesquisa
+4. Sistema retorna vendas relacionadas com a pesquisa, com o código, a data, a hora e o nome do cliente
 
 Extensões:
+
+3a. Se algum campo foi preenchido incorretamente, solicitar novo preenchimento
 
 4a. Se nenhuma venda for encontrada, solicitar novo preenchimento
 
