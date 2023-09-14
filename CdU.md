@@ -94,7 +94,7 @@ Ator: vendedor
 - Código da venda
 - Número do cliente
 - Nome do cliente
-- Intervalo de datas
+- Mês e ano da venda
 3. Vendedor preenche os campos
 4. Sistema retorna vendas relacionadas com a pesquisa, com o código, a data, a hora e o nome do cliente
 
