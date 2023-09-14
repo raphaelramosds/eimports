@@ -11,14 +11,18 @@ Autor: vendedor
 5. Sistema verifica credenciais fornecidas
 6. Sistema autentica vendedor
 
+5a. Se nome de usuário incorreto, solicitar novo nome de usuário
+
+5b. Se senha incorreta, solicitar nova senha
+
 ## Abrir venda
 
 Autor: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condições: O vendedor deve estar autenticado no sistema, a venda deve conter apenas produtos previamente adicionados no sistema.
 
 1. Vendedor informa número do cliente
-2. Vendedor registra produto(s)(sublinhado)
+2. Vendedor registra produto(s)
 3. Vendedor informa forma de pagamento
 4. Vendedor informa forma de entrega
 5. Sistema questiona se o preço foi negociado
@@ -27,7 +31,7 @@ Extensões:
 
 1a. O número do cliente deve ser precedido de operadora e prefixo
 
-3a. As formas de pagamento válidas são via débito, fatura, pix ou dinheiro
+3a. As formas de pagamento válidas são via débito, pix ou dinheiro
 
 5a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
@@ -42,10 +46,6 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 3. Sistema emite nota fiscal
 4. Sistema atualiza status do(s) produto(s) como "Vendido"
    
-Extensões:
-
-1a. Valor do preço final da venda tem que ser maior ou igual ao preço do produto
-
 ## Adicionar produto
 
 Autor: vendedor
@@ -68,6 +68,46 @@ Extensões:
 5a. O desconto do produto é um valor percentual
 
 6a. Se o produto não tem fornecedor, o vendedor pode deixar em branco
+
+## Buscar vendas
+
+Ator: vendedor
+
+1. Vendedor abre painel de vendas
+2. Sistema exibe um formulário com pesquisa de vendas, que pode incluir
+- Código da venda
+- Número do cliente
+- Nome do cliente
+- Intervalo de datas
+3. Vendedor preenche os campos
+4. Sistema retorna vendas relacionadas com a pesquisa
+
+4a. Se nenhuma venda for encontrada, solicitar novo preenchimento
+
+## Registrar devolução 
+
+Ator: vendendor
+
+Pré-condições: O vendedor deve estar autenticado no sistema
+
+1. Vendedor abre painel de vendas
+2. Vendedor busca pela venda desejada
+3. Vendedor acessa venda cadastrada
+4. Vendedor registra devolução
+5. Vendedor informa motivo da devolução
+6. Sistema incremente quantidade em estoque desse produto
+7. Sistema remove venda relacionada a esse código
+
+## Regitrar troca
+
+Ator: vendendor
+
+Pré-condições: O vendedor deve estar autenticado no sistema
+
+1. Vendedor informa produto devolvido
+2. Vendedor informa novo produto
+3. Sistema incrementa quantidade em estoque do produto devolvido
+4. Sistema decrementa quantidade em estoque do novo produto
 
 ## Avaliar lucro mensal
 
@@ -105,27 +145,3 @@ Extensões:
 2b. Se o ano for menor que a sua venda mais antiga, solicitar novo ano
 
 3a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
-
-## Registrar devolução 
-
-Ator: vendendor
-
-Pré-condições: O vendedor deve estar autenticado no sistema
-
-1. Vendedor acessa venda cadastrada
-2. Vendedor registra devolução
-3. Vendedor informa motivo da devolução
-4. Sistema incremente quantidade em estoque desse produto
-5. Sistema remove venda relacionada a esse código
-
-## Regitrar troca
-
-Ator: vendendor
-
-Pré-condições: O vendedor deve estar autenticado no sistema
-
-1. Vendedor acessa painel de trocas
-2. Vendedor informa produto devolvido
-3. Vendedor informa novo produto
-4. Sistema incrementa quantidade em estoque do produto devolvido
-5. Sistema decrementa quantidade em estoque do novo produto
