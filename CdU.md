@@ -73,11 +73,13 @@ Extensões:
 
 Autor: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema, deve haver no mínimo um fornecedor
+Pré-condições: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa fornecedor
 2. Vendedor cadastra produtos
 3. Sistema atualiza o estoque com os novos produtos
+
+1a. Se fornecedor não informado, solicitar um fornecedor
 
 ## Buscar vendas
 
