@@ -15,7 +15,7 @@ Autor: usuário
 
 5b. Se senha incorreta, solicitar nova senha
 
-## Abrir venda
+## Cadastrar venda
 
 Autor: vendedor
 
