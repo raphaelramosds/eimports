@@ -13,9 +13,9 @@ Autor: vendedor
 
 Extensões:
 
-5a. Se nome de usuário incorreto, solicitar novo nome de usuário
+5a. Se nome de usuário incorreto, solicitar novo preenchimento
 
-5b. Se senha incorreta, solicitar nova senha
+5b. Se senha incorreta, solicitar novo preenchimento
 
 ## Cadastrar ordem de compra
 
@@ -25,17 +25,16 @@ Pré-condições: O vendedor deve estar autenticado no sistema, a venda deve con
 
 1. Vendedor informa telefone do cliente
 2. Vendedor registra produto(s)
-3. Vendedor informa forma de pagamento
-4. Vendedor informa forma de entrega
-5. Sistema questiona se o preço foi negociado
-6. Sistema registra hora e data da venda
-7. Sistema registra um código para a venda
+3. Vendedor informa forma de entrega
+4. Sistema questiona se o preço foi negociado
+5. Sistema registra hora e data da venda
+6. Sistema registra um código para a venda
 
 Extensões:
 
 1a. O telefone do cliente deve ser precedido de operadora e prefixo
 
-5a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
+4a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
 ## Baixar ordem de compra
 
@@ -43,12 +42,15 @@ Autor: vendedor
 
 Pré-condições: O vendedor deve estar autenticado no sistema
 
-1. Vendedor atualiza venda como paga
-2. Vendedor informa data da baixa
-3. Sistema emite nota fiscal
-4. Sistema atualiza status do(s) produto(s) como "Vendido"
+1. Vendedor informa forma de pagamento
+2. Vendedor atualiza venda como paga
+3. Vendedor informa data da baixa
+4. Sistema anexa nota fiscal na ordem e compra
+5. Sistema atualiza status do(s) produto(s) como "Vendido"
 
-1a. Se opção de pagamento for PIX, vendedor anexa comprovante
+2a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
+
+2b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar o comprovante
 
 ## Cadastrar produto
 
