@@ -26,17 +26,14 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 1. Vendedor informa telefone do cliente
 2. Vendedor registra produto(s)
 3. Vendedor informa forma de entrega
-4. Sistema questiona se o preço foi negociado
-5. Sistema registra hora e data da venda
-6. Sistema registra um código para a venda
+4. Sistema registra hora e data da venda
+5. Sistema registra um código para a venda
 
 Extensões:
 
 1a. O telefone do cliente deve ser precedido de operadora e prefixo
 
 2a. Se produto(s) não cadastrados no sistema, solicitar cadastro
-
-4a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
 ## Baixar ordem de compra
 
@@ -45,14 +42,17 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa forma de pagamento
-2. Vendedor atualiza venda como paga
-3. Vendedor informa data da baixa
-4. Sistema anexa nota fiscal na ordem e compra
-5. Sistema atualiza status do(s) produto(s) como "Vendido"
+2. Sistema questiona se o preço foi negociado
+3. Vendedor atualiza venda como paga
+4. Vendedor informa data da baixa
+5. Sistema anexa nota fiscal na ordem e compra
+6. Sistema atualiza status do(s) produto(s) como "Vendido"
 
-2a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
+2a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
-2b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar o comprovante
+3a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
+
+3b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar o comprovante
 
 ## Cadastrar produto
 
@@ -64,16 +64,13 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 2. Vendedor informa descrição
 3. Vendedor informa categoria
 4. Vendedor informa preço
-5. Vendedor informa desconto
-6. Vendedor informa fornecedor
-7. Vendedor informa quantidade
-8. Sistema põe status "Não vendido"
+5. Vendedor informa fornecedor
+6. Vendedor informa quantidade
+7. Sistema põe status "Não vendido"
 
 Extensões:
 
 4a. Se nome do produto conter caracteres não alfanuméricos, solicitar novo nome
-
-5a. O desconto do produto é um valor percentual
 
 ## Cadastrar lote
 
