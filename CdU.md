@@ -24,7 +24,7 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. Vendedor registra produto(s)
+2. Vendedor seleciona produto(s)
 3. Vendedor informa forma de entrega
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
@@ -78,7 +78,7 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa fornecedor
+1. Vendedor seleciona fornecedor
 2. Vendedor seleciona produtos
 3. Vendedor põe quantidade de cada produto
 4. Sistema atualiza o estoque
@@ -112,7 +112,7 @@ Extensões:
 
 Ator: vendendor
 
-Pré-condição:: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor abre painel de ordens de compra
 2. Vendedor busca pela ordem de compra desejada
@@ -128,8 +128,8 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa produto devolvido
-2. Vendedor informa novo produto
+1. Vendedor seleciona produto devolvido
+2. Vendedor seleciona novo produto
 3. Sistema incrementa quantidade em estoque do produto devolvido
 4. Sistema decrementa quantidade em estoque do novo produto
 
