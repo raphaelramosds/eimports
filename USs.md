@@ -2,7 +2,7 @@
 
 A seguir estão as histórias de usuários de um sistema de controle de estoque, escritas na pespectiva do vendedor
 
-> *Como vendedor, eu gostaria de cadastrar no estoque produtos comprados por mim* 
+> *Como vendedor, eu gostaria de cadastrar no estoque produtos comprados por mim em estabelecimentos quaisquer.* 
 >
 > *Como vendedor, eu gostaria de cadastrar lotes de produtos entregues pelos fornecedores.*
 >
@@ -18,6 +18,6 @@ A seguir estão as histórias de usuários de um sistema de controle de estoque,
 >
 > *Como vendedor, eu gostaria de registrar a troca de produtos para saber quais produtos apresentaram problemas.*
 >
-> *Como vendedor, eu gostaria de avaliar o lucro mensal das vendas para saber quais produtos saíram mais.*
+> *Como vendedor, eu gostaria de avaliar o lucro mensal das minhas vendas.*
 >
 > *Como vendedor, eu gostaria de avaliar o giro de estoque dos produtos para ter noção do fluxo de compras e vendas dos produtos.*
