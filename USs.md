@@ -1,6 +1,6 @@
 # História de Usuários (USs)
 
-A seguir estão as histórias de usuários de um sistema de controle de estoque, escrevidas na pespectiva do vendedor
+A seguir estão as histórias de usuários de um sistema de controle de estoque, escritas na pespectiva do vendedor
 
 > *Como vendedor, eu gostaria de cadastrar no estoque produtos comprados por mim* 
 >
