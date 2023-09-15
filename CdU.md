@@ -2,14 +2,14 @@
 
 ## Autenticar usuário
 
-Autor: usuário
+Autor: vendedor
 
-1. Usuário inicia interação com o sistema
+1. Vendedor inicia interação com o sistema
 2. Sistema exibe a tela de login
-3. Usuário informa nome de usuário
-4. Usuário informa senha
+3. Vendedor informa nome de vendedor
+4. Vendedor informa senha
 5. Sistema verifica credenciais fornecidas
-6. Sistema autentica usuário
+6. Sistema autentica vendedor
 
 Extensões:
 
@@ -17,13 +17,13 @@ Extensões:
 
 5b. Se senha incorreta, solicitar nova senha
 
-## Cadastrar venda
+## Cadastrar ordem de compra
 
 Autor: vendedor
 
 Pré-condições: O vendedor deve estar autenticado no sistema, a venda deve conter apenas produtos previamente adicionados no sistema.
 
-1. Vendedor informa número do cliente
+1. Vendedor informa telefone do cliente
 2. Vendedor registra produto(s)
 3. Vendedor informa forma de pagamento
 4. Vendedor informa forma de entrega
@@ -33,13 +33,11 @@ Pré-condições: O vendedor deve estar autenticado no sistema, a venda deve con
 
 Extensões:
 
-1a. O número do cliente deve ser precedido de operadora e prefixo
-
-3a. As formas de pagamento válidas são via débito, pix ou dinheiro
+1a. O telefone do cliente deve ser precedido de operadora e prefixo
 
 5a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
-## Baixar venda
+## Baixar ordem de compra
 
 Autor: vendedor
 
@@ -49,7 +47,9 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 2. Vendedor informa data da baixa
 3. Sistema emite nota fiscal
 4. Sistema atualiza status do(s) produto(s) como "Vendido"
-   
+
+1a. Se opção de pagamento for PIX, vendedor anexa comprovante
+
 ## Cadastrar produto
 
 Autor: vendedor
