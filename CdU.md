@@ -21,7 +21,7 @@ Extensões:
 
 Autor: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema, a venda deve conter apenas produtos previamente adicionados no sistema.
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
 2. Vendedor registra produto(s)
@@ -34,13 +34,15 @@ Extensões:
 
 1a. O telefone do cliente deve ser precedido de operadora e prefixo
 
+2a. Se produto(s) não cadastrados no sistema, solicitar cadastro
+
 4a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
 ## Baixar ordem de compra
 
 Autor: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa forma de pagamento
 2. Vendedor atualiza venda como paga
@@ -56,7 +58,7 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 
 Autor: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa nome
 2. Vendedor informa descrição
@@ -77,7 +79,7 @@ Extensões:
 
 Autor: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa fornecedor
 2. Vendedor seleciona produtos
@@ -113,7 +115,7 @@ Extensões:
 
 Ator: vendendor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição:: O vendedor deve estar autenticado no sistema
 
 1. Vendedor abre painel de vendas
 2. Vendedor busca pela venda desejada
@@ -127,7 +129,7 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 
 Ator: vendendor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa produto devolvido
 2. Vendedor informa novo produto
@@ -138,7 +140,7 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 
 Ator: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa nome do fornecedor
 2. Vendedor informa cidade do fornecedor
@@ -150,7 +152,7 @@ Pré-condições: O vendedor deve estar autenticado no sistema
 
 Ator: vendedor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa mês e ano
 2. Sistema lista produtos comprados no mês
@@ -167,7 +169,7 @@ Extensões:
 
 Ator: vendendor
 
-Pré-condições: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa produto
 2. Vendedor informa fornecedor 
