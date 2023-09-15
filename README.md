@@ -12,8 +12,8 @@ Construir um sistema de estoque de produtos para um vendedor de importados. Ness
 
 ## Engenharia de Requisitos
 
-Os requisitos desse sistema estão na forma de Casos de Uso (CdU) e Histórias de Usuário, nos seguintes links
+Os requisitos desse sistema estão na forma de Casos de Uso (CdU) e Histórias de Usuários (USs), nos seguintes links
 
 [1] [Casos de Uso](./CdU.md)
 
-[2] Histórias de usuário
+[2] [Histórias de usuários](./USs.md)

@@ -45,14 +45,14 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 2. Sistema questiona se o preço foi negociado
 3. Vendedor atualiza venda como paga
 4. Vendedor informa data da baixa
-5. Sistema anexa nota fiscal na ordem e compra
+5. Sistema anexa nota fiscal na ordem de compra
 6. Sistema atualiza status do(s) produto(s) como "Vendido"
 
 2a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
 
 3a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
 
-3b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar o comprovante
+3b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar um comprovante
 
 ## Cadastrar produto
 
@@ -114,13 +114,13 @@ Ator: vendendor
 
 Pré-condição:: O vendedor deve estar autenticado no sistema
 
-1. Vendedor abre painel de vendas
-2. Vendedor busca pela venda desejada
-3. Vendedor acessa venda cadastrada
+1. Vendedor abre painel de ordens de compra
+2. Vendedor busca pela ordem de compra desejada
+3. Vendedor acessa ordem de compra cadastrada
 4. Vendedor registra devolução
 5. Vendedor informa motivo da devolução
-6. Sistema incremente quantidade em estoque desse produto
-7. Sistema remove venda relacionada a esse código
+6. Sistema incrementa quantidade em estoque desse produto
+7. Sistema remove ordem de compra relacionada a esse código
 
 ## Regitrar troca
 
@@ -158,9 +158,9 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 Extensões:
 
-1a. Se o mês for menor que a sua venda mais antiga, solicitar novo mês
+1a. Se o mês for menor que a ordem de compra com baixa mais antiga, solicitar novo mês
 
-1b. Se o ano for menor que a sua venda mais antiga, solicitar novo ano
+1b. Se o ano for menor que a ordem de compra com baixa mais antiga, solicitar novo ano
 
 ## Avaliar giro de estoque
 
@@ -177,8 +177,8 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 Extensões:
 
-2a. Se o mês for menor que a sua venda mais antiga, solicitar novo mês
+3a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
 
-2b. Se o ano for menor que a sua venda mais antiga, solicitar novo ano
+3b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
 
-3a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
+4a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
