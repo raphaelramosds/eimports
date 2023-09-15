@@ -26,8 +26,8 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 1. Vendedor informa telefone do cliente
 2. Vendedor registra produto(s)
 3. Vendedor informa forma de entrega
-4. Sistema registra hora e data da venda
-5. Sistema registra um código para a venda
+4. Sistema registra hora e data da ordem de compra
+5. Sistema registra um código para a ordem de compra
 
 Extensões:
 
@@ -43,7 +43,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa forma de pagamento
 2. Sistema questiona se o preço foi negociado
-3. Vendedor atualiza venda como paga
+3. Vendedor atualiza ordem de compra como paga
 4. Vendedor informa data da baixa
 5. Sistema anexa nota fiscal na ordem de compra
 6. Sistema atualiza status do(s) produto(s) como "Vendido"
@@ -89,24 +89,24 @@ Extensões:
 
 2b. Se algum produto não existe no estoque, solicitar seu cadastro
 
-## Buscar vendas
+## Buscar ordem de compra
 
 Ator: vendedor
 
-1. Vendedor abre painel de vendas
-2. Sistema exibe um formulário com pesquisa de vendas, que pode incluir
-- Código da venda
+1. Vendedor abre painel de ordem de compra
+2. Sistema exibe um formulário com pesquisa de ordem de compra, que pode incluir
+- Código da ordem da compra
 - Número do cliente
 - Nome do cliente
-- Mês e ano da venda
+- Mês e ano da ordem de compra
 3. Vendedor preenche os campos
-4. Sistema retorna vendas rotuladas com código, data, hora e nome do cliente
+4. Sistema retorna ordem de compras rotuladas com código, data, hora e nome do cliente
 
 Extensões:
 
 3a. Se algum campo foi preenchido incorretamente, solicitar novo preenchimento
 
-4a. Se nenhuma venda for encontrada, solicitar novo preenchimento
+4a. Se nenhuma ordem de compra for encontrada, solicitar novo preenchimento
 
 ## Registrar devolução 
 
@@ -172,8 +172,8 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 2. Vendedor informa fornecedor 
 3. Vendedor informa mês e ano de início
 4. Vendedor informa mês e ano de fim
-5. Sistema apresenta gráfico número de vendas do produto versus mês
-6. Sistema apresenta Total de valor de vendas / Volume médio de vendas
+5. Sistema apresenta gráfico número de ordens de compra do produto versus mês
+6. Sistema apresenta Total de valor das ordens de compra / Volume médio de ordens de compra
 
 Extensões:
 
