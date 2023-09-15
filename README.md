@@ -16,4 +16,6 @@ Os requisitos desse sistema estão na forma de Casos de Uso (CdU) e Histórias d
 
 [1] [Casos de Uso](./CdU.md)
 
-[2] [Histórias de usuários](./USs.md)
+[2] [Diagrama de casos de uso](./CdU.md)
+
+[3] [Histórias de usuários](./USs.md)
