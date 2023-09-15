@@ -10,7 +10,7 @@ A seguir estão as histórias de usuários de um sistema de controle de estoque,
 >
 > *Como vendedor, eu gostaria de cadastrar ordens de compras realizadas pelo clientes.*
 >
-> *Como vendedor, eu gostaria de anexar comprovantes de pagamento nas ordens de compra com baixa.*
+> *Como vendedor, eu gostaria de anexar comprovantes de pagamento nas ordens de compra com baixa, que podem ser via PIX, débito ou dinheiro.*
 >
 > *Como vendedor, eu gostaria de emitir notas fiscais para cada ordem de compra que dei baixa.*
 >
