@@ -20,7 +20,7 @@ Critérios de Aceitação:
 
 ## Baixar ordem de compra
 
-Como vendedor, eu gostaria de baixar a ordem de compra
+Como vendedor, eu gostaria de dar baixa nas ordens de compras
 
 Critérios de Aceitação:
 - Baixar ordem de venda, informando forma de pagamento
@@ -30,7 +30,7 @@ Critérios de Aceitação:
 
 ## Cadastrar produto
 
-Como vendedor, eu gostaria de cadastrar o produto de nome composto apenas por caracteres alfanuméricos
+Como vendedor, eu gostaria de adicionar produtos no estoque
 
 Critérios de Aceitação:
 - Cadastrar o produto, informando o nome do produto
@@ -51,9 +51,9 @@ Critérios de Aceitação:
 - Buscar ordem de compra, preenchendo os campos de código da ordem de compra e/ou número do cliente e/ou nome do cliente e/ou mês e ano da ordem de compra
 
 
-## Registrar Devolução
+## Registrar devolução
 
-Como vendedor, eu gostaria de registrar a devolução de produto
+Como vendedor, eu gostaria de registrar a devolução de um produto
 
 Critérios de Aceitação:
 - Registrar devolução de produto, buscando pela ordem de compra desejada
@@ -67,8 +67,8 @@ Critérios de Aceitação:
 Como vendedor, eu gostaria de registrar a troca de produto
 
 Critérios de Aceitação:
-- Registrar troca de produto, informando qual o produto devolvido
-- Registrar troca de produto, informando qual o novo produto
+- Registrar a troca de um produto, informando qual o produto devolvido
+- Registrar a troca de um produto, informando qual o novo produto
 
 
 ##Cadastrar fornecedor
