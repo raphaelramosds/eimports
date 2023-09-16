@@ -1,33 +1,101 @@
-# História de Usuários (USs)
+# Histórias de usuários (HUs)
 
-A seguir estão as histórias de usuários de um sistema de controle de estoque, escritas na pespectiva do vendedor
+## Autenticar usuário
 
-> *Como vendedor, eu gostaria de cadastrar no estoque produtos comprados por mim em estabelecimentos quaisquer.* 
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de cadastrar lotes de produtos entregues pelos fornecedores.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de visualizar o estoque dos meus produtos.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de cadastrar ordens de compras realizadas pelo clientes.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de anexar comprovantes de pagamento nas ordens de compra com baixa, que podem ser via PIX, débito ou dinheiro.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de emitir notas fiscais para cada ordem de compra que dei baixa.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de registrar a devolução de produtos para saber quais foram devolvidos e o valor de estorno.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de registrar a troca de produtos para saber quais produtos apresentaram problemas.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de avaliar o lucro mensal das minhas vendas.*
->    Criterios de aceitacao**
->
-> *Como vendedor, eu gostaria de avaliar o giro de estoque dos produtos para ter noção do fluxo de compras e vendas dos produtos.*
->    Criterios de aceitacao**
+Como usuário, eu gostaria de acessar minha conta
+
+Critérios de Aceitação:
+- Acessar minha conta, informando o login
+- Acessar minha conta, informando a senha
+
+
+## Cadastrar ordem de compra
+
+Como vendedor, eu gostaria de cadastrar ordem de compra
+
+Critérios de Aceitação:
+- Cadastrar ordem de compra, informando número do cliente
+- Cadastrar ordem de compra, informando produtos à venda
+
+
+## Baixar ordem de compra
+
+Como vendedor, eu gostaria de baixar a ordem de compra
+
+Critérios de Aceitação:
+- Baixar ordem de venda, informando forma de pagamento
+- Baixar ordem de venda, atualizando ordem de compra como paga
+- Baixar ordem de venda, informando data da baixa
+
+
+## Cadastrar produto
+
+Como vendedor, eu gostaria de cadastrar o produto de nome composto apenas por caracteres alfanuméricos
+
+Critérios de Aceitação:
+- Cadastrar o produto, informando o nome do produto
+- Cadastrar o produto, informando a descrição do produto
+- Cadastrar o produto, informando a categoria a qual pertence o produto
+- Cadastrar o produto, informando o preço de venda daquele produto
+- Cadastrar o produto, informando o desconto sobre o produto
+- Cadastrar o produto, informando o fornecedor do produto
+- Cadastrar o produto, informando a quantidade em estoque
+
+
+## Buscar ordem de compra
+
+Como vendedor, eu gostaria de buscar a ordem de compra
+
+Critérios de Aceitação:
+- Buscar ordem de compra, informando código da ordem de compra
+- Buscar ordem de compra, preenchendo os campos de código da ordem de compra e/ou número do cliente e/ou nome do cliente e/ou mês e ano da ordem de compra
+
+
+## Registrar Devolução
+
+Como vendedor, eu gostaria de registrar a devolução de produto
+
+Critérios de Aceitação:
+- Registrar devolução de produto, buscando pela ordem de compra desejada
+- Registrar devolução de produto, acessando a ordem de compra cadastrada
+- Registrar devolução de produto, registrando a devolução
+- Registrar devolução de produto, informando o motivo da devolução
+
+
+## Registrar troca de produto
+
+Como vendedor, eu gostaria de registrar a troca de produto
+
+Critérios de Aceitação:
+- Registrar troca de produto, informando qual o produto devolvido
+- Registrar troca de produto, informando qual o novo produto
+
+
+##Cadastrar fornecedor
+
+Como vendedor, eu gostaria de cadastrar o fornecedor dos produtos
+
+Critérios de Aceitação:
+- Cadastrar o fornecedor dos produtos, informando o nome do fornecedor
+- Cadastrar o fornecedor dos produtos, informando a cidade do fornecedor
+- Cadastrar o fornecedor dos produtos, informando o Estado do fornecedor
+- Cadastrar o fornecedor dos produtos, informando o CNPJ do fornecedor
+
+
+## Avaliar lucro mensal
+
+Como vendedor, eu gostaria de avaliar o lucro mensal das vendas
+
+Critérios de Aceitação:
+- Avaliar lucro mensal, informando o mês e ano
+
+
+## Avaliar giro de estoque
+
+Como vendedor, eu gostaria de avaliar o giro de estoque dos produtos
+
+Critérios de Aceitação:
+- Avaliar o giro de estoque, informando o produto
+- Avaliar o giro de estoque, informando o fornecedor
+- Avaliar o giro de estoque, informando o mês e ano de início
+- Avaliar o giro de estoque, informando o mês e ano de fim
