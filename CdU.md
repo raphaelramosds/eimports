@@ -72,23 +72,6 @@ Extensões:
 
 4a. Se nome do produto conter caracteres não alfanuméricos, solicitar novo nome
 
-## Cadastrar lote
-
-Autor: vendedor
-
-Pré-condição: O vendedor deve estar autenticado no sistema
-
-1. Vendedor seleciona fornecedor
-2. Vendedor seleciona produtos
-3. Vendedor põe quantidade de cada produto
-4. Sistema atualiza o estoque
-
-Extensões:
-
-2a. Se apenas uma unidade foi cadastrado, solicitar mais unidades
-
-2b. Se algum produto não existe no estoque, solicitar seu cadastro
-
 ## Buscar ordem de compra
 
 Ator: vendedor
