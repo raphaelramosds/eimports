@@ -61,8 +61,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 1. Vendedor informa nome
 2. Vendedor informa descrição
 3. Vendedor informa categoria
-4. Vendedor informa fornecedor
-5. Vendedor informa quantidade
+4. Vendedor informa quantidade
 
 ## Atualizar estoque
 
@@ -81,7 +80,6 @@ Pré-condição: O vendedor deve estar autentiacdo no sistema
 2. Sistema exibe um formulário de pesquisa de produtos, que pode incluir
 - Nome do produto
 - Categoria do produto
-- Fornecedor do produto
 - Status do produto
 3. Sistema retorna produtos relacionados a pesquisa
 
@@ -139,18 +137,6 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 7. Sistema incrementa quantidade em estoque do produto devolvido
 8. Sistema decrementa quantidade em estoque do novo produto
 
-## Cadastrar fornecedor
-
-Ator: vendedor
-
-Pré-condição: O vendedor deve estar autenticado no sistema
-
-1. Vendedor informa nome do fornecedor
-2. Vendedor informa cidade do fornecedor
-3. Vendedor informa estado do fornecedor
-4. Vendedor informa CNPJ do fornecedor
-5. Sistema cadastra fornecedor
-
 ## Avaliar lucro mensal
 
 Ator: vendedor
@@ -176,16 +162,15 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor pesquisa produto
 2. Venededor seleciona produto
-3. Vendedor informa fornecedor 
-4. Vendedor informa mês e ano de início
-5. Vendedor informa mês e ano de fim
-6. Sistema apresenta gráfico número de ordens de compra do produto versus mês
-7. Sistema apresenta Total de valor das ordens de compra / Volume médio de ordens de compra
+3. Vendedor informa mês e ano de início
+4. Vendedor informa mês e ano de fim
+5. Sistema apresenta gráfico número de ordens de compra do produto versus mês
+6. Sistema apresenta Total de valor das ordens de compra / Volume médio de ordens de compra
 
 Extensões:
 
-4a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
+5a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
 
-4b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
+5b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
 
-5a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
+6a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
