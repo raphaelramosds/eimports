@@ -40,12 +40,22 @@ Critérios de Aceitação:
 
 ## Pesquisar ordens de compra
 
-Como vendedor, eu gostaria de pesquisar pelas ordens de compra que cadastrei
+Como vendedor, eu gostaria de pesquisar ordens de compra que cadastrei
 
 Critérios de Aceitação:
-- Buscar ordem de compra, informando código da ordem de compra
-- Buscar ordem de compra, preenchendo os campos de código da ordem de compra e/ou número do cliente e/ou nome do cliente e/ou mês e ano da ordem de compra
+- Buscar ordens de compra, informando código da ordem de compra
+- Buscar ordens de compra, informando número do cliente 
+- Buscar ordens de compra, informando mês da ordem de compra
+- Buscar ordens de compra, informando ano da ordem de compra
 
+## Pesquisar produtos em estoque
+
+Como vendedor, eu gostaria de pesquisar os produtos que estão em estoque
+
+Critérios de Aceitação:
+- Pesquisar pelos produtos em estoque, informando nome do produto
+- Pesquisar pelos produtos em estoque, informando categoria do produto
+- Pesquisar pelos produtos em estoque, informando status do produto
 
 ## Devoluções
 
@@ -56,7 +66,6 @@ Critérios de Aceitação:
 - Registrar devolução de um produto, acessando a ordem de compra cadastrada
 - Registrar devolução de um produto, registrando a devolução
 - Registrar devolução de um produto, informando o motivo da devolução
-
 
 ## Troca de produtos
 
