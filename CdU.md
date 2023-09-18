@@ -24,9 +24,10 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. Vendedor seleciona produto(s)
-3. Sistema registra hora e data da ordem de compra
-4. Sistema registra um código para a ordem de compra
+2. Vendedor pesquisa por produto(s) a serem incluidos
+3. Vendedor seleciona produtos
+4. Sistema registra hora e data da ordem de compra
+5. Sistema registra um código para a ordem de compra
 
 Extensões:
 
@@ -40,18 +41,16 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa forma de pagamento
-2. Sistema questiona se o preço foi negociado
-3. Vendedor atualiza ordem de compra como paga
-4. Vendedor informa data da baixa
-5. Sistema anexa nota fiscal na ordem de compra
-6. Sistema atualiza status do(s) produto(s) como "Vendido"
+1. Vendedor pesquisa ordem de compra
+2. Vendedor informa forma de pagamento
+3. Vendedor informa preço
+4. Vendedor atualiza ordem de compra como paga
+5. Vendedor informa data da baixa
+6. Sistema anexa nota fiscal na ordem de compra
 
-2a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
+4a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
 
-3a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
-
-3b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar um comprovante
+4b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar um comprovante
 
 ## Cadastrar produto
 
@@ -62,25 +61,26 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 1. Vendedor informa nome
 2. Vendedor informa descrição
 3. Vendedor informa categoria
-4. Vendedor informa preço
-5. Vendedor informa fornecedor
-6. Vendedor informa quantidade
-7. Sistema põe status "Não vendido"
+4. Vendedor informa fornecedor
+5. Vendedor informa quantidade
 
-Extensões:
-
-4a. Se nome do produto conter caracteres não alfanuméricos, solicitar novo nome
-
-## Buscar produtos
+## Pesquisar produtos
 
 1. Vendedor abre painel do estoque
 2. Sistema exibe um formulário de pesquisa de produtos, que pode incluir
 - Nome do produto
 - Categoria do produto
 - Fornecedor do produto
+- Status do produto
 3. Sistema retorna produtos relacionados a pesquisa
 
-## Buscar ordem de compra
+Extensões:
+
+2a. Se algum campo foi preenchido incorretamente, solicitar novo preenchimento
+
+3a. Se nenhum produto for encontrado, solicitar novo preenchimento
+
+## Pesquisar ordem de compra
 
 Ator: vendedor
 
@@ -119,10 +119,13 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor seleciona produto devolvido
-2. Vendedor seleciona novo produto
-3. Sistema incrementa quantidade em estoque do produto devolvido
-4. Sistema decrementa quantidade em estoque do novo produto
+1. Vendedor pesquisa pelo produto devolvido
+2. Vendedor seleciona produto devolvido
+3. Vendedor pesquisa novo produto
+4. Vendedor seleciona novo produto
+5. Vendedor confirma troca
+6. Sistema incrementa quantidade em estoque do produto devolvido
+7. Sistema decrementa quantidade em estoque do novo produto
 
 ## Cadastrar fornecedor
 
@@ -159,17 +162,18 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa produto
-2. Vendedor informa fornecedor 
-3. Vendedor informa mês e ano de início
-4. Vendedor informa mês e ano de fim
-5. Sistema apresenta gráfico número de ordens de compra do produto versus mês
-6. Sistema apresenta Total de valor das ordens de compra / Volume médio de ordens de compra
+1. Vendedor pesquisa produto
+2. Venededor seleciona produto
+3. Vendedor informa fornecedor 
+4. Vendedor informa mês e ano de início
+5. Vendedor informa mês e ano de fim
+6. Sistema apresenta gráfico número de ordens de compra do produto versus mês
+7. Sistema apresenta Total de valor das ordens de compra / Volume médio de ordens de compra
 
 Extensões:
 
-3a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
+4a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
 
-3b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
+4b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
 
-4a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
+5a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
