@@ -35,7 +35,6 @@ Critérios de Aceitação:
 - Cadastrar o produto, informando o nome do produto
 - Cadastrar o produto, informando a descrição do produto
 - Cadastrar o produto, informando a categoria a qual pertence o produto
-- Cadastrar o produto, informando o fornecedor do produto
 - Cadastrar o produto, informando a quantidade de itens
 
 ## Pesquisar ordens de compra
