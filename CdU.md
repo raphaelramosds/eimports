@@ -64,6 +64,17 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 4. Vendedor informa fornecedor
 5. Vendedor informa quantidade
 
+## Atualizar estoque
+
+Autor: vendedor
+
+Pré-condição: O vendedor deve estar autentiacdo no sistema
+
+1. Vendedor pesquisa produto desejado
+2. Vendedor informa quantas unidades ele deseja adicionar
+3. Vendedor confirma adição ao estoque
+4. Sistema incrementa quantidade desse produto
+
 ## Pesquisar produtos
 
 1. Vendedor abre painel do estoque
@@ -106,7 +117,7 @@ Ator: vendendor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor abre painel de ordens de compra
-2. Vendedor busca pela ordem de compra desejada
+2. Vendedor pesquisa ordem de compra desejada
 3. Vendedor acessa ordem de compra cadastrada
 4. Vendedor informa motivo da devolução
 5. Vendedor confirma devolução
@@ -119,7 +130,7 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor busca pela ordem de compra desejada
+1. Vendedor pesquisa ordem de compra desejada
 2. Vendedor pesquisa pelo produto devolvido
 3. Vendedor seleciona produto devolvido
 4. Vendedor pesquisa novo produto
