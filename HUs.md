@@ -15,7 +15,7 @@ Como vendedor, eu gostaria de poder registrar as ordens de compras dos meus clie
 
 Critérios de Aceitação:
 - Cadastrar ordem de compra, informando número do cliente
-- Cadastrar ordem de compra, informando produtos vendidos
+- Cadastrar ordem de compra, informando produto(s) vendido(s)
 
 
 ## Baixa nas ordens de compra
