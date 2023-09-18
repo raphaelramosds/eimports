@@ -24,7 +24,7 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. Vendedor pesquisa por produto(s) a serem incluidos
+2. Vendedor pesquisa por produto(s) a ser(em) incluido(s)
 3. Vendedor seleciona produtos
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
@@ -108,9 +108,9 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 1. Vendedor abre painel de ordens de compra
 2. Vendedor busca pela ordem de compra desejada
 3. Vendedor acessa ordem de compra cadastrada
-4. Vendedor registra devolução
-5. Vendedor informa motivo da devolução
-6. Sistema incrementa quantidade em estoque desse produto
+4. Vendedor informa motivo da devolução
+5. Vendedor confirma devolução
+6. Sistema incrementa quantidade em estoque do(s) produto(s)
 7. Sistema remove ordem de compra relacionada a esse código
 
 ## Regitrar troca
@@ -119,13 +119,14 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor pesquisa pelo produto devolvido
-2. Vendedor seleciona produto devolvido
-3. Vendedor pesquisa novo produto
-4. Vendedor seleciona novo produto
-5. Vendedor confirma troca
-6. Sistema incrementa quantidade em estoque do produto devolvido
-7. Sistema decrementa quantidade em estoque do novo produto
+1. Vendedor busca pela ordem de compra desejada
+2. Vendedor pesquisa pelo produto devolvido
+3. Vendedor seleciona produto devolvido
+4. Vendedor pesquisa novo produto
+5. Vendedor seleciona novo produto
+6. Vendedor confirma troca
+7. Sistema incrementa quantidade em estoque do produto devolvido
+8. Sistema decrementa quantidade em estoque do novo produto
 
 ## Cadastrar fornecedor
 
