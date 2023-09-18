@@ -23,9 +23,9 @@ Critérios de Aceitação:
 Como vendedor, eu gostaria de dar baixa nas ordens de compras dos meus clientes
 
 Critérios de Aceitação:
-- Baixar ordem de venda, informando forma de pagamento
+- Baixar ordem de compra, informando forma de pagamento
 - Baixar ordem de compra, informando o preço de venda do(s) produto(s)
-- Baixar ordem de venda, atualizando ordem de compra como paga
+- Baixar ordem de compra, atualizando ordem de compra como paga
 
 ## Adicionar ao estoque
 
