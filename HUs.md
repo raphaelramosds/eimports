@@ -15,7 +15,7 @@ Como vendedor, eu gostaria de cadastrar ordem de compra
 
 Critérios de Aceitação:
 - Cadastrar ordem de compra, informando número do cliente
-- Cadastrar ordem de compra, informando produtos à venda
+- Cadastrar ordem de compra, informando produtos vendidos
 
 
 ## Baixar ordem de compra
@@ -25,8 +25,6 @@ Como vendedor, eu gostaria de dar baixa nas ordens de compras
 Critérios de Aceitação:
 - Baixar ordem de venda, informando forma de pagamento
 - Baixar ordem de venda, atualizando ordem de compra como paga
-- Baixar ordem de venda, informando data da baixa
-
 
 ## Cadastrar produto
 
@@ -56,15 +54,15 @@ Critérios de Aceitação:
 Como vendedor, eu gostaria de registrar a devolução de um produto
 
 Critérios de Aceitação:
-- Registrar devolução de produto, buscando pela ordem de compra desejada
-- Registrar devolução de produto, acessando a ordem de compra cadastrada
-- Registrar devolução de produto, registrando a devolução
-- Registrar devolução de produto, informando o motivo da devolução
+- Registrar devolução de um produto, buscando pela ordem de compra desejada
+- Registrar devolução de um produto, acessando a ordem de compra cadastrada
+- Registrar devolução de um produto, registrando a devolução
+- Registrar devolução de um produto, informando o motivo da devolução
 
 
 ## Registrar troca de produto
 
-Como vendedor, eu gostaria de registrar a troca de produto
+Como vendedor, eu gostaria de registrar a troca de um produto
 
 Critérios de Aceitação:
 - Registrar a troca de um produto, informando qual o produto devolvido
@@ -84,7 +82,7 @@ Critérios de Aceitação:
 
 ## Avaliar lucro mensal
 
-Como vendedor, eu gostaria de avaliar o lucro mensal das vendas
+Como vendedor, eu gostaria de avaliar o meu lucro mensal
 
 Critérios de Aceitação:
 - Avaliar lucro mensal, informando o mês e ano

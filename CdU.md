@@ -25,15 +25,14 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
 2. Vendedor seleciona produto(s)
-3. Vendedor informa forma de entrega
-4. Sistema registra hora e data da ordem de compra
-5. Sistema registra um código para a ordem de compra
+3. Sistema registra hora e data da ordem de compra
+4. Sistema registra um código para a ordem de compra
 
 Extensões:
 
 1a. O telefone do cliente deve ser precedido de operadora e prefixo
 
-2a. Se produto(s) não cadastrados no sistema, solicitar cadastro
+2a. Se produto(s) não cadastrado(s) no sistema, solicitar cadastro
 
 ## Baixar ordem de compra
 
@@ -72,12 +71,21 @@ Extensões:
 
 4a. Se nome do produto conter caracteres não alfanuméricos, solicitar novo nome
 
+## Buscar produtos
+
+1. Vendedor abre painel do estoque
+2. Sistema exibe um formulário de pesquisa de produtos, que pode incluir
+- Nome do produto
+- Categoria do produto
+- Fornecedor do produto
+3. Sistema retorna produtos relacionados a pesquisa
+
 ## Buscar ordem de compra
 
 Ator: vendedor
 
-1. Vendedor abre painel de ordem de compra
-2. Sistema exibe um formulário com pesquisa de ordem de compra, que pode incluir
+1. Vendedor abre painel de ordens de compra
+2. Sistema exibe um formulário de pesquisa de ordem de compra, que pode incluir
 - Código da ordem da compra
 - Número do cliente
 - Nome do cliente
