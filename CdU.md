@@ -67,7 +67,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 Autor: vendedor
 
-Pré-condição: O vendedor deve estar autentiacdo no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor pesquisa produto desejado
 2. Vendedor informa quantas unidades ele deseja adicionar

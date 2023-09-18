@@ -76,14 +76,14 @@ Critérios de Aceitação:
 
 ## Avaliar lucro mensal
 
-Como vendedor, eu gostaria de avaliar o balanço do quanto apurei com a venda dos meus produtos e quanto gastei com a compra deles em um determinado mês
+Como vendedor, eu gostaria de avaliar o meu lucro mensal, isto é, o balanço do quanto apurei com a venda dos meus produtos e do quanto gastei com a compra deles em um determinado mês
 
 Critérios de Aceitação:
 - Avaliar lucro mensal, informando o mês e ano
 
 ## Avaliar giro de estoque
 
-Como vendedor, eu gostaria de avaliar o quão alta foram as vendas de um produto em relação ao total de vendas em um mês
+Como vendedor, eu gostaria de avaliar o giro de estoque de um produto, isto é, quão alta foram as vendas de um produto em relação ao total de vendas em um mês
 
 Critérios de Aceitação:
 - Avaliar o giro de estoque, informando o produto
