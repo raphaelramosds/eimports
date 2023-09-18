@@ -66,17 +66,6 @@ Critérios de Aceitação:
 - Registrar a troca de um produto, informando qual o produto devolvido
 - Registrar a troca de um produto, informando qual o novo produto
 
-## Cadastrar fornecedor
-
-Como vendedor, eu gostaria de poder cadastrar os meus fornecedores 
-
-Critérios de Aceitação:
-- Cadastrar o fornecedor dos produtos, informando o nome do fornecedor
-- Cadastrar o fornecedor dos produtos, informando a cidade do fornecedor
-- Cadastrar o fornecedor dos produtos, informando o Estado do fornecedor
-- Cadastrar o fornecedor dos produtos, informando o CNPJ do fornecedor
-
-
 ## Avaliar lucro mensal
 
 Como vendedor, eu gostaria de avaliar o balanço do quanto apurei com a venda dos meus produtos e quanto gastei com a compra deles em um determinado mês
