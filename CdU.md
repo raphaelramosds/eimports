@@ -24,7 +24,7 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. <u>Vendedor pesquisa por produto(s) a ser(em) incluido(s)</u>
+2. Vendedor pesquisa por produto(s) a ser(em) incluido(s) (sublinhado)
 3. Vendedor seleciona produtos
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
@@ -41,7 +41,7 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. <u>Vendedor pesquisa ordem de compra</u>
+1. Vendedor pesquisa ordem de compra (sublinhado)
 2. Vendedor informa forma de pagamento
 3. Vendedor informa preço
 4. Vendedor atualiza ordem de compra como paga
@@ -69,7 +69,7 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. <u>Vendedor pesquisa produto desejado</u>
+1. Vendedor pesquisa produto desejado (sublinhado)
 2. Vendedor informa quantas unidades ele deseja adicionar
 3. Vendedor confirma adição ao estoque
 4. Sistema incrementa quantidade desse produto
@@ -114,7 +114,7 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. <u>Vendedor pesquisa ordem de compra desejada</u>
+1. Vendedor pesquisa ordem de compra desejada (sublinhado)
 2. Vendedor acessa ordem de compra cadastrada
 3. Vendedor informa motivo da devolução
 4. Vendedor confirma devolução
@@ -127,10 +127,10 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. <u>Vendedor pesquisa ordem de compra desejada</u>
-2. <u>Vendedor pesquisa pelo produto devolvido</u>
+1. Vendedor pesquisa ordem de compra desejada (sublinhado)
+2. Vendedor pesquisa pelo produto devolvido (sublinhado)
 3. Vendedor seleciona produto devolvido
-4. <u>Vendedor pesquisa novo produto</u>
+4. Vendedor pesquisa novo produto (sublinhado)
 5. Vendedor seleciona novo produto
 6. Vendedor confirma troca
 7. Sistema incrementa quantidade em estoque do produto devolvido
@@ -159,7 +159,7 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. <u>Vendedor pesquisa produto</u>
+1. Vendedor pesquisa produto (sublinhado)
 2. Venededor seleciona produto
 3. Vendedor informa mês e ano de início
 4. Vendedor informa mês e ano de fim
