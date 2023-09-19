@@ -9,7 +9,7 @@ Autor: vendedor
 3. Vendedor informa nome de usuário
 4. Vendedor informa senha
 5. Sistema verifica credenciais fornecidas
-6. Sistema autentica vendedor
+6. Sistema autentica usuário
 
 Extensões:
 
@@ -28,6 +28,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 3. Vendedor seleciona produtos
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
+6. Sistema adiciona ordem de compra no sistema
 
 Extensões:
 
@@ -62,6 +63,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 2. Vendedor informa descrição
 3. Vendedor informa categoria
 4. Vendedor informa quantidade
+5. Sistema adiciona produto no sistema
 
 ## Atualizar estoque
 
