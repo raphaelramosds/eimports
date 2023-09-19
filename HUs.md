@@ -59,7 +59,7 @@ Como vendedor, eu gostaria de registrar a devolução de um produto solicitada p
 Critérios de Aceitação:
 - Gostaria de poder ter a opção de registrar devoluções em todas as ordens de compra
 - Antes de registrar uma devolução, devo ser capaz de ter filtros ao meu dispôr para encontrar mais facilmente a ordem de compra passível de devolução, tais como nome e número do cliente e data da compra 
-- O motivo das devolução devem ser preenchidos, assim como sua data1
+- O motivo das devolução devem ser preenchidos, assim como sua data
 
 ## Troca de produtos
 

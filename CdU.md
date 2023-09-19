@@ -24,7 +24,7 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. Vendedor pesquisa por produto(s) a ser(em) incluido(s)
+2. <u>Vendedor pesquisa por produto(s) a ser(em) incluido(s)</u>
 3. Vendedor seleciona produtos
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
@@ -41,7 +41,7 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor pesquisa ordem de compra
+1. <u>Vendedor pesquisa ordem de compra</u>
 2. Vendedor informa forma de pagamento
 3. Vendedor informa preço
 4. Vendedor atualiza ordem de compra como paga
@@ -69,7 +69,7 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor pesquisa produto desejado
+1. <u>Vendedor pesquisa produto desejado</u>
 2. Vendedor informa quantas unidades ele deseja adicionar
 3. Vendedor confirma adição ao estoque
 4. Sistema incrementa quantidade desse produto
@@ -114,13 +114,12 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor abre painel de ordens de compra
-2. Vendedor pesquisa ordem de compra desejada
-3. Vendedor acessa ordem de compra cadastrada
-4. Vendedor informa motivo da devolução
-5. Vendedor confirma devolução
-6. Sistema incrementa quantidade em estoque do(s) produto(s)
-7. Sistema remove ordem de compra relacionada a esse código
+1. <u>Vendedor pesquisa ordem de compra desejada</u>
+2. Vendedor acessa ordem de compra cadastrada
+3. Vendedor informa motivo da devolução
+4. Vendedor confirma devolução
+5. Sistema incrementa quantidade em estoque do(s) produto(s)
+6. Sistema remove ordem de compra relacionada a esse código
 
 ## Regitrar troca
 
@@ -128,10 +127,10 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor pesquisa ordem de compra desejada
-2. Vendedor pesquisa pelo produto devolvido
+1. <u>Vendedor pesquisa ordem de compra desejada</u>
+2. <u>Vendedor pesquisa pelo produto devolvido</u>
 3. Vendedor seleciona produto devolvido
-4. Vendedor pesquisa novo produto
+4. <u>Vendedor pesquisa novo produto</u>
 5. Vendedor seleciona novo produto
 6. Vendedor confirma troca
 7. Sistema incrementa quantidade em estoque do produto devolvido
@@ -160,7 +159,7 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor pesquisa produto
+1. <u>Vendedor pesquisa produto</u>
 2. Venededor seleciona produto
 3. Vendedor informa mês e ano de início
 4. Vendedor informa mês e ano de fim
