@@ -24,8 +24,8 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. Vendedor registra produto(s)
-3. Vendedor informa forma de entrega
+2. Vendedor pesquisa por produto(s) a ser(em) incluido(s) (sublinhado)
+3. Vendedor seleciona produtos
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
 
@@ -33,7 +33,7 @@ Extensões:
 
 1a. O telefone do cliente deve ser precedido de operadora e prefixo
 
-2a. Se produto(s) não cadastrados no sistema, solicitar cadastro
+2a. Se produto(s) não cadastrado(s) no sistema, solicitar cadastro
 
 ## Baixar ordem de compra
 
@@ -41,18 +41,16 @@ Autor: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa forma de pagamento
-2. Sistema questiona se o preço foi negociado
-3. Vendedor atualiza ordem de compra como paga
-4. Vendedor informa data da baixa
-5. Sistema anexa nota fiscal na ordem de compra
-6. Sistema atualiza status do(s) produto(s) como "Vendido"
+1. Vendedor pesquisa ordem de compra (sublinhado)
+2. Vendedor informa forma de pagamento
+3. Vendedor informa preço
+4. Vendedor atualiza ordem de compra como paga
+5. Vendedor informa data da baixa
+6. Sistema anexa nota fiscal na ordem de compra
 
-2a. Se o preço foi negociado, o vendedor precisa informar o novo preço de cada produto
+4a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
 
-3a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
-
-3b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar um comprovante
+4b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar um comprovante
 
 ## Cadastrar produto
 
@@ -63,21 +61,40 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 1. Vendedor informa nome
 2. Vendedor informa descrição
 3. Vendedor informa categoria
-4. Vendedor informa preço
-5. Vendedor informa fornecedor
-6. Vendedor informa quantidade
-7. Sistema põe status "Não vendido"
+4. Vendedor informa quantidade
+
+## Atualizar estoque
+
+Autor: vendedor
+
+Pré-condição: O vendedor deve estar autenticado no sistema
+
+1. Vendedor pesquisa produto desejado (sublinhado)
+2. Vendedor informa quantas unidades ele deseja adicionar
+3. Vendedor confirma adição ao estoque
+4. Sistema incrementa quantidade desse produto
+
+## Pesquisar produtos
+
+1. Vendedor abre painel do estoque
+2. Sistema exibe um formulário de pesquisa de produtos, que pode incluir
+- Nome do produto
+- Categoria do produto
+- Status do produto
+3. Sistema retorna produtos relacionados a pesquisa
 
 Extensões:
 
-4a. Se nome do produto conter caracteres não alfanuméricos, solicitar novo nome
+2a. Se algum campo foi preenchido incorretamente, solicitar novo preenchimento
 
-## Buscar ordem de compra
+3a. Se nenhum produto for encontrado, solicitar novo preenchimento
+
+## Pesquisar ordem de compra
 
 Ator: vendedor
 
-1. Vendedor abre painel de ordem de compra
-2. Sistema exibe um formulário com pesquisa de ordem de compra, que pode incluir
+1. Vendedor abre painel de ordens de compra
+2. Sistema exibe um formulário de pesquisa de ordem de compra, que pode incluir
 - Código da ordem da compra
 - Número do cliente
 - Nome do cliente
@@ -95,15 +112,14 @@ Extensões:
 
 Ator: vendendor
 
-Pré-condição:: O vendedor deve estar autenticado no sistema
+Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor abre painel de ordens de compra
-2. Vendedor busca pela ordem de compra desejada
-3. Vendedor acessa ordem de compra cadastrada
-4. Vendedor registra devolução
-5. Vendedor informa motivo da devolução
-6. Sistema incrementa quantidade em estoque desse produto
-7. Sistema remove ordem de compra relacionada a esse código
+1. Vendedor pesquisa ordem de compra desejada (sublinhado)
+2. Vendedor acessa ordem de compra cadastrada
+3. Vendedor informa motivo da devolução
+4. Vendedor confirma devolução
+5. Sistema incrementa quantidade em estoque do(s) produto(s)
+6. Sistema remove ordem de compra relacionada a esse código
 
 ## Regitrar troca
 
@@ -111,22 +127,14 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa produto devolvido
-2. Vendedor informa novo produto
-3. Sistema incrementa quantidade em estoque do produto devolvido
-4. Sistema decrementa quantidade em estoque do novo produto
-
-## Cadastrar fornecedor
-
-Ator: vendedor
-
-Pré-condição: O vendedor deve estar autenticado no sistema
-
-1. Vendedor informa nome do fornecedor
-2. Vendedor informa cidade do fornecedor
-3. Vendedor informa estado do fornecedor
-4. Vendedor informa CNPJ do fornecedor
-5. Sistema cadastra fornecedor
+1. Vendedor pesquisa ordem de compra desejada (sublinhado)
+2. Vendedor pesquisa pelo produto devolvido (sublinhado)
+3. Vendedor seleciona produto devolvido
+4. Vendedor pesquisa novo produto (sublinhado)
+5. Vendedor seleciona novo produto
+6. Vendedor confirma troca
+7. Sistema incrementa quantidade em estoque do produto devolvido
+8. Sistema decrementa quantidade em estoque do novo produto
 
 ## Avaliar lucro mensal
 
@@ -151,8 +159,8 @@ Ator: vendendor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
-1. Vendedor informa produto
-2. Vendedor informa fornecedor 
+1. Vendedor pesquisa produto (sublinhado)
+2. Venededor seleciona produto
 3. Vendedor informa mês e ano de início
 4. Vendedor informa mês e ano de fim
 5. Sistema apresenta gráfico número de ordens de compra do produto versus mês
@@ -160,8 +168,8 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 Extensões:
 
-3a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
+5a. Se o mês for menor que a sua ordem de compra com baixa mais antiga, solicitar novo mês
 
-3b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
+5b. Se o ano for menor que a sua ordem de compra com baixa mais antiga, solicitar novo ano
 
-4a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início
+6a. O mês informado precisa ser, no mínimo, um mês a frente do mês de início

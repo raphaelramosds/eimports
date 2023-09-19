@@ -59,7 +59,8 @@ Como vendedor, eu gostaria de registrar a devolução de um produto solicitada p
 Critérios de Aceitação:
 - Gostaria de poder ter a opção de registrar devoluções em todas as ordens de compra
 - Antes de registrar uma devolução, devo ser capaz de ter filtros ao meu dispôr para encontrar mais facilmente a ordem de compra passível de devolução, tais como nome e número do cliente e data da compra 
-- O motivo das devoluções deve ser preenchido, assim como sua data
+- O motivo das devoluções deve ser preenchido
+- A data da devolução deve ser preenchida automaticamente pelo sistema
 
 ## Troca de produtos
 
@@ -88,3 +89,4 @@ Critérios de Aceitação:
 - Para o sistema me apresentar o giro de estoque, devo selecionar o produto, o mês e ano de início e o mês e ano de fim
 - O sistema deve calcular o giro de estoque de um produto fazendo o quociente entre o número de vendas dele em um mês e o total de vendas nesse mês
 - Com um gráfico, meses do ano (eixo horizontal) e giro de estoque (eixo vertical), terei noção do quão alta foram as vendas desse produto
+
