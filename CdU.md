@@ -48,6 +48,8 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 5. Vendedor informa data da baixa
 6. Sistema anexa nota fiscal na ordem de compra
 
+Extensões:
+
 4a. Se opção de pagamento for PIX ou débito, vendedor anexa sua via de comprovante
 
 4b. Se opção de pagamento for dinheiro, o vendedor pode ou não anexar um comprovante
