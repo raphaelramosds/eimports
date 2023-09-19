@@ -2,94 +2,89 @@
 
 ## Autenticar usuário
 
-Como usuário, eu gostaria de acessar minha conta
+Como vendedor, eu gostaria de acessar minha conta
 
 Critérios de Aceitação:
-- Acessar minha conta, informando o login
-- Acessar minha conta, informando a senha
-
+- O sistema deve me autenticar apenas com nome de usuário e senha
+- Não permito que os outros usuários vejam os produtos do meu estoque
 
 ## Registrar ordens de compra
 
 Como vendedor, eu gostaria de poder registrar as ordens de compras dos meus clientes
 
 Critérios de Aceitação:
-- Cadastrar ordem de compra, informando número do cliente
-- Cadastrar ordem de compra, informando produtos vendidos
-
+- Os registros das ordens de compra devem ser feitos informando número do cliente e os produto(s) vendido(s)
+- A escolha dos produtos deve ser feita numa listagem na mesma página onde estou cadastrando a ordem de compra
 
 ## Baixa nas ordens de compra
 
 Como vendedor, eu gostaria de dar baixa nas ordens de compras dos meus clientes
 
 Critérios de Aceitação:
-- Baixar ordem de venda, informando forma de pagamento
-- Baixar ordem de compra, informando o preço de venda do produto
-- Baixar ordem de venda, atualizando ordem de compra como paga
+- Para dar baixa nas ordens de compra, é necessário informar forma de pagamento e preço de venda do(s) produto(s)
+- Ao dar baixa numa ordem de compra, gostaria de poder anexar o comprovante enviado pelo cliente na ordem de compra
+- Ao dar baixa numa ordem de compra, um recibo com a hora e data da baixa, produtos vendidos e minha assinatura digital deve ser gerado automaticamente pelo sistema
 
 ## Adicionar ao estoque
 
 Como vendedor, eu gostaria de adicionar produtos no estoque
 
 Critérios de Aceitação:
-- Cadastrar o produto, informando o nome do produto
-- Cadastrar o produto, informando a descrição do produto
-- Cadastrar o produto, informando a categoria a qual pertence o produto
-- Cadastrar o produto, informando o fornecedor do produto
-- Cadastrar o produto, informando a quantidade de itens
+
+- Novos produtos do estoque devem ser cadastrados com o preenchimento obrigatório do nome do produto, descrição do produto, categoria e a quantidade de itens deste produto
 
 ## Pesquisar ordens de compra
 
-Como vendedor, eu gostaria de pesquisar pelas ordens de compra que cadastrei
+Como vendedor, eu gostaria de pesquisar ordens de compra que cadastrei
 
 Critérios de Aceitação:
-- Buscar ordem de compra, informando código da ordem de compra
-- Buscar ordem de compra, preenchendo os campos de código da ordem de compra e/ou número do cliente e/ou nome do cliente e/ou mês e ano da ordem de compra
+- Buscar ordens de compra, informando código da ordem de compra
+- Buscar ordens de compra, informando número do cliente 
+- Buscar ordens de compra, informando mês da ordem de compra
+- Buscar ordens de compra, informando ano da ordem de compra
 
+## Pesquisar produtos em estoque
+
+Como vendedor, eu gostaria de pesquisar os produtos que estão em estoque
+
+Critérios de Aceitação:
+- Pesquisar pelos produtos em estoque, informando nome do produto
+- Pesquisar pelos produtos em estoque, informando categoria do produto
+- Pesquisar pelos produtos em estoque, informando status do produto
 
 ## Devoluções
 
 Como vendedor, eu gostaria de registrar a devolução de um produto solicitada pelos meus clientes
 
 Critérios de Aceitação:
-- Registrar devolução de um produto, buscando pela ordem de compra desejada
-- Registrar devolução de um produto, acessando a ordem de compra cadastrada
-- Registrar devolução de um produto, registrando a devolução
-- Registrar devolução de um produto, informando o motivo da devolução
-
+- Gostaria de poder ter a opção de registrar devoluções em todas as ordens de compra
+- Antes de registrar uma devolução, devo ser capaz de ter filtros ao meu dispôr para encontrar mais facilmente a ordem de compra passível de devolução, tais como nome e número do cliente e data da compra 
+- O motivo das devolução devem ser preenchidos, assim como sua data
 
 ## Troca de produtos
 
 Como vendedor, eu gostaria de registrar a troca de um produto solicitada pelos meus clientes
 
 Critérios de Aceitação:
-- Registrar a troca de um produto, informando qual o produto devolvido
-- Registrar a troca de um produto, informando qual o novo produto
-
-## Cadastrar fornecedor
-
-Como vendedor, eu gostaria de poder cadastrar os meus fornecedores 
-
-Critérios de Aceitação:
-- Cadastrar o fornecedor dos produtos, informando o nome do fornecedor
-- Cadastrar o fornecedor dos produtos, informando a cidade do fornecedor
-- Cadastrar o fornecedor dos produtos, informando o Estado do fornecedor
-- Cadastrar o fornecedor dos produtos, informando o CNPJ do fornecedor
-
+- Gostaria de poder ter a opção de registrar trocas em todas as ordens de compra
+- Antes de registrar uma troca, devo ser capaz de ter filtros ao meu dispôr para encontrar mais facilmente a ordem de compra passível de troca de produtos, tais como nome e número do cliente e data da compra 
+- Gostaria de registrar a troca de um produto, pesquisando primeiro pelo produto a ser devolvido e depois pelo novo produto
+- O sistema não pode me permitir registrar uma troca cujo preço do novo produto seja menor que o devolvido
 
 ## Avaliar lucro mensal
 
-Como vendedor, eu gostaria de avaliar o balanço do quanto apurei com a venda dos meus produtos e quanto gastei com a compra deles em um determinado mês
+Como vendedor, eu gostaria de avaliar o meu lucro mensal
 
 Critérios de Aceitação:
-- Avaliar lucro mensal, informando o mês e ano
+- Gostaria de visualizar uma listagem dos produtos que vendi e comprei em um mês
+- No final de cada listagem, quero poder ver o lucro em relação a todos os produtos do estoque: a diferença entre quanto gastei e quanto vendi no mês
 
 ## Avaliar giro de estoque
 
-Como vendedor, eu gostaria de avaliar o quão alta foram as vendas de um produto em relação ao total de vendas em um mês
+Como vendedor, eu gostaria de avaliar o giro de estoque de um produto ao longo dos meses
 
 Critérios de Aceitação:
-- Avaliar o giro de estoque, informando o produto
-- Avaliar o giro de estoque, informando o fornecedor
-- Avaliar o giro de estoque, informando o mês e ano de início
-- Avaliar o giro de estoque, informando o mês e ano de fim
+- Gostaria de poder ter a opção de visualizar o giro de estoque em todos os produtos com ordens de compra cadastradas
+- Para o sistema me apresentar o giro de estoque, devo selecionar o produto, o mês e ano de início eo mês e ano de fim
+- O sistema deve calcular o giro de estoque de um produto fazendo o quociente entre o número de vendas dele em um mês e o total de vendas nesse mês
+- Com um gráfico meses do ano (eixo horizontal) e giro de estoque (eixo vertical), terei noção do quão alta foram as vendas desse produto
