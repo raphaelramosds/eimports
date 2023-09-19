@@ -6,7 +6,7 @@ Autor: vendedor
 
 1. Vendedor inicia interação com o sistema
 2. Sistema exibe a tela de login
-3. Vendedor informa nome de vendedor
+3. Vendedor informa nome de usuário
 4. Vendedor informa senha
 5. Sistema verifica credenciais fornecidas
 6. Sistema autentica vendedor
