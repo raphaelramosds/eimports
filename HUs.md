@@ -13,7 +13,7 @@ Critérios de Aceitação:
 Como vendedor, eu gostaria de poder registrar as ordens de compras dos meus clientes
 
 Critérios de Aceitação:
-- Os registros das ordens de compra devem ser feitos informando número do cliente e os produto(s) vendido(s)
+- Os registros das ordens de compra devem ser feitos informando número do cliente e o(s) produto(s) vendido(s)
 - A escolha dos produtos deve ser feita numa listagem na mesma página onde estou cadastrando a ordem de compra
 
 ## Baixa nas ordens de compra
@@ -59,7 +59,8 @@ Como vendedor, eu gostaria de registrar a devolução de um produto solicitada p
 Critérios de Aceitação:
 - Gostaria de poder ter a opção de registrar devoluções em todas as ordens de compra
 - Antes de registrar uma devolução, devo ser capaz de ter filtros ao meu dispôr para encontrar mais facilmente a ordem de compra passível de devolução, tais como nome e número do cliente e data da compra 
-- O motivo das devolução devem ser preenchidos, assim como sua data
+- O motivo das devoluções deve ser preenchido
+- A data da devolução deve ser preenchida automaticamente pelo sistema
 
 ## Troca de produtos
 
@@ -85,6 +86,7 @@ Como vendedor, eu gostaria de avaliar o giro de estoque de um produto ao longo d
 
 Critérios de Aceitação:
 - Gostaria de poder ter a opção de visualizar o giro de estoque em todos os produtos com ordens de compra cadastradas
-- Para o sistema me apresentar o giro de estoque, devo selecionar o produto, o mês e ano de início eo mês e ano de fim
+- Para o sistema me apresentar o giro de estoque, devo selecionar o produto, o mês e ano de início e o mês e ano de fim
 - O sistema deve calcular o giro de estoque de um produto fazendo o quociente entre o número de vendas dele em um mês e o total de vendas nesse mês
-- Com um gráfico meses do ano (eixo horizontal) e giro de estoque (eixo vertical), terei noção do quão alta foram as vendas desse produto
+- Com um gráfico, meses do ano (eixo horizontal) e giro de estoque (eixo vertical), terei noção do quão alta foram as vendas desse produto
+
