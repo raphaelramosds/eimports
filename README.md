@@ -9,7 +9,7 @@
 
 ## O projeto
 
-Construir um sistema de estoque de produtos para um vendedor de importados. Nesse sistema o cliente é capaz de controlar suas compras de novos produtos de fornecedores, e suas vendas para clientes, solicitadas via telefone ou Whatsapp.
+Construir um sistema de estoque de produtos. Nesse sistema o cliente é capaz de controlar suas compras de produtos e suas vendas para clientes, solicitadas via telefone ou Whatsapp.
 
 ## Engenharia de Requisitos
 
