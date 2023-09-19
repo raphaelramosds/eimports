@@ -15,8 +15,8 @@ Construir um sistema de estoque de produtos. Nesse sistema o cliente é capaz de
 
 Os requisitos desse sistema estão na forma de Casos de Uso (CdU) e Histórias de Usuários (HUs), nos seguintes links
 
-[1] [Casos de Uso](./CdU.md)
+- [Casos de Uso](./CdU.md)
 
-[2] [Diagrama de casos de uso](https://drive.google.com/file/d/1BwH7tTmLzvRab6kG0diev37-0Ew_GWAL/view?usp=sharing)
+- [Diagrama de casos de uso](https://drive.google.com/file/d/1BwH7tTmLzvRab6kG0diev37-0Ew_GWAL/view?usp=sharing)
 
-[3] [Histórias de usuários](./HUs.md)
+- [Histórias de usuários](./HUs.md)
