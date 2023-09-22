@@ -79,6 +79,10 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 ## Pesquisar produtos
 
+Autor: vendedor
+
+Pré-condição: O vendedor deve estar autenticado no sistema
+
 1. Vendedor abre painel do estoque
 2. Sistema exibe um formulário de pesquisa de produtos, que pode incluir
 - Nome do produto
@@ -95,6 +99,8 @@ Extensões:
 ## Pesquisar ordem de compra
 
 Ator: vendedor
+
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor abre painel de ordens de compra
 2. Sistema exibe um formulário de pesquisa de ordem de compra, que pode incluir
