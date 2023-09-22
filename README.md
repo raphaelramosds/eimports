@@ -7,9 +7,12 @@
 - Niedson Fernando
 - Franklin Soares
 
+## O problema
+Muitos vendedores, especialmente aqueles que operam em pequena escala, têm uma preferência arraigada pelo uso de planilhas do Excel ou papel e lápis para gerenciar suas operações. No entanto, há uma série de desafios e limitações inerentes a esse método de controle de estoque. Nesse contexto, justificamos a necessidade de desenvolver um sistema de controle de estoque na internet que seja especialmente adaptado às preferências dos vendedores.
+
 ## O projeto
 
-Construir um sistema de estoque de produtos. Nesse sistema o vendedor é capaz de controlar suas vendas para clientes, afim de uma melhor organização do giro de estoque.
+O projeto consiste em desenvolver um software para internet em que o vendedor (usuário único do sistema) será capaz de controlar seu estoque e as suas vendas.
 
 ## Engenharia de Requisitos
 
