@@ -72,14 +72,6 @@ Critérios de Aceitação:
 - Gostaria de registrar a troca de um produto, pesquisando primeiro pelo produto a ser devolvido e depois pelo novo produto
 - O sistema não pode me permitir registrar uma troca cujo preço do novo produto seja menor que o devolvido
 
-## Avaliar lucro mensal
-
-Como vendedor, eu gostaria de avaliar o meu lucro mensal
-
-Critérios de Aceitação:
-- Gostaria de visualizar uma listagem dos produtos que vendi e comprei em um mês
-- No final de cada listagem, quero poder ver o lucro em relação a todos os produtos do estoque: a diferença entre quanto gastei e quanto vendi no mês
-
 ## Avaliar giro de estoque
 
 Como vendedor, eu gostaria de avaliar o giro de estoque de um produto ao longo dos meses

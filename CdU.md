@@ -79,6 +79,10 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 ## Pesquisar produtos
 
+Autor: vendedor
+
+Pré-condição: O vendedor deve estar autenticado no sistema
+
 1. Vendedor abre painel do estoque
 2. Sistema exibe um formulário de pesquisa de produtos, que pode incluir
 - Nome do produto
@@ -95,6 +99,8 @@ Extensões:
 ## Pesquisar ordem de compra
 
 Ator: vendedor
+
+Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor abre painel de ordens de compra
 2. Sistema exibe um formulário de pesquisa de ordem de compra, que pode incluir
@@ -138,23 +144,6 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 6. Vendedor confirma troca
 7. Sistema incrementa quantidade em estoque do produto devolvido
 8. Sistema decrementa quantidade em estoque do novo produto
-
-## Avaliar lucro mensal
-
-Ator: vendedor
-
-Pré-condição: O vendedor deve estar autenticado no sistema
-
-1. Vendedor informa mês e ano
-2. Sistema lista produtos comprados no mês
-3. Sistema lista produtos vendidos no mês
-4. Sistema apresenta lucro no mês
-
-Extensões:
-
-1a. Se o mês for menor que a ordem de compra com baixa mais antiga, solicitar novo mês
-
-1b. Se o ano for menor que a ordem de compra com baixa mais antiga, solicitar novo ano
 
 ## Avaliar giro de estoque
 
