@@ -8,7 +8,7 @@
 - Franklin Soares
 
 ## O problema
-Muitos vendedores, especialmente aqueles que operam em pequena escala, têm uma preferência arraigada pelo uso de planilhas do Excel ou papel e lápis para gerenciar suas operações. No entanto, há uma série de desafios e limitações inerentes a esse método de controle de estoque. Nesse contexto, justificamos a necessidade de desenvolver um sistema de controle de estoque na internet que seja especialmente adaptado às preferências dos vendedores
+Muitos vendedores, especialmente aqueles que operam em pequena escala, têm uma preferência arraigada pelo uso de planilhas do Excel ou papel e lápis para gerenciar suas operações. No entanto, há uma série de desafios e limitações inerentes a esse método de controle de estoque. Nesse contexto, justificamos a necessidade de desenvolver um sistema de controle de estoque na internet que seja especialmente adaptado às preferências dos vendedores.
 
 ## O projeto
 
