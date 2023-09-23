@@ -81,4 +81,3 @@ Critérios de Aceitação:
 - Para o sistema me apresentar o giro de estoque, devo selecionar o produto, o mês e ano de início e o mês e ano de fim
 - O sistema deve calcular o giro de estoque de um produto fazendo o quociente entre o número de vendas dele em um mês e o total de vendas nesse mês
 - Com um gráfico, meses do ano (eixo horizontal) e giro de estoque (eixo vertical), terei noção do quão alta foram as vendas desse produto
-

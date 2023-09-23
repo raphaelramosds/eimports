@@ -6,16 +6,13 @@ Autor: vendedor
 
 1. Vendedor inicia interação com o sistema
 2. Sistema exibe a tela de login
-3. Vendedor informa nome de usuário
-4. Vendedor informa senha
-5. Sistema verifica credenciais fornecidas
-6. Sistema autentica usuário
+3. Vendedor informa usuário e senha
+4. Sistema verifica credenciais fornecidas
+5. Sistema autentica usuário
 
 Extensões:
 
-5a. Se nome de usuário incorreto, solicitar novo preenchimento
-
-5b. Se senha incorreta, solicitar novo preenchimento
+4a. Se usuário ou senha incorretos, solicitar novo preenchimento
 
 ## Cadastrar ordem de compra
 
@@ -94,8 +91,6 @@ Extensões:
 
 2a. Se algum campo foi preenchido incorretamente, solicitar novo preenchimento
 
-3a. Se nenhum produto for encontrado, solicitar novo preenchimento
-
 ## Pesquisar ordem de compra
 
 Ator: vendedor
@@ -114,8 +109,6 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 Extensões:
 
 3a. Se algum campo foi preenchido incorretamente, solicitar novo preenchimento
-
-4a. Se nenhuma ordem de compra for encontrada, solicitar novo preenchimento
 
 ## Registrar devolução 
 
