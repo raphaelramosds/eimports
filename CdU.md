@@ -123,7 +123,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 5. Sistema incrementa quantidade em estoque do(s) produto(s)
 6. Sistema remove ordem de compra relacionada a esse código
 
-## Regitrar troca
+## Registrar troca
 
 Ator: vendendor
 
