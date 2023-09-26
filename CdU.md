@@ -21,7 +21,7 @@ Autor: vendedor
 Pré-condição: O vendedor deve estar autenticado no sistema
 
 1. Vendedor informa telefone do cliente
-2. Vendedor pesquisa por produto(s) a ser(em) incluido(s) (sublinhado)
+2. Vendedor pesquisa por produto(s) a ser(em) incluído(s) (sublinhado)
 3. Vendedor seleciona produtos
 4. Sistema registra hora e data da ordem de compra
 5. Sistema registra um código para a ordem de compra
@@ -112,7 +112,7 @@ Extensões:
 
 ## Registrar devolução 
 
-Ator: vendendor
+Ator: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
@@ -125,7 +125,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 ## Regitrar troca
 
-Ator: vendendor
+Ator: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
@@ -140,7 +140,7 @@ Pré-condição: O vendedor deve estar autenticado no sistema
 
 ## Avaliar giro de estoque
 
-Ator: vendendor
+Ator: vendedor
 
 Pré-condição: O vendedor deve estar autenticado no sistema
 
