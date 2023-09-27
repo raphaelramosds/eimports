@@ -70,7 +70,7 @@ Critérios de Aceitação:
 - Gostaria de poder ter a opção de registrar trocas em todas as ordens de compra
 - Antes de registrar uma troca, devo ser capaz de ter filtros ao meu dispôr para encontrar mais facilmente a ordem de compra passível de troca de produtos, tais como nome e número do cliente e data da compra 
 - Gostaria de registrar a troca de um produto, pesquisando primeiro pelo produto a ser devolvido e depois pelo novo produto
-- O sistema não pode me permitir registrar uma troca cujo preço do novo produto seja menor que o devolvido
+- O sistema não pode me permitir registrar uma troca cujo preço do novo produto seja maior que o devolvido
 
 ## Avaliar giro de estoque
 
