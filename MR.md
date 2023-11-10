@@ -1,4 +1,22 @@
-# Modelo Entidade Relacionamento
+# Eimports
+
+## Funcionalidade principal
+
+Na primeira versão do sistema, o usuário que controla o estoque deve ser capaz de
+
+- Cadastrar-se e logar no sistema com email e senha
+
+- Cadastrar produto(s) no estoque
+
+- Cadastrar ordem de compra para um ou mais produtos do estoque
+ 
+- Dar baixa na ordem de compra, dando a possibilidade de anexar comprovantes de pagamento
+
+- Visualizar um plot do giro de estoque de um produto em específico. 
+
+## Modelo Relacional
+
+O modelo relacional abaixo ilustra as entidades envolvidas nessa versão
 
 ```mermaid
 
@@ -68,6 +86,8 @@ erDiagram
         float preco
         int qtde
     }
-
-
 ```
+
+A ordem de compra pode conter mais de um produto, e um produto pode estar em várias ordens de compra. Além disso, o preço do produto cadastrado pelo vendedor na ordem de compra pode não ser a cotação que está registrada no produto, pois esse valor pode ser negociado. Então, a tabela de cruzamento `produto_ordem` foi criada para conter o preço que o produto foi vendido.
+
+O atributo `vendedor_id` está presente em tabelas como `categoria`, `cliente` e `ordem` porque, pensando em um sistema com vários usuários, um vendedor não pode ver as categorias, clientes e ordens de compra cadastradas pelos outros vendedores.
