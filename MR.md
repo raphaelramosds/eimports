@@ -1,8 +1,8 @@
 # Banco de dados
 
-## Modeo Relacional
+## Diagrama
 
-O modelo relacional abaixo ilustra as entidades envolvidas na versão inicial do sistema
+O diagrama abaixo ilustra as entidades envolvidas na versão inicial do sistema
 
 ```mermaid
 
@@ -34,7 +34,7 @@ erDiagram
         int produto_id PK
         string nome
         string descricao
-        int qtde
+        int estoque
         float cotacao
 
         int categoria_id FK
@@ -53,9 +53,9 @@ erDiagram
 
     ordem {
         int ordem_id PK
-        data data
         string comprovante
-        timestamp baixa
+        data compra
+        data baixa
         int cliente_id FK
         int vendedor_id FK
     }
@@ -74,8 +74,9 @@ erDiagram
 ```
 
 
-
 ## Comentários
+
+- O Modelo Entidade Relacionamento (MER) e o MR (Modelo Relacional) da versão inicial podem ser encontrados neste [diagrama](https://drive.google.com/file/d/1wgeVHISFyKTkVgkeP0cVkWBaGVaTU-ez/view?usp=drive_link)
 
 - A ordem de compra pode conter mais de um produto, e um produto pode estar em várias ordens de compra. Além disso, o preço do produto cadastrado pelo vendedor na ordem de compra pode não ser a cotação que está registrada no produto, pois esse valor pode ser negociado. Então, a tabela de cruzamento `produto_ordem` foi criada para conter o preço que o produto foi vendido.
 
