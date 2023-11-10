@@ -36,4 +36,4 @@ tests/_support/_generated
 /.vagrant
 
 # Ignore liquibase properties
-liquibase.properties
+/liquibase.properties
