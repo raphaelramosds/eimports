@@ -25,7 +25,7 @@ O web server deste projeto consiste em uma API desenvolvida pelo [Yii framework]
 ### Instale o Liquibase
 
 - Visite [Liquibase](https://www.liquibase.com/download?_ga=2.145749556.1694703356.1699633086-22718613.1699633086#download-liquibase)
-- Baixe e instale o executável `Installer for Windows`
+- Baixe e instale o executável Installer for Windows
 
 
 ### Instale o MariaDB Server
@@ -73,7 +73,7 @@ Instale as dependências do composer
 composer update
 ```
 
-> o composer vai interromper a instalação e te pedir um access token. Você pode criá-lo rapidamente visitando [Github - personal acess tokens](https://github.com/settings/tokens), e acessando `Generate new tokens > Generate new token (classic)`. Não selecione nada em Select scopes.
+> O composer vai interromper a instalação e te pedir um access token. Você pode criá-lo rapidamente visitando [Github - personal acess tokens](https://github.com/settings/tokens), e acessando Generate new tokens > Generate new token (classic). Não selecione nada em Select scopes.
 
 Inicie o liquibase
 
