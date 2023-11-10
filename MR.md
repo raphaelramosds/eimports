@@ -1,22 +1,8 @@
-# Eimports
+# Modelo Relacional
 
-## Funcionalidade principal
+## Modelagem
 
-Na primeira versão do sistema, o usuário que controla o estoque deve ser capaz de
-
-- Cadastrar-se e logar no sistema com email e senha
-
-- Cadastrar produto(s) no estoque
-
-- Cadastrar ordem de compra para um ou mais produtos do estoque
- 
-- Dar baixa na ordem de compra, dando a possibilidade de anexar comprovantes de pagamento
-
-- Visualizar um plot do giro de estoque de um produto em específico. 
-
-## Modelo Relacional
-
-O modelo relacional abaixo ilustra as entidades envolvidas nessa versão
+O modelo relacional abaixo ilustra as entidades envolvidas na versão inicial do sistema
 
 ```mermaid
 
@@ -87,6 +73,8 @@ erDiagram
         int qtde
     }
 ```
+
+## Comentários
 
 A ordem de compra pode conter mais de um produto, e um produto pode estar em várias ordens de compra. Além disso, o preço do produto cadastrado pelo vendedor na ordem de compra pode não ser a cotação que está registrada no produto, pois esse valor pode ser negociado. Então, a tabela de cruzamento `produto_ordem` foi criada para conter o preço que o produto foi vendido.
 

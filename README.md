@@ -26,4 +26,20 @@ Os requisitos desse sistema estão na forma de Casos de Uso (CdU) e Histórias d
 
 - [Vídeo da apresentação](https://drive.google.com/file/d/10voitNwHleYkfHrKjGWaMnGzj_5zkVzp/view?pli=1)
 
-- [Modelo relacional da versão inicial](./MR.md)
+## Versão inicial
+
+Na primeira versão do sistema, o usuário que controla o estoque deve ser capaz de
+
+- Cadastrar-se e logar no sistema com email e senha
+
+- Cadastrar produto(s) no estoque
+
+- Cadastrar ordem de compra para um ou mais produtos do estoque
+ 
+- Dar baixa na ordem de compra, dando a possibilidade de anexar comprovantes de pagamento
+
+- Visualizar um plot do giro de estoque de um produto em específico. 
+
+Então, abaixo estão alguns modelos utilizados para auxiliar no desenvolvimento dessa versão inicial do sistema
+
+- [Modelo relacional](./MR.md)
