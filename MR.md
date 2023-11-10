@@ -1,6 +1,6 @@
-# Modelo Relacional
+# Banco de dados
 
-## Modelagem
+## Modeo Relacional
 
 O modelo relacional abaixo ilustra as entidades envolvidas na versão inicial do sistema
 
@@ -53,7 +53,6 @@ erDiagram
 
     ordem {
         int ordem_id PK
-        string forma_pgto
         data data
         string comprovante
         timestamp baixa
@@ -63,8 +62,8 @@ erDiagram
 
     ordem ||--|| cliente : ""
     ordem }o--|| vendedor : ""
-    ordem  }|--|| produto_ordem : ""
-    produto }|--|| produto_ordem : ""
+    ordem  ||--}| produto_ordem : ""
+    produto ||--}| produto_ordem : ""
 
     produto_ordem {
         int produto_id FK
@@ -74,8 +73,10 @@ erDiagram
     }
 ```
 
+
+
 ## Comentários
 
-A ordem de compra pode conter mais de um produto, e um produto pode estar em várias ordens de compra. Além disso, o preço do produto cadastrado pelo vendedor na ordem de compra pode não ser a cotação que está registrada no produto, pois esse valor pode ser negociado. Então, a tabela de cruzamento `produto_ordem` foi criada para conter o preço que o produto foi vendido.
+- A ordem de compra pode conter mais de um produto, e um produto pode estar em várias ordens de compra. Além disso, o preço do produto cadastrado pelo vendedor na ordem de compra pode não ser a cotação que está registrada no produto, pois esse valor pode ser negociado. Então, a tabela de cruzamento `produto_ordem` foi criada para conter o preço que o produto foi vendido.
 
-O atributo `vendedor_id` está presente em tabelas como `categoria`, `cliente` e `ordem` porque, pensando em um sistema com vários usuários, um vendedor não pode ver as categorias, clientes e ordens de compra cadastradas pelos outros vendedores.
+- O atributo `vendedor_id` está presente em tabelas como `categoria`, `cliente` e `ordem` porque, pensando em um sistema com vários usuários, um vendedor não pode ver as categorias, clientes e ordens de compra cadastradas pelos outros vendedores.
