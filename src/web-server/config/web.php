@@ -56,7 +56,7 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'users',
                     'extraPatterns' => [
-                        'POST login' => 'login'
+                        'GET login' => 'login'
                     ]
                 ],
             ],

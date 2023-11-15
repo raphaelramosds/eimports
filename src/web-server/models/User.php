@@ -55,7 +55,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
-                $this->access_token = \Yii::$app->security->generateRandomString();
                 $this->password = \Yii::$app->getSecurity()->generatePasswordHash($this->password);
             }
             return true;

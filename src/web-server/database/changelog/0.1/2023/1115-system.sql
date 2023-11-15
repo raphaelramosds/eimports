@@ -43,7 +43,3 @@ CREATE TABLE product (
         FOREIGN KEY (seller_id) REFERENCES seller (id)
         ON DELETE CASCADE
 );
-
---changeset raphael:20231115:04
-ALTER TABLE user
-ADD COLUMN access_token VARCHAR(255) DEFAULT NULL;

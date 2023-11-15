@@ -26,4 +26,9 @@ class UsersController extends ActiveController
       return $behaviors;
    }
 
+   // TODO login vai retornar vendedor relacionado ao usuário
+   public function actionLogin()
+   {
+      return \Yii::$app->user->identity;
+   }
 }
