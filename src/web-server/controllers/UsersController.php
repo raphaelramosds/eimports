@@ -25,4 +25,5 @@ class UsersController extends ActiveController
       ];
       return $behaviors;
    }
+
 }
