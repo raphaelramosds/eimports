@@ -4,7 +4,7 @@
 CREATE TABLE user(
     id INT PRIMARY KEY AUTO_INCREMENT,
     login VARCHAR(25) UNIQUE NOT NULL,
-    password VARCHAR(25) UNIQUE NOT NULL
+    password VARCHAR(80) NOT NULL
 );
 
 --changeset raphael:20231115:01
@@ -43,3 +43,7 @@ CREATE TABLE product (
         FOREIGN KEY (seller_id) REFERENCES seller (id)
         ON DELETE CASCADE
 );
+
+--changeset raphael:20231115:04
+ALTER TABLE user
+ADD COLUMN access_token VARCHAR(255) DEFAULT NULL;

@@ -2,17 +2,16 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "user".
  *
  * @property int $id
  * @property string $login
  * @property string $password
+ * @property string $access_token
  *
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -20,6 +19,48 @@ class User extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'user';
+    }
+
+    public static function findIdentity($id) {
+        return static::findOne($id);
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null) {
+        return static::findOne(['access_token' => $token]);
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getAuthKey() {
+        
+    }
+
+    public function validateAuthKey($authKey) {
+        
+    }
+
+    public function validatePassword($password)
+    {
+        return \Yii::$app->security->validatePassword($password, $this->password);
+    }
+    
+    public function generateAccessToken()
+    {
+        return \Yii::$app->security->generateRandomString();
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->access_token = \Yii::$app->security->generateRandomString();
+                $this->password = \Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            }
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -50,7 +50,13 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'users'],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'users',
+                    'extraPatterns' => [
+                        'POST login' => 'login'
+                    ]
+                ],
             ],
          ]
     ],
