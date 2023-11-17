@@ -1,6 +1,6 @@
 # Banco de dados
 
-## Diagrama
+<!-- ## Diagrama
 
 O diagrama abaixo ilustra as entidades envolvidas na versão inicial do sistema
 
@@ -71,7 +71,7 @@ erDiagram
         float preco
         int qtde
     }
-```
+``` -->
 
 
 ## Comentários
