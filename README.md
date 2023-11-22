@@ -42,4 +42,6 @@ Na primeira versão do sistema, o usuário que controla o estoque deve ser capaz
 
 Então, abaixo estão alguns modelos utilizados para auxiliar no desenvolvimento dessa versão inicial do sistema
 
-- [Banco de Dados](./BD.md)
+- Modelagem da base de dados
+    - [Diagrama Entidade Relacionamento](./BD-ER.pdf)
+    - [Modelo Relacional](./BD-MER.pdf)
