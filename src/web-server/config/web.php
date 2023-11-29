@@ -23,7 +23,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Seller',
             'enableAutoLogin' => true,
             'enableSession' => false,
             'loginUrl' => null
@@ -54,11 +54,15 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'users',
+                    'controller' => 'sellers',
                     'extraPatterns' => [
                         'GET login' => 'login'
                     ]
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'categories'
+                ]
             ],
          ]
     ],

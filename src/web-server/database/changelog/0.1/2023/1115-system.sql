@@ -1,26 +1,16 @@
 --liquibase formatted sql
 
---changeset raphael:20231115:00
-CREATE TABLE user(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    login VARCHAR(25) UNIQUE NOT NULL,
-    password VARCHAR(80) NOT NULL
-);
-
 --changeset raphael:20231115:01
 CREATE TABLE seller (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    usuario_id INT,
-    CONSTRAINT `fk_seller_user`
-        FOREIGN KEY (usuario_id) REFERENCES user (id)
-        ON DELETE CASCADE
+    login VARCHAR(25) UNIQUE NOT NULL,
+    password VARCHAR(80) NOT NULL
 );
 
 --changeset raphael:20231115:02
 CREATE TABLE category (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
     description VARCHAR(50),
     seller_id INT NOT NULL,
     CONSTRAINT `fk_category_seller`

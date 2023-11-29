@@ -2,13 +2,13 @@
 
 namespace app\controllers;
 
-use app\models\User;
+use app\models\Seller;
 use yii\filters\auth\HttpBasicAuth;
 use yii\rest\ActiveController;
 
-class UsersController extends ActiveController
+class SellersController extends ActiveController
 {
-   public $modelClass = 'app\models\User';
+   public $modelClass = 'app\models\Seller';
 
    public function behaviors()
    {
@@ -16,9 +16,9 @@ class UsersController extends ActiveController
       $behaviors['authenticator'] = [
          'class' => HttpBasicAuth::class,
          'auth' => function ($username, $password) {
-            $user = User::find()->where(['login' => $username])->one();
-            if ($user && $user->validatePassword($password)) {
-               return $user;
+            $seller = Seller::find()->where(['login' => $username])->one();
+            if ($seller && $seller->validatePassword($password)) {
+               return $seller;
             }
             return null;
          },
@@ -26,7 +26,6 @@ class UsersController extends ActiveController
       return $behaviors;
    }
 
-   // TODO login vai retornar vendedor relacionado ao usuário
    public function actionLogin()
    {
       return \Yii::$app->user->identity;

@@ -84,5 +84,17 @@ liquibase update
 Inicie a aplicação Yii
 
 ```
-php -S localhost:9090 -t web
+php -S localhost:8080 -t web
 ```
+
+### Cadastro de usuário
+
+No terminal crie um usuário com login `admin` e senha `root`
+
+```
+php yii sellers/create Admin admin root
+```
+
+Acesse a rota `GET localhost:8080/sellers` pelo Postman ou Insomnia. 
+
+> Utilize Basic Auth como o tipo de Authorization. O login e senha vão ser os que você cadastrou na seção anterior.

@@ -3,22 +3,23 @@
 namespace app\models;
 
 /**
- * This is the model class for table "user".
+ * This is the model class for table "seller".
  *
  * @property int $id
+ * @property string $name
  * @property string $login
  * @property string $password
  * @property string $access_token
  *
  */
-class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
+class Seller extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'user';
+        return 'seller';
     }
 
     public static function findIdentity($id) {
