@@ -9,6 +9,13 @@ use yii\web\ForbiddenHttpException;
 
 class ActiveController extends  \yii\rest\ActiveController
 {
+    public function actions()
+    {
+        $actions = parent::actions();
+        // Disable the default index action
+        unset($actions['index']);
+        return $actions;
+    }
     public function behaviors()
     {
         $behaviors = parent::behaviors();
@@ -16,7 +23,7 @@ class ActiveController extends  \yii\rest\ActiveController
             HttpBearerAuth::class
         ];
         $behaviors['corsFilter'] = [
-            Cors::class
+            'class' => Cors::class
         ];
         return $behaviors;
     }
