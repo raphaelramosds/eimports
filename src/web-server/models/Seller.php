@@ -42,21 +42,12 @@ class Seller extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         
     }
 
-    public function validatePassword($password)
-    {
-        return \Yii::$app->security->validatePassword($password, $this->password);
-    }
-    
-    public function generateAccessToken()
-    {
-        return \Yii::$app->security->generateRandomString();
-    }
-
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
                 $this->password = \Yii::$app->getSecurity()->generatePasswordHash($this->password);
+                $this->access_token = \Yii::$app->security->generateRandomString();
             }
             return true;
         }

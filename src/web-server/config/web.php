@@ -56,12 +56,16 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'sellers',
                     'extraPatterns' => [
-                        'GET login' => 'login'
+                        // PROTOCOLO nome' => 'nome'
                     ]
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'categories'
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'products'
                 ]
             ],
          ]

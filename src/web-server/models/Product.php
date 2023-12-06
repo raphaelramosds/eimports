@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "product".
@@ -34,13 +35,27 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'seller_id'], 'required'],
+            [['name'], 'required'],
             [['stock', 'category_id', 'seller_id'], 'integer'],
             [['quotation'], 'number'],
             [['name'], 'string', 'max' => 50],
             [['description'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
-            [['seller_id'], 'exist', 'skipOnError' => true, 'targetClass' => Seller::class, 'targetAttribute' => ['seller_id' => 'id']],
+        ];
+    }
+
+    /**
+     * @return array[]
+     */
+    public function behaviors()
+    {
+        return [
+            // Fill seller identifier on category table
+            [
+                'class' => BlameableBehavior::class,
+                'createdByAttribute' => 'seller_id',
+                'updatedByAttribute' => false
+            ],
         ];
     }
 
