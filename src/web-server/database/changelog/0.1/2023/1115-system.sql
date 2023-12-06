@@ -5,7 +5,7 @@ CREATE TABLE seller (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     login VARCHAR(25) UNIQUE NOT NULL,
-    password VARCHAR(80) NOT NULL
+    password VARCHAR(255) NOT NULL
 );
 
 --changeset raphael:20231115:02
