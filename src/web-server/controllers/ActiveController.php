@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Category;
 use yii\filters\auth\HttpBearerAuth;
+use yii\filters\Cors;
 use yii\web\ForbiddenHttpException;
 
 class ActiveController extends  \yii\rest\ActiveController
@@ -13,6 +14,9 @@ class ActiveController extends  \yii\rest\ActiveController
         $behaviors = parent::behaviors();
         $behaviors['authenticator']['authMethods'] = [
             HttpBearerAuth::class
+        ];
+        $behaviors['corsFilter'] = [
+            Cors::class
         ];
         return $behaviors;
     }
