@@ -11,5 +11,5 @@
 
         <include relativeToChangelogFile="true" file="2023/1115-system.sql" />
         <include relativeToChangelogFile="true" file="2023/1206-access-token.sql" />
-        <include relativeToChangelogFile="true" file="2023/1207-other-tables.sql" />
+        <include relativeToChangelogFile="true" file="2023/1207-purchase-orders.sql" />
 </databaseChangeLog>
