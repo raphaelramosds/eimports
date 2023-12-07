@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use app\models\Category;
 use yii\filters\auth\HttpBearerAuth;
-use yii\filters\Cors;
 use yii\web\ForbiddenHttpException;
 
 class ActiveController extends  \yii\rest\ActiveController
@@ -12,22 +11,27 @@ class ActiveController extends  \yii\rest\ActiveController
     public function actions()
     {
         $actions = parent::actions();
-        // Disable the default index action
+
         unset($actions['index']);
+
         return $actions;
     }
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors['authenticator']['authMethods'] = [
-            HttpBearerAuth::class
-        ];
+
+        unset($behaviors['authenticator']);
+
         $behaviors['corsFilter'] = [
-            'class' => \yii\filters\Cors::class,
-            'cors' => [
-                'Origin' => ['*']
-            ],
+            'class' => \yii\filters\Cors::className(),
         ];
+
+        $behaviors['authenticator'] = [
+            'class' => HttpBearerAuth::class
+        ];
+
+        $behaviors['authenticator']['except'] = ['options'];
+
         return $behaviors;
     }
 

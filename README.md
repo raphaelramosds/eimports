@@ -28,7 +28,15 @@ Os requisitos desse sistema estão na forma de Casos de Uso (CdU) e Histórias d
 
 ## Versão inicial
 
-Na primeira versão do sistema, o usuário que controla o estoque deve ser capaz de
+Na primeira versão do sistema, os cinco requisitos abaixo devem ser cumpridos
+
+- Autenticar usuário
+- Cadastrar ordem de compra
+- Cadastrar produto
+- Baixar ordem de compra
+- Avaliar giro de estoque
+
+Portanto, o usuário que controla o estoque deve ser capaz de
 
 - Cadastrar-se e logar no sistema com email e senha
 
@@ -40,8 +48,9 @@ Na primeira versão do sistema, o usuário que controla o estoque deve ser capaz
 
 - Visualizar um plot do giro de estoque de um produto em específico. 
 
-Então, abaixo estão alguns modelos utilizados para auxiliar no desenvolvimento dessa versão inicial do sistema
+Então, abaixo estão alguns arquivos utilzados para auxiliar no desenvolvimento dessa versão inicial do sistema
 
-- Modelagem da base de dados
+- Base de dados
     - [Diagrama Entidade Relacionamento](./BD-ER.pdf)
     - [Modelo Relacional](./BD-MER.pdf)
+    - [Consultas ao BD](./QUERIES.md)
