@@ -22,11 +22,6 @@ export function NewProductForm() {
                 placeholder="Descrição"
                 type="text"
             />
-            <input
-                className="form-input"
-                placeholder="Categoria"
-                type="text"
-            />
             <Select.Root>
                 <Select.Trigger className='form-input relative' >
                     <Select.Value className='text-gray-300' placeholder='Selecione categoria' />

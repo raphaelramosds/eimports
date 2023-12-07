@@ -12,12 +12,16 @@
     @apply invisible w-0 group-hover:visible group-hover:inline whitespace-nowrap
   }
 
+  .side_menu_divider {
+    @apply h-[1px] bg-gray-600 rounded mx-6
+  }
+
   .form-input {
     @apply flex items-center rounded-md bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500
   }
 
   .form-submit {
-    @apply h-12 rounded-md transition-colors bg-green-500 hover:bg-green-700 text-gray-100 px-5
+    @apply h-12 rounded-md hover:transition-colors bg-green-500 hover:bg-green-700 text-gray-100 px-5
   }
 
   .form-wrapper {
@@ -32,6 +36,28 @@
     @apply bg-gray-700 p-4 first:rounded-bl-lg last:rounded-br-lg data-[state='active']:bg-green-500 border-r border-gray-600 text-gray-300
   }
 
+  .status-indicator {
+    @apply relative grid place-items-center w-1 h-1 rounded-full animate-pulse bg-green-500 after:content-[''] after:w-[6px] after:h-[6px] after:absolute after:rounded-full after:bg-green-300 after:animate-ping
+  }
+
+  .diamond {
+    @apply grid place-items-center relative w-fit h-fit self-end before:content-[""] before:w-5 before:h-5 before:bg-green-500 before:clip-cristal after:w-3 after:h-3 after:bg-green-300 after:clip-cristal after:absolute after:top-[0.5px] after:right-[1px] after:content-[""]
+  }
+
+}
+
+@layer utilities {
+  .clip-wave {
+    clip-path: polygon(100% 100%, 0% 100%, 0.00% 15.14%, 1.11% 16.78%, 2.22% 18.42%, 3.33% 20.04%, 4.44% 21.66%, 5.56% 23.27%, 6.67% 24.87%, 7.78% 26.46%, 8.89% 28.04%, 10.00% 29.60%, 11.11% 31.14%, 12.22% 32.67%, 13.33% 34.19%, 14.44% 35.68%, 15.56% 37.15%, 16.67% 38.60%, 17.78% 40.03%, 18.89% 41.44%, 20.00% 42.82%, 21.11% 44.18%, 22.22% 45.51%, 23.33% 46.81%, 24.44% 48.08%, 25.56% 49.33%, 26.67% 50.54%, 27.78% 51.72%, 28.89% 52.87%, 30.00% 53.98%, 31.11% 55.06%, 32.22% 56.11%, 33.33% 57.12%, 34.44% 58.09%, 35.56% 59.03%, 36.67% 59.93%, 37.78% 60.78%, 38.89% 61.60%, 40.00% 62.38%, 41.11% 63.12%, 42.22% 63.82%, 43.33% 64.47%, 44.44% 65.08%, 45.56% 65.65%, 46.67% 66.18%, 47.78% 66.66%, 48.89% 67.09%, 50.00% 67.49%, 51.11% 67.84%, 52.22% 68.14%, 53.33% 68.40%, 54.44% 68.61%, 55.56% 68.78%, 56.67% 68.90%, 57.78% 68.97%, 58.89% 69.00%, 60.00% 68.98%, 61.11% 68.92%, 62.22% 68.81%, 63.33% 68.65%, 64.44% 68.45%, 65.56% 68.21%, 66.67% 67.92%, 67.78% 67.58%, 68.89% 67.20%, 70.00% 66.77%, 71.11% 66.30%, 72.22% 65.79%, 73.33% 65.23%, 74.44% 64.63%, 75.56% 63.98%, 76.67% 63.30%, 77.78% 62.57%, 78.89% 61.80%, 80.00% 60.99%, 81.11% 60.14%, 82.22% 59.26%, 83.33% 58.33%, 84.44% 57.37%, 85.56% 56.37%, 86.67% 55.33%, 87.78% 54.26%, 88.89% 53.15%, 90.00% 52.01%, 91.11% 50.84%, 92.22% 49.63%, 93.33% 48.40%, 94.44% 47.13%, 95.56% 45.84%, 96.67% 44.51%, 97.78% 43.16%, 98.89% 41.79%, 100.00% 40.39%);
+  }
+
+  .clip-cristal {
+    clip-path: polygon(50% 0, 80% 50%, 50% 100%, 20% 50%);
+  }
+
+  .shadow-clip-green {
+    filter: drop-shadow(0 0 2px var(--green-300));
+  }
 }
 
 :root {
@@ -63,7 +89,12 @@
   outline: 0;
 }
 
-input:focus, textarea:focus {
+input::-ms-reveal {
+  filter: invert(100%);
+}
+
+input:focus,
+textarea:focus {
   box-shadow: 0 0 0 2px var(--green-500);
 }
 
@@ -79,6 +110,11 @@ body {
 }
 
 body,
+html {
+  min-height: 100dvh;
+}
+
+body,
 input,
 button,
 textarea {
@@ -88,9 +124,12 @@ textarea {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--gray-900);
 }
-::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
   background: transparent;
 }

@@ -7,6 +7,9 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    boxShadow: {
+      'low': '0px 0px 6px 0px rgba(0, 0, 0, 0.15)',
+    },
     colors: {
       'white': '#fff',
 

@@ -5,7 +5,7 @@ export function NewCustomerModal() {
     return (
         <Dialog.Portal>
             <Dialog.Overlay
-                className="fixed inset-0 z-20 bg-gray-900/50 grid place-items-center"
+                className="fixed inset-0 z-20 bg-gray-900/70 grid place-items-center"
             >
                 <Dialog.Content className='flex flex-col bg-gray-700 w-full max-w-2xl relative rounded-md px-8 py-12'>
                     <Dialog.Title

@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Dialog from "@radix-ui/react-dialog"
-import { NewSaleModal } from "./NewSaleModal"
-import { NewCustomerModal } from "./NewCustomerModal"
+import { NewSaleModal } from "../Dialogs/NewSaleDialog"
+import { NewCustomerModal } from "../Dialogs/NewCustomerDialog"
 
 
 const searchSaleFormSchema = z.object({

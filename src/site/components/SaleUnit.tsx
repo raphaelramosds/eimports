@@ -1,18 +1,57 @@
-import xiaomi from '@/assets/xiaomi.webp'
-import Image from 'next/image'
+'use client'
 
-export function SaleUnit() {
+import clsx from 'clsx'
+import { SalesContext } from '@/contexts/SalesContext'
+import { useContextSelector } from 'use-context-selector'
+import { Sale } from '@/@types/Sale'
+
+export function SaleUnit({ sale }: { sale: Sale }) {
+    const holdSale = useContextSelector(SalesContext, context => context.holdSale)
+
     return (
-        <div className="bg-gray-600 p-4 rounded-md w-full">
-            <header>
+        <div className={clsx(
+            "flex w-full gap-12 p-4",
+            "bg-gray-600 rounded-md",
+        )}>
+            <div className='flex flex-col justify-center gap-6'>
                 <div>
-                    <h2 className='text-lg text-gray-300'>Xiaomi 12 PRO</h2>
-                    <span className='text-sm text-gray-400'>Celulares</span>
-                    <Image 
-                    className='rounded-md mt-4'
-                    src={xiaomi} width={120} height={120} alt='produto'/>
+                    <h2 className='text-lg text-gray-100'>{sale.client.name}</h2>
+                    <span className='text-sm text-gray-300'>{sale.date.toLocaleDateString()}</span>
                 </div>
-            </header>
+                <div className='flex items-start gap-8'>
+                    <div>
+                        <h3 className='text-sm text-gray-300'>Valor Total:</h3>
+                        <span className='text-base text-green-300'>R$ {sale.total}</span>
+                    </div>
+                    <div>
+                        <h3 className='text-sm text-gray-300'>Método:</h3>
+                        <span className='text-base text-green-300'>Crédito</span>
+                    </div>
+                </div>
+            </div>
+            <div className="w-[1px] rounded bg-gray-800/40" />
+            <div className='grow flex flex-col justify-start gap-1'>
+                <h3 className='text-sm text-gray-300'>Produtos na venda:</h3>
+                <ul className='[&>li]:text-xs text-gray-100 [&_span]:text-green-300 tracking-wide'>
+                    {sale.products.map(product => (
+                        <li key={product.id}>
+                            <span>{product.quantity}x</span> {product.name}
+                        </li>
+
+                    ))}
+                </ul>
+            </div>
+            <div className='flex flex-col justify-between items-end'>
+                <div className='flex items-center gap-2'>
+                    <span className='status-indicator' />
+                    <span className='uppercase text-xs text-green-300'>Pago</span>
+                </div>
+                <button
+                    onClick={() => holdSale(sale)}
+                    className='form-submit'>
+                    Detalhes
+                </button>
+            </div>
         </div>
     )
 }

@@ -1,39 +1,22 @@
 'use client'
 
+import clsx from 'clsx';
 import {
     LogOut, CircleDollarSign,
-    ArrowLeftRight,
     PackagePlus,
     UserPlus,
     LineChart,
     PackageSearch,
-    ShoppingCart,
-    Undo2,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const ActionPages = [
     {
-        text: 'Compras',
+        text: 'Vendas',
         icon: <PackageSearch height={20} width={20} />,
         href: '/sales'
     },
-    // {
-    //     text: 'Cadastrar Compra',
-    //     icon: <ShoppingCart height={20} width={20} />,
-    //     href: '/cadastrar_compra'
-    // },
-    // {
-    //     text: 'Registrar Troca',
-    //     icon: <ArrowLeftRight height={20} width={20} />,
-    //     href: '/registrar_troca'
-    // },
-    // {
-    //     text: 'Registrar Devolução',
-    //     icon: <Undo2 height={20} width={20} />,
-    //     href: '/registrar_devolucao'
-    // },
     {
         text: 'Estoque',
         icon: <PackagePlus height={20} width={20} />,
@@ -72,9 +55,13 @@ export function SideMenu() {
     const pathname = usePathname()
 
     return (
-        <aside className='absolute h-full w-16 hover:w-72 transition-all bg-gray-700 border-r border-gray-600 group overflow-hidden'>
-            <nav className='flex flex-col gap-8 mt-[83px]'>
-                <div>
+        <aside className={clsx(
+            'absolute z-20 h-full w-16 hover:w-72 transition-all group overflow-hidden',
+            'bg-gray-700 border-r border-gray-600',
+            'flex flex-col lg:flex-col-reverse'
+        )}>
+            <nav className='grow flex flex-col-reverse lg:flex-col justify-start gap-6 mb-[166px] lg:mb-0'>
+                <div className='flex flex-col-reverse lg:flex-col'>
                     {
                         ActionPages.map((page, index) =>
                             <Link
@@ -89,41 +76,50 @@ export function SideMenu() {
                         )
                     }
                 </div>
-                <div>
-                    <div>
-                        {
-                            StatisticPages.map((page, index) =>
-                                <Link
-                                    data-active={pathname === page.href}
-                                    href={page.href}
-                                    key={index}
-                                    className='side_menu_item'
-                                >
-                                    {page.icon}
-                                    <span className='side_menu_item_text'>{page.text}</span>
-                                </Link>
-                            )
-                        }
-                    </div>
+                <div className='side_menu_divider' />
+                <div className='flex flex-col-reverse lg:flex-col'>
+
+                    {
+                        StatisticPages.map((page, index) =>
+                            <Link
+                                data-active={pathname === page.href}
+                                href={page.href}
+                                key={index}
+                                className='side_menu_item'
+                            >
+                                {page.icon}
+                                <span className='side_menu_item_text'>{page.text}</span>
+                            </Link>
+                        )
+                    }
+
                 </div>
-                <div>
-                    <div>
-                        {
-                            AccountPages.map((page, index) =>
-                                <Link
-                                    data-active={pathname === page.href}
-                                    href={page.href}
-                                    key={index}
-                                    className='side_menu_item'
-                                >
-                                    {page.icon}
-                                    <span className='side_menu_item_text'>{page.text}</span>
-                                </Link>
-                            )
-                        }
-                    </div>
+                <div className='side_menu_divider' />
+                <div className='flex flex-col-reverse lg:flex-col'>
+                    {
+                        AccountPages.map((page, index) =>
+                            <Link
+                                data-active={pathname === page.href}
+                                href={page.href}
+                                key={index}
+                                className='side_menu_item'
+                            >
+                                {page.icon}
+                                <span className='side_menu_item_text'>{page.text}</span>
+                            </Link>
+                        )
+                    }
                 </div>
             </nav>
+            <div className='relative h-[83px] flex items-center pl-[22px]'>
+                <div className="invisible group-hover:visible absolute flex">
+                    <h1 className="text-lg text-gray-100 leading-4">Bem-vindo a<br />
+                        <span className="text-green-300 text-right pl-10">Eimports</span>
+                    </h1>
+                    <span className="diamond" />
+                </div>
+                <span className="diamond group-hover:invisible absolute self-center" />
+            </div>
         </aside>
     )
 }

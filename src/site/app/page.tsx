@@ -1,6 +1,9 @@
 import { SideMenu } from "@/components/SideMenu"
+import { redirect } from 'next/navigation'
 
 export default function Login() {
+
+  redirect('/sales')
 
   return (
     <>

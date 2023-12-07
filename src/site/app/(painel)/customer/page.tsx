@@ -1,11 +1,11 @@
-import { SearchCustomerForm } from "@/components/SearchCustomerForm";
+import { SearchCustomerForm } from "@/components/Forms/SearchCustomerForm";
 
 export default function RegisterCustomerPage() {
     return (
         <div>
-            <div className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
+            <section className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
                 <SearchCustomerForm />
-            </div>
+            </section>
         </div>
     )
 }

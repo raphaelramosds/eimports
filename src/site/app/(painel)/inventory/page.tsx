@@ -1,16 +1,16 @@
 'use client'
 
-import { NewCategoryForm } from "@/components/NewCategoryForm";
-import { NewProductForm } from "@/components/NewProductForm";
-import { SearchProductForm } from "@/components/SearchProductForm";
+import { NewCategoryForm } from "@/components/Forms/NewCategoryForm";
+import { NewProductForm } from "@/components/Forms/NewProductForm";
+import { SearchProductForm } from "@/components/Forms/SearchProductForm";
 import * as Tabs from "@radix-ui/react-tabs";
 
 export default function RegisterProductPage() {
     return (
         <div>
-            <div className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
+            <section className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
                 <SearchProductForm />
-            </div>
+            </section>
             <Tabs.Root defaultValue="register">
                 <Tabs.List className="flex items-center justify-center">
                     <Tabs.Trigger
@@ -27,7 +27,7 @@ export default function RegisterProductPage() {
                     </Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content value="register">
-                    <div className="w-full flex items-start justify-center gap-16 pt-16">
+                    <div className="w-full flex flex-col lg:flex-row items-start justify-center gap-16 pt-12">
                         <div className="w-96">
                             <NewProductForm />
                         </div>
@@ -37,7 +37,7 @@ export default function RegisterProductPage() {
                     </div>
                 </Tabs.Content>
                 <Tabs.Content value="inventory">
-                    <div className="w-full flex items-start justify-center gap-16 pt-16">
+                    <div className="w-full flex items-start justify-center gap-16 pt-12">
                         <h1>Estoque com produtos e respectivas quantidades</h1>
                     </div>
                 </Tabs.Content>
