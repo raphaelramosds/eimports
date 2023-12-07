@@ -24,7 +24,7 @@ class SellersController extends \yii\rest\ActiveController
         $seller = Seller::findOne(['login' => $login]);
 
         // Check if the seller exists and validate the password
-        if ($seller !== null && $seller->password === $password) {
+        if ($seller !== null && \Yii::$app->security->validatePassword($password, $seller->password)) {
             // Remove password from response;
             unset($seller['password']);
             return [
