@@ -57,7 +57,8 @@ $config = [
                     'controller' => 'sellers',
                     'extraPatterns' => [
                         // 'PROTOCOLO nome' => 'nome'
-                        'POST login' => 'login'
+                        'POST login' => 'login',
+                        'OPTIONS login' => 'login'
                     ]
                 ],
                 [

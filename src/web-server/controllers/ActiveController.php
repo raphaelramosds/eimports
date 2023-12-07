@@ -23,7 +23,10 @@ class ActiveController extends  \yii\rest\ActiveController
             HttpBearerAuth::class
         ];
         $behaviors['corsFilter'] = [
-            'class' => Cors::class
+            'class' => \yii\filters\Cors::class,
+            'cors' => [
+                'Origin' => ['*']
+            ],
         ];
         return $behaviors;
     }

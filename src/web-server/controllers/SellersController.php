@@ -3,11 +3,20 @@
 namespace app\controllers;
 
 use app\models\Seller;
+use yii\filters\Cors;
 use yii\web\HttpException;
 
 class SellersController extends \yii\rest\ActiveController
 {
-   public $modelClass = 'app\models\Seller';
+    public $modelClass = 'app\models\Seller';
+
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), [
+            'cors' => Cors::class
+        ]);
+    }
+
     public function actionLogin(): array
     {
         $bodyParams = \Yii::$app->getRequest()->getBodyParams();
