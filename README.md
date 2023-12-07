@@ -50,7 +50,13 @@ Portanto, o usuário que controla o estoque deve ser capaz de
 
 Então, abaixo estão alguns arquivos utilzados para auxiliar no desenvolvimento dessa versão inicial do sistema
 
+<<<<<<< HEAD
 - Base de dados
     - [Diagrama Entidade Relacionamento](./BD-ER.pdf)
     - [Modelo Relacional](./BD-MER.pdf)
     - [Consultas ao BD](./QUERIES.md)
+=======
+- Modelagem da base de dados
+    - [Diagrama Entidade Relacionamento](./BD-MER.pdf)
+    - [Modelo Relacional](./BD-ER.pdf)
+>>>>>>> 80e7049ce311b0f22a7af5da8ef4389572b8141d
