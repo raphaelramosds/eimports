@@ -10,7 +10,7 @@ export function SaleDetailed({ sale }: { sale: Sale }) {
         )}>
             <header className='flex justify-between items-start gap-6 border-b border-gray-800/40 pb-6'>
                 <div>
-                    <h2 className='text-lg text-gray-100'>{sale.client.name}</h2>
+                    <h2 className='text-lg text-gray-100'>{sale.customer.name}</h2>
                     <span className='text-md text-gray-300'>{sale.date.toLocaleDateString()}</span>
                 </div>
                 <div className='flex items-center gap-2'>
@@ -23,7 +23,7 @@ export function SaleDetailed({ sale }: { sale: Sale }) {
                 <ul className='[&>li]:text-base text-gray-100 [&_span]:text-green-300'>
                     {sale.products.map(product => (
                         <li key={product.id}>
-                            <span>{product.quantity}x</span> {product.name}
+                            {/* <span>{product.quantity}x</span> {product.name} */}
                         </li>
 
                     ))}

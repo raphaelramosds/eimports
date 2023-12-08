@@ -15,7 +15,7 @@ export default function SalesPage() {
 
     return (
         <div className="h-full flex flex-col-reverse lg:flex-col">
-            <section className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
+            {/* <section className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
                 <SearchSaleForm />
             </section>
             <div className={clsx(
@@ -53,7 +53,8 @@ export default function SalesPage() {
                             </section>
                         </div>
                 }
-            </div>
+            </div> */}
+            volta já
         </div >
     )
 }

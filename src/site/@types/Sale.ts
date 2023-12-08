@@ -1,9 +1,9 @@
-import { Client } from "./Client";
+import { Customer } from "./Customer";
 import { Product } from "./Product";
 
 export interface Sale {
-    id: number;
-    client: Client;
+    id: string;
+    customer: Customer;
     products: Product[];
     date: Date;
     total: number;
