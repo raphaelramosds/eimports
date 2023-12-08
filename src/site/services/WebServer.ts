@@ -32,7 +32,7 @@ export class WebServer {
         return response.data
     }
 
-    static async DeleteCategory({ token, id }: { token: string, id: string }) {
+    static async DeleteCategory({ token, id }: { token: string, id: number }) {
         const response = await axios.delete(`${URL}/categories/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -52,7 +52,7 @@ export class WebServer {
     }
 
     static async CreateProduct({ token, name, description }: { token: string, name: string, description: string }) {
-        const response = await axios.post(`${URL}/categories`,
+        const response = await axios.post(`${URL}/products`,
             { name, description }, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -62,7 +62,16 @@ export class WebServer {
     }
 
     static async GetProducts({ token }: { token: string }) {
-        const response = await axios.get(`${URL}/categories`, {
+        const response = await axios.get(`${URL}/products`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async DeleteProduct({ token, id }: { token: string, id: number }) {
+        const response = await axios.delete(`${URL}/products/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -14,28 +14,28 @@
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-tabs": "^1.0.4",
-    "argon2": "^0.31.2",
     "axios": "^1.6.2",
     "clsx": "^2.0.0",
     "immer": "^10.0.3",
     "lucide-react": "^0.292.0",
-    "next": "^14.0.3",
-    "react": "^18",
+    "next": "^14.0.5-canary.0",
+    "react": "^18.2.0",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
     "remask": "^1.2.2",
     "use-context-selector": "^1.4.1",
+    "use-mask-input": "^3.3.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.2.42",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5.3.3"
   }
 }
