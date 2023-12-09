@@ -75,6 +75,8 @@ $config = [
                     'extraPatterns' => [
                         'POST products' => 'create-order-with-products',
                         'OPTIONS products' => 'create-order-with-products',
+                        'PUT settle/<id:\d+>' => 'settle',
+                        'OPTIONS settle/<id:\d+>' => 'settle',
                     ]
                 ]
             ],

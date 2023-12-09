@@ -59,4 +59,33 @@ class PurchaseOrdersController extends ActiveController
             return ['success' => false, 'message' => $e->getMessage()];
         }
     }
+
+    /**
+     * Settles a purchase order
+     *
+     * @param mixed $id
+     * 
+     * @return [type]
+     * 
+     */
+    public function actionSettle($id)
+    {
+        $purchaseOrder = PurchaseOrder::findOne($id);
+
+        if ($purchaseOrder !== null) {
+            // Define a data atual para a propriedade 'settlement'
+            $purchaseOrder->settlement = date('Y-m-d H:i:s'); 
+
+            if ($purchaseOrder->save()) {
+                // \Yii::$app->response->format = Response::FORMAT_JSON;
+                return ['success' => true, 'message' => 'Ordem de compra atualizada com data de liquidação.'];
+            } else {
+                // \Yii::$app->response->format = Response::FORMAT_JSON;
+                return ['success' => false, 'message' => 'Erro ao atualizar a ordem de compra.'];
+            }
+        } else {
+            // \Yii::$app->response->format = Response::FORMAT_JSON;
+            return ['success' => false, 'message' => 'Ordem de compra não encontrada.'];
+        }
+    }
 }
