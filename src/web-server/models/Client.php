@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "client".
