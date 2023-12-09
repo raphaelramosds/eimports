@@ -4,33 +4,12 @@ As consultas que devem ser executadas para cumprir os requisitos da primeira ver
 
 ## Listar produtos com suas categorias
 
-- ##### Inserção
-
-```sql
-INSERT INTO seller (login, password, name) VALUES 
-('vendedor1', 'senha1', 'Vendedor 1'),
-('vendedor2', 'senha2', 'Vendedor 2');
-
-
-INSERT INTO category (name, seller_id) VALUES 
-('Eletrônicos', 1),
-('Roupas', 2);
-
-INSERT INTO product (name, description, stock, quotation, category_id, seller_id) VALUES 
-('S21FE', '256GB 8GB', 10, 1799.99, 1, 1),
-('Iphone 11', '128GB', 14, 1999.99, 1, 1),
-('Redmi 11 PRO', '128GB 6GB', 22, 1299.99, 1, 2),
-('Camiseta Nike', 'Tamanho M, cor azul', 17, 179.99, 2, 1),
-('Camiseta Puma Masculino', 'Tamanho P, cor azul', 49, 129.99, 2, 1),
-('Camiseta Puma Feminino', 'Tamanho M, cor azul', 24, 129.99, 2, 2);
-```
-
-- ##### Consulta
+- Consulta
 
 ```sql
 SELECT 
     product.name AS product_name,
-    COALESCE(category.name, 'No category') AS category_name
+    COALESCE(category.description, 'No category') AS category_name
 FROM 
     product
 LEFT JOIN 
@@ -38,44 +17,13 @@ LEFT JOIN
 WHERE 
     product.seller_id = 1
 ORDER BY
-    COALESCE(category.name, 'No category'),
+    COALESCE(category.description, 'No category'),
     product.name ASC;
 ```
 
 ## Listar clientes e suas ordens de compra em um determinado mês
 
-- ##### Inserção
-
-```sql
-INSERT INTO seller (login, password, name) VALUES
-('seller1', 'password1', 'Seller 1'),
-('seller2', 'password2', 'Seller 2');
-
-INSERT INTO category (name, description, seller_id) VALUES
-('Eletrônico', 'Classe A', 1),
-('Roupas', 'Esportiva', 2);
-
-INSERT INTO client (phone_num, name, seller_id) VALUES
-('123-456-7890', 'Poliana', 1),
-('987-654-3210', 'Raphael', 2),
-('000-000-0000', 'Doquinha', 2);
-
-INSERT INTO purchase_order (purchase, settlement, receipt, client_id, seller_id) VALUES
-('2023-01-10', '2023-02-10', 'eNTF', 1, 1),
-('2023-01-10', '2023-03-10', 'eNTF', 2, 2),
-('2023-01-10', '2023-06-10', 'eNTF', 1, 1);
-
-INSERT INTO product (name, description, stock, quotation, category_id, seller_id) VALUES
-('S23FE', '256GB 8GB', 50, 1799.99, 1, 1),
-('Camiseta NIKE', 'M', 30, 120.99, 2, 2);
-
-INSERT INTO product_purchase_order (purchase_order_id, product_id, price, quantity) VALUES
-(1, 1, 2099.99, 1),
-(2, 1, 2099.99, 1),
-(3, 2, 149.99, 3);
-```
-
-- ##### Consulta
+- Consulta
 
 ```sql
 SELECT
@@ -99,3 +47,72 @@ ORDER BY
 ```
 
 ## Calcular giro de estoque de um produto em um mês
+
+- Consulta
+
+```sql
+SELECT 
+    DATE_FORMAT(po.purchase, '%Y-%m') AS month_year,
+    SUM(CASE WHEN ppo.product_id = 1 THEN ppo.quantity ELSE 0 END) as qt,
+    SUM(ppo.quantity) AS total_quantity,
+    SUM(CASE WHEN ppo.product_id = 1 THEN ppo.quantity ELSE 0 END) / SUM(ppo.quantity) AS ratio
+FROM 
+    product_purchase_order AS ppo
+JOIN 
+    purchase_order AS po ON ppo.purchase_order_id = po.id
+WHERE
+    po.seller_id = 1 
+    AND 
+    po.settlement IS NOT NULL
+GROUP BY 
+    month_year;
+```
+
+## Listar quantidade de produtos vendidos por categoria em um intervalo de dias
+
+- Consulta
+
+```sql
+
+SELECT
+    category.description AS category_name,
+    COUNT(product_purchase_order.product_id) AS total_sold_quantity
+FROM
+    purchase_order
+JOIN
+    product_purchase_order ON purchase_order.id = product_purchase_order.purchase_order_id
+JOIN
+    product  ON product_purchase_order.product_id = product .id
+JOIN
+    category  ON product.category_id = category.id
+WHERE
+    purchase_order.purchase >= '2023-01-01' -- intervalos
+    AND 
+    purchase_order.purchase <= '2023-02-31'
+GROUP BY
+    category.description;
+```
+
+## Listar todas as ordens de compra em um intervalo de dias
+
+- Consulta
+
+```sql
+SELECT
+    purchase_order.id AS order_id,
+    purchase_order.purchase AS order_purchase_date,
+    purchase_order.settlement AS order_settlement_date,
+    purchase_order.receipt AS order_receipt,
+    client.name AS client_name,
+    seller.name AS seller_name
+FROM
+    purchase_order
+INNER JOIN
+    client ON purchase_order.client_id = client.id
+INNER JOIN
+    seller ON purchase_order.seller_id = seller.id
+WHERE
+    purchase_order.purchase BETWEEN '2023-01-01' AND '2023-02-28'
+ORDER BY
+    purchase_order.purchase;
+```
