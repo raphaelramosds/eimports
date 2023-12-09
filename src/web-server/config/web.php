@@ -68,6 +68,14 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'products'
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'purchase-orders',
+                    'extraPatterns' => [
+                        'POST products' => 'create-order-with-products',
+                        'OPTIONS products' => 'create-order-with-products',
+                    ]
                 ]
             ],
          ]

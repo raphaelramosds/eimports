@@ -3,6 +3,9 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "purchase_order".
@@ -35,7 +38,7 @@ class PurchaseOrder extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['purchase', 'client_id', 'seller_id'], 'required'],
+            [['client_id'], 'required'],
             [['purchase', 'settlement'], 'safe'],
             [['client_id', 'seller_id'], 'integer'],
             [['receipt'], 'string', 'max' => 255],
@@ -56,6 +59,13 @@ class PurchaseOrder extends \yii\db\ActiveRecord
                 'createdByAttribute' => 'seller_id',
                 'updatedByAttribute' => false
             ],
+            // Fill purchase timestamp
+            [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'purchase',
+                'updatedAtAttribute' => false,
+                'value' => new Expression('NOW()'),
+            ]
         ];
     }   
 

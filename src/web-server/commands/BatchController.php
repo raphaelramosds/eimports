@@ -10,6 +10,12 @@ use yii\console\Controller;
 
 class BatchController extends Controller
 {
+    /**
+     * Insert random record into the database
+     *
+     * @return void
+     * 
+     */
     public function actionSeed()
     {
         // Populate sellers
@@ -78,7 +84,13 @@ class BatchController extends Controller
             ->batchInsert(Client::tableName(), array_keys($clients[1]), $clients)
             ->execute();
     }
-
+    
+    /**
+     * Delete all recors from database
+     *
+     * @return void
+     * 
+     */
     public function actionFresh()
     {
         \Yii::$app->db->createCommand('DELETE FROM product')
