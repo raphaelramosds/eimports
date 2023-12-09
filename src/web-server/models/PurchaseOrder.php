@@ -95,6 +95,12 @@ class PurchaseOrder extends \yii\db\ActiveRecord
         return ['id', 'purchase', 'settlement', 'client'];
     }
 
+    /**
+     * Fields visible via expand parameter
+     *
+     * @return [type]
+     * 
+     */
     public function extraFields()
     {
         return ['products'];
