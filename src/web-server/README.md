@@ -87,14 +87,23 @@ Inicie a aplicação Yii
 php -S localhost:8080 -t web
 ```
 
-### Cadastro de usuário
+### Populando o sistema
 
-No terminal crie um usuário com login `admin` e senha `root`
+Para popular o banco de dados com vários registros pré-definidos
 
 ```
-php yii sellers/create Admin admin root
+.\yii batch/seed
 ```
 
-Acesse a rota `GET localhost:8080/sellers` pelo Postman ou Insomnia. 
+Para deletar todos os registros do banco de dados
 
-> Utilize Basic Auth como o tipo de Authorization. O login e senha vão ser os que você cadastrou na seção anterior.
+```
+.\yii batch/fresh
+```
+
+## Acesse o sistema
+
+Você pode acessar o sistema com as credenciais
+
+- Login: admin
+- Senha: root
