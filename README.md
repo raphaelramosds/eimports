@@ -48,11 +48,9 @@ Portanto, o usuário que controla o estoque deve ser capaz de
 
 - Visualizar um plot do giro de estoque de um produto em específico. 
 
-Então, abaixo estão alguns arquivos utilzados para auxiliar no desenvolvimento dessa versão inicial do sistema
+Então, abaixo estão alguns arquivos desenvolvidos para auxiliar no desenvolvimento dessa versão inicial do sistema
 
-- Base de dados
-    - [Diagrama Entidade Relacionamento](./BD-ER.pdf)
-    - [Modelo Relacional](./BD-MER.pdf)
-    - [Consultas ao BD](./QUERIES.md)
-
-- Autenticação
+- [Diagrama Entidade Relacionamento](./BD-ER.pdf)
+- [Modelo Relacional](./BD-MER.pdf)
+- [Consultas ao BD](./QUERIES.md)
+- [Documentação da API](https://documenter.getpostman.com/view/31179296/2s9YeN2UPQ)
