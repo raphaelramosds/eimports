@@ -11,11 +11,22 @@ interface SalesContextType extends SalesState {
     holdSale: (sale: Sale | null) => void;
     fetchSales: (sales: Sale[]) => void;
     createSale: (sale: Sale) => void;
+    refresh: (token: string) => void;
 }
 
 export const SalesContext = createContext({} as SalesContextType)
 
 export function SalesContextProvider({ children }: { children: React.ReactNode }) {
+    async function getOrders(token: string) {
+        try {
+            const productsData = await WebServer.GetSales({ token })
+            fetchSales(productsData)
+            console.log('Fetch Sales: ', productsData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     const [salesState, dispatch] = useReducer(salesReducer, {
         onHoldSale: null,
         sales: [],
@@ -35,20 +46,15 @@ export function SalesContextProvider({ children }: { children: React.ReactNode }
         dispatch(createSaleAction(sale))
     }, [])
 
+    const refresh = useCallback((token: string) => {
+        getOrders(token)
+    }, [])
+
     useEffect(() => {
         let user
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
             user = JSON.parse(userJSON)
-        }
-        async function getOrders(token: string) {
-            try {
-                const productsData = await WebServer.GetSales({ token })
-                fetchSales(productsData)
-                console.log('Fetch Sales: ', productsData)
-            } catch (e) {
-                console.log(e)
-            }
         }
         if (user.access_token) {
             getOrders(user.access_token)
@@ -56,7 +62,7 @@ export function SalesContextProvider({ children }: { children: React.ReactNode }
     }, [])
 
     return (
-        <SalesContext.Provider value={{ onHoldSale, sales, holdSale, fetchSales, createSale }}>
+        <SalesContext.Provider value={{ onHoldSale, sales, holdSale, fetchSales, createSale, refresh }}>
             {children}
         </SalesContext.Provider>
     )

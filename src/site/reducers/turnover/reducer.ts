@@ -6,7 +6,7 @@ import { Turnover } from "@/@types/Turnover";
 
 export interface TurnoverState {
     product: Product | null;
-    turnover: Turnover | null;
+    turnover: Turnover[] | null;
 }
 
 export function turnoverReducer(state: TurnoverState, action: any) {

@@ -35,7 +35,7 @@ export function TurnoverForm() {
     async function onSubmit(data: TurnoverFormInputs) {
         const turnover = await WebServer.GetTurnover({ product_id: Number(data.product_id), token })
         console.log(turnover)
-        fetchTurnover(products.filter(product => product.id == Number(data.product_id))[0], turnover[0])
+        fetchTurnover(products.filter(product => product.id == Number(data.product_id))[0], turnover)
     }
 
     console.log(errors)
@@ -58,7 +58,7 @@ export function TurnoverForm() {
                                     <ChevronDown />
                                 </Select.Icon>
                             </Select.Trigger>
-                            <Select.Content>
+                            <Select.Content className="z-50">
                                 <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600'>
                                     <Select.Group>
                                         {products.map((category, i) => {

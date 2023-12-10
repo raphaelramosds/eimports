@@ -2,10 +2,10 @@ import { Customer } from "./Customer";
 import { Product } from "./Product";
 
 export interface Sale {
-    id?: string;
-    customer: Customer;
+    id?: number;
+    client: Customer;
     products: Product[];
-    date: Date;
+    purchase: string;
     total: number;
     settlement?: string;
 }

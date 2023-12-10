@@ -100,11 +100,17 @@ export class WebServer {
         return response.data
     }
 
+    static async SettleOC({ token, sale_id }: { token: string, sale_id: number }) {
+        const response = await axios.put(`${URL}/purchase-orders/settle/${sale_id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
     static async GetSales({ token }: { token: string }) {
-        const response = await axios.get(`${URL}/purchase-orders`, {
-            params : {
-                expand: 'products'
-            },
+        const response = await axios.get(`${URL}/purchase-orders?expand=products`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

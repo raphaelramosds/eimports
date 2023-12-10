@@ -32,7 +32,7 @@ export function NewSaleForm() {
     const token = useContextSelector(UserContext, context => context.access_token)
     const products = useContextSelector(ProductsContext, context => context.products)
     const customers = useContextSelector(CustomersContext, context => context.customers)
-    const createSale = useContextSelector(SalesContext, context => context.createSale)
+    const refresh = useContextSelector(SalesContext, context => context.refresh)
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([])
 
     const {
@@ -88,6 +88,7 @@ export function NewSaleForm() {
                 client_id: Number(data.client_id),
                 products: data.products
             })
+            refresh(token)
             reset()
             setSelectedProducts([])
         }, {
