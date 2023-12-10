@@ -12,9 +12,10 @@
     <div id="demo"></div>
 
     <script>
-        const url = "http://localhost:8080/purchase-orders/settle/9";
+        const id = 1;
+        const url = `http://localhost:8080/purchase-orders/settle/${id}`;
         fetch(url, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization" : "Bearer KjwXWcdx5FkVjnXHaxq8YLsXQ6CYFZNJ"
