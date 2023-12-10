@@ -63,6 +63,10 @@ $config = [
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
+                    'controller' => 'clients'
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
                     'controller' => 'categories'
                 ],
                 [
