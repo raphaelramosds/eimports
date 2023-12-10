@@ -116,3 +116,22 @@ WHERE
 ORDER BY
     purchase_order.purchase;
 ```
+
+## Listar os produtos vendidos em uma ordem de compra
+
+- Consulta
+
+```sql
+SELECT
+    purchase_order.id AS order_id,
+    product.name AS product_name,
+    product_purchase_order.price AS sold_price
+FROM
+    purchase_order
+JOIN
+    product_purchase_order ON purchase_order.id = product_purchase_order.purchase_order_id
+JOIN
+    product ON product_purchase_order.product_id = product.id
+ORDER BY
+    purchase_order.id, product.name;
+```
