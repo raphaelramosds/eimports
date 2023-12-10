@@ -26,12 +26,12 @@ export function CustomersList() {
                                 <h6 className="text-base text-gray-100">{customer.name}</h6>
                                 <div className="flex gap-4 ">
                                     <h6 className="text-xs text-green-300 before:content-['Telefone:_'] before:text-gray-300">{customer.phone}</h6>
-                                    <h6 className="text-xs text-green-300 before:content-['CPF/CNPJ:_'] before:text-gray-300">{customer.cpf_cnpj}</h6>
+                                    {/* <h6 className="text-xs text-green-300 before:content-['CPF/CNPJ:_'] before:text-gray-300">{customer.cpf_cnpj}</h6> */}
                                 </div>
                             </div>
                             <button
                                 className="text-gray-100 hover:text-red-300 hover:transition-colors"
-                                onClick={() => deleteCustomer(customer.id)}>
+                                onClick={() => { }}>
                                 <X size={20} />
                             </button>
                         </li>

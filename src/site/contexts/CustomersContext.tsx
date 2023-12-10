@@ -15,7 +15,13 @@ export const CustomersContext = createContext({} as CustomersContextType)
 
 export function CustomersContextProvider({ children }: { children: React.ReactNode }) {
     const [state, dispatch] = useReducer(customersReducer, {
-        customers: []
+        customers: [
+            {
+                id: 1,
+                name: 'Niedson',
+                phone: '84991293636'
+            }
+        ]
     })
 
     const { customers } = state

@@ -1,9 +1,11 @@
 'use client'
 
 import { Product } from "@/@types/Product";
+import { User } from "@/@types/User";
 import { createProductAction, deleteProductAction, fetchProductsAction } from "@/reducers/products/actions";
 import { ProductsState, productsReducer } from "@/reducers/products/reducer";
-import { useCallback, useReducer } from "react";
+import { WebServer } from "@/services/WebServer";
+import { useCallback, useEffect, useLayoutEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface ProductsContextType extends ProductsState {
@@ -31,6 +33,26 @@ export function ProductsContextProvider({ children }: { children: React.ReactNod
 
     const fetchProducts = useCallback((products: Product[]) => {
         dispatch(fetchProductsAction(products))
+    }, [])
+
+    useEffect(() => {
+        let user
+        const userJSON = localStorage.getItem('@eimports:user-1.0.0')
+        if (userJSON) {
+            user = JSON.parse(userJSON)
+        }
+        async function getProducts(token: string) {
+            try {
+                const productsData = await WebServer.GetProducts({ token })
+                fetchProducts(productsData)
+                console.log('Fetch Products: ', productsData)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        if (user.access_token) {
+            getProducts(user.access_token)
+        }
     }, [])
 
     return (

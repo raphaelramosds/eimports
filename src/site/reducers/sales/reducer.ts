@@ -15,6 +15,18 @@ export function salesReducer(state: SalesState, action: any) {
                     draft.onHoldSale = action.payload
                 })
             }
+        case SalesActionTypes.CREATE_SALE:
+            {
+                return produce(state, (draft) => {
+                    draft.sales.push(action.payload)
+                })
+            }
+        case SalesActionTypes.FETCH_SALES:
+            {
+                return produce(state, (draft) => {
+                    draft.sales = action.payload
+                })
+            }
         default:
             return state
     }

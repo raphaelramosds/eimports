@@ -32,10 +32,9 @@ export function NewCustomerForm() {
 
     async function onSubmit(data: NewCustomerFormInputs) {
         const isNewCustomerValid = createCustomer({
-            id: crypto.randomUUID(),
+            id: 1,
             name: data.name,
             phone: data.phone,
-            cpf_cnpj: data.cpf_cnpj
         })
         if (isNewCustomerValid) {
             setIsValid(true)

@@ -51,9 +51,10 @@ export class WebServer {
         return response.data
     }
 
-    static async CreateProduct({ token, name, description }: { token: string, name: string, description: string }) {
+    static async CreateProduct({ token, name, description, category_id, quotation, stock }:
+        { token: string, name: string, description: string, category_id: number, quotation: string, stock: number }) {
         const response = await axios.post(`${URL}/products`,
-            { name, description }, {
+            { name, description, category_id, quotation, stock }, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -72,6 +73,44 @@ export class WebServer {
 
     static async DeleteProduct({ token, id }: { token: string, id: number }) {
         const response = await axios.delete(`${URL}/products/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async CreateOC({ token, client_id, products }: {
+        token: string, client_id: number, products: Array<{
+            id: number,
+            price: number,
+            quantity: number,
+        }>
+    }) {
+        const response = await axios.post(`${URL}/purchase-orders/products`, {
+            orderData: {
+                client_id
+            },
+            productsData: products
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async GetSales({ token }: { token: string }) {
+        const response = await axios.get(`${URL}/purchase-orders/?expand=products`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async GetTurnover({ token, product_id }: { token: string, product_id: number }) {
+        const response = await axios.get(`${URL}/products/turnover/${product_id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
