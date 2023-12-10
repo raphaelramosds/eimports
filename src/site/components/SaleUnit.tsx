@@ -15,19 +15,19 @@ export function SaleUnit({ sale }: { sale: Sale }) {
         )}>
             <div className='flex flex-col justify-center gap-6'>
                 <div>
-                    <h2 className='text-lg text-gray-100'>{sale.customer.name}</h2>
-                    <span className='text-sm text-gray-300'>{sale.date.toLocaleDateString()}</span>
+                    <h2 className='text-lg text-gray-100'>{sale.client.name}</h2>
+                    <span className='text-sm text-gray-300'>{new Date(sale.purchase).toLocaleDateString('pr-br', { timeZone: 'UTC' })}</span>
                 </div>
-                <div className='flex items-start gap-8'>
+                {/* <div className='flex items-start gap-8'>
                     <div>
                         <h3 className='text-sm text-gray-300'>Valor Total:</h3>
-                        <span className='text-base text-green-300'>R$ {sale.total}</span>
+                        <span className='text-base text-green-300'>R$ {sale.products.reduce()}</span>
                     </div>
                     <div>
                         <h3 className='text-sm text-gray-300'>Método:</h3>
                         <span className='text-base text-green-300'>Crédito</span>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="w-[1px] rounded bg-gray-800/40" />
             <div className='grow flex flex-col justify-start gap-1'>
@@ -35,16 +35,25 @@ export function SaleUnit({ sale }: { sale: Sale }) {
                 <ul className='[&>li]:text-xs text-gray-100 [&_span]:text-green-300 tracking-wide'>
                     {sale.products.map(product => (
                         <li key={product.id}>
-                            {/* <span>{product.quantity}x</span> {product.name} */}
+                            {product.name}
                         </li>
 
                     ))}
                 </ul>
             </div>
-            <div className='flex flex-col justify-between items-end'>
+            <div className='flex flex-col justify-between items-end gap-4'>
                 <div className='flex items-center gap-2'>
-                    <span className='status-indicator' />
-                    <span className='uppercase text-xs text-green-300'>Pago</span>
+                    <span className={clsx(
+                        'status-indicator',
+                        sale.settlement ? 'bg-green-300' : 'bg-yellow-300',
+                        sale.settlement ? 'after:bg-green-500' : 'after:bg-yellow-500'
+                    )} />
+                    <span className={clsx(
+                        'uppercase text-xs',
+                        sale.settlement ? 'text-green-300' : 'text-yellow-300'
+                    )}>
+                        {sale.settlement ? 'Pago' : 'Aguardando pagamento'}
+                    </span>
                 </div>
                 <button
                     onClick={() => holdSale(sale)}

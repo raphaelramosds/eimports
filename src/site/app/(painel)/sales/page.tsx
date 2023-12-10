@@ -15,7 +15,7 @@ export default function SalesPage() {
 
     return (
         <div className="h-full flex flex-col-reverse lg:flex-col">
-            {/* <section className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
+            <section className="flex items-center justify-center bg-gray-700 p-4 border-b border-gray-600">
                 <SearchSaleForm />
             </section>
             <div className={clsx(
@@ -42,8 +42,8 @@ export default function SalesPage() {
                                 </div>
                             </section>
                             <section className={clsx(
-                                "grow flex flex-col gap-6",
-                                "overflow-y-auto h-full pr-4"
+                                "grow flex flex-col gap-4",
+                                "overflow-y-auto max-h-[calc(100dvh-83px-1.5rem-24px)] pr-4"
                             )}>
                                 {
                                     sales.map(sale => (
@@ -53,8 +53,7 @@ export default function SalesPage() {
                             </section>
                         </div>
                 }
-            </div> */}
-            volta já
+            </div>
         </div >
     )
 }

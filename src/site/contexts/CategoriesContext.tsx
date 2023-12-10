@@ -3,7 +3,8 @@
 import { Category } from "@/@types/Category";
 import { createCategoryAction, deleteCategoryAction, fetchCategoriesAction } from "@/reducers/categories/actions";
 import { CategoriesState, categoriesReducer } from "@/reducers/categories/reducer";
-import { useCallback, useReducer } from "react";
+import { WebServer } from "@/services/WebServer";
+import { useCallback, useEffect, useLayoutEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface CategoriesContextType extends CategoriesState {
@@ -33,6 +34,25 @@ export function CategoriesContextProvider({ children }: { children: React.ReactN
         dispatch(fetchCategoriesAction(categories))
     }, [])
 
+    useEffect(() => {
+        let user
+        const userJSON = localStorage.getItem('@eimports:user-1.0.0')
+        if (userJSON) {
+            user = JSON.parse(userJSON)
+        }
+        async function getCategories(token: string) {
+            try {
+                const categoriesData = await WebServer.GetCategories({ token })
+                fetchCategories(categoriesData)
+                console.log('Fetch Categories: ', categoriesData)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        if (user.access_token) {
+            getCategories(user.access_token)
+        }
+    }, [])
 
     return (
         <CategoriesContext.Provider value={{ categories, createCategory, deleteCategory, fetchCategories }}>

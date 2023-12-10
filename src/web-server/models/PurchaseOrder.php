@@ -67,7 +67,7 @@ class PurchaseOrder extends \yii\db\ActiveRecord
                 'value' => new Expression('NOW()'),
             ]
         ];
-    }   
+    }
 
     /**
      * {@inheritdoc}
@@ -82,6 +82,28 @@ class PurchaseOrder extends \yii\db\ActiveRecord
             'client_id' => 'Client ID',
             'seller_id' => 'Seller ID',
         ];
+    }
+
+    /**
+     * Fields of purchase orders visible on response
+     *
+     * @return [type]
+     * 
+     */
+    public function fields()
+    {
+        return ['id', 'purchase', 'settlement', 'client'];
+    }
+
+    /**
+     * Fields visible via expand parameter
+     *
+     * @return [type]
+     * 
+     */
+    public function extraFields()
+    {
+        return ['products'];
     }
 
     /**

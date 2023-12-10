@@ -1,6 +1,5 @@
 export interface Customer {
-    id: string;
+    id: number;
     name: string;
-    phone: string;
-    cpf_cnpj: string;
+    phone_num: string;
 }

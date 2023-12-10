@@ -8,6 +8,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useContextSelector } from "use-context-selector"
 import { z } from "zod"
+import { toast } from 'react-toastify'
 
 const newCategoryFormSchema = z.object({
     description: z.string(),
@@ -30,22 +31,28 @@ export function NewCategoryForm() {
     })
 
     async function onSubmit(data: NewCategoryFormInputs) {
-        const newCategory = await WebServer.CreateCategory({
-            token,
-            description: data.description
+        toast.promise(async () => {
+            const newCategory = await WebServer.CreateCategory({
+                token,
+                description: data.description
+            })
+            const isNewCategoryValid = newCategory ? createCategory({
+                id: newCategory.id,
+                seller_id: newCategory.seller_id,
+                description: newCategory.description
+            }) : false
+            if (newCategory) {
+                setIsValid(true)
+                reset()
+            } else {
+                setIsValid(false)
+            }
+        }, {
+            error: 'Erro ao adicionar categoria.',
+            success: 'Categoria adicionada com sucesso.',
+            pending: 'Adicionando categoria...'
         })
-        console.log('Create Category: ', newCategory)
-        const isNewCategoryValid = newCategory ? createCategory({
-            id: newCategory.id,
-            seller_id: newCategory.seller_id,
-            description: newCategory.description
-        }) : false
-        if (newCategory) {
-            setIsValid(true)
-            reset()
-        } else {
-            setIsValid(false)
-        }
+
     }
 
     return (

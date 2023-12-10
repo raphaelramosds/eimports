@@ -63,11 +63,19 @@ $config = [
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
+                    'controller' => 'clients'
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
                     'controller' => 'categories'
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'products'
+                    'controller' => 'products',
+                    'extraPatterns' => [
+                        'GET turnover/<id:\d+>' => 'turnover',
+                        'OPTIONS turnover/<id:\d+>' => 'turnover',
+                    ]
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',

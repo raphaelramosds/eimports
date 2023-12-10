@@ -17,7 +17,11 @@
   }
 
   .form-input {
-    @apply flex items-center rounded-md bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500
+    @apply flex items-center rounded-md bg-gray-900 text-gray-300 p-4 placeholder:text-gray-500 [&::-webkit-outer-spin-button]:hidden [&::-webkit-inner-spin-button]:hidden
+  }
+
+  .form-input-prefix {
+    @apply before:content-[""] before:grid before:place-items-center bg-gray-800 text-gray-100 p-1
   }
 
   .form-submit {
@@ -25,11 +29,11 @@
   }
 
   .form-wrapper {
-    @apply flex flex-col gap-2 bg-gray-700 px-8 py-12 rounded-md
+    @apply flex flex-col gap-2 bg-gray-700 px-8 py-10 rounded-md
   }
 
   .form-title {
-    @apply text-gray-300 text-lg mb-2
+    @apply text-gray-300 text-sm mb-2 flex uppercase lined-title font-semibold
   }
 
   .tabs-trigger {
@@ -42,6 +46,10 @@
 
   .diamond {
     @apply grid place-items-center relative w-fit h-fit self-end before:content-[""] before:w-5 before:h-5 before:bg-green-500 before:clip-cristal after:w-3 after:h-3 after:bg-green-300 after:clip-cristal after:absolute after:top-[0.5px] after:right-[1px] after:content-[""]
+  }
+
+  .lined-title {
+    @apply items-center gap-4 text-gray-100 before:content-[""] before:grow before:bg-gray-100 before:h-[1px] after:content-[""] after:grow after:bg-gray-100 after:h-[1px]
   }
 
 }
@@ -77,6 +85,8 @@
   --red-300: #F75A68;
   --red-500: #AB222E;
   --red-700: #7A1921;
+  --toastify-color-light: #7A1921;
+  --toastify-color-dark: #7A1921;
 }
 
 * {

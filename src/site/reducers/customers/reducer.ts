@@ -28,6 +28,12 @@ export function customersReducer(state: CustomersState, action: any) {
                     draft.customers[i] = action.payload
                 })
             }
+        case CustomerActionTypes.FETCH_CUSTOMERS:
+            {
+                return produce(state, (draft) => {
+                    draft.customers = action.payload
+                })
+            }
         default:
             return state
     }

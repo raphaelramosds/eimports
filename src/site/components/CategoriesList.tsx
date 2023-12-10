@@ -5,6 +5,7 @@ import { UserContext } from "@/contexts/UserContext"
 import { WebServer } from "@/services/WebServer"
 import clsx from "clsx"
 import { X } from "lucide-react"
+import { toast } from "react-toastify"
 import { useContextSelector } from "use-context-selector"
 
 export function CategoriesList() {
@@ -12,11 +13,16 @@ export function CategoriesList() {
     const { categories, deleteCategory, fetchCategories } = useContextSelector(CategoriesContext, context => context)
 
     async function handleDeleteCategory(id: number) {
-        const deletedCategory = await WebServer.DeleteCategory({
-            token, id
+        toast.promise(async () => {
+            const deletedCategory = await WebServer.DeleteCategory({
+                token, id
+            })
+            deleteCategory(id)
+        }, {
+            pending: 'Deletando categoria...',
+            success: 'Categoria deletada com sucesso',
+            error: 'Erro ao deletar categoria'
         })
-        deleteCategory(id)
-        console.log('Delete Category: ', deletedCategory)
     }
 
     return (
@@ -24,12 +30,12 @@ export function CategoriesList() {
             <h2 className="form-title">
                 Categorias
             </h2>
-            <ul className="flex flex-col rounded overflow-hidden max-h-[500px] overflow-y-auto">
+            <ul className="flex flex-col rounded overflow-hidden max-h-[500px] overflow-y-auto [&>li:not(:last-child)]:border-b">
                 {categories.length > 0
                     ? categories.map((category, i) => (
                         <li key={i} className={clsx(
                             "flex p-4 items-center justify-between",
-                            "bg-gray-800 hover:bg-gray-900"
+                            "bg-gray-800 hover:bg-gray-900 border-gray-700"
                         )}>
                             <span className="text-gray-100">{category.description}</span>
                             <button

@@ -7,14 +7,18 @@ import { WebServer } from '@/services/WebServer'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Select from '@radix-ui/react-select'
 import { ChevronDown } from 'lucide-react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import { z } from 'zod'
+import { useHookFormMask } from 'use-mask-input'
+import { toast } from 'react-toastify'
 
 const newProductFormSchema = z.object({
     name: z.string().min(3).max(50),
     description: z.string().min(3).max(50),
-    // category_id: z.number().min(1),
+    category_id: z.string().min(1),
+    quotation: z.string().min(3),
+    stock: z.number().min(1),
 })
 
 type NewProductFormInputs = z.infer<typeof newProductFormSchema>
@@ -27,28 +31,40 @@ export function NewProductForm() {
     const {
         register,
         handleSubmit,
+        control,
         reset,
         formState: { isSubmitting, errors },
     } = useForm<NewProductFormInputs>({
         resolver: zodResolver(newProductFormSchema)
     })
 
-    async function onSubmit(data: NewProductFormInputs) {
-        const newProduct = await WebServer.CreateProduct({
-            token, name: data.name, description: data.description
-        })
-        createProduct({
-            id: newProduct.id,
-            seller_id: newProduct.seller_id,
-            category_id: newProduct.category_id,
-            name: newProduct.name,
-            description: newProduct.description,
-        })
-        console.log('Create Product: ', data)
-        reset()
-    }
+    const registerWithMask = useHookFormMask(register)
 
-    console.log(errors)
+    async function onSubmit(data: NewProductFormInputs) {
+        toast.promise(async () => {
+            const newProduct = await WebServer.CreateProduct({
+                token,
+                category_id: Number(data.category_id),
+                name: data.name,
+                description: data.description,
+                stock: data.stock,
+                quotation: data.quotation,
+            })
+            createProduct({
+                id: newProduct.id,
+                category_id: Number(data.category_id),
+                name: data.name,
+                description: data.description,
+                stock: data.stock,
+                quotation: data.quotation,
+            })
+            reset()
+        }, {
+            pending: 'Adicionando produto...',
+            success: 'Produto adicionado com sucesso!',
+            error: 'Erro ao adicionar produto!'
+        })
+    }
 
     return (
         <form
@@ -72,37 +88,58 @@ export function NewProductForm() {
                 required
                 {...register('description')}
             />
-            <Select.Root disabled={categories.length < 1} >
-                <Select.Trigger className='form-input relative aria-disabled:cursor-not-allowed' aria-disabled={categories.length < 1}>
-                    <Select.Value
-                        className='text-gray-300 placeholder:text-gray-500'
-                        placeholder={categories.length < 1 ? 'Sem categorias cadastradas' : 'Selecione categoria'}
-                    />
-                    <Select.Icon className="absolute right-2">
-                        <ChevronDown />
-                    </Select.Icon>
-                </Select.Trigger>
-                <Select.Content>
-                    <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600'>
-                        <Select.Group>
-                            {categories.map((category, i) => {
-                                return <Select.Item
-                                    className='hover:bg-gray-600 text-gray-300 p-4 rounded cursor-pointer'
-                                    key={i}
-                                    value={String(category.id)}>
-                                    <Select.ItemText>{category.description}</Select.ItemText>
-                                </Select.Item>
-                            })}
-                        </Select.Group>
-                    </Select.Viewport>
-                </Select.Content>
-
-            </Select.Root>
-            {/* <input
-                className="form-input [&::-webkit-outer-spin-button]:hidden [&::-webkit-inner-spin-button]:hidden"
-                placeholder="Quantidade"
+            <input
+                className="form-input"
+                placeholder="Preço"
+                type="text"
+                required
+                {...registerWithMask('quotation', ['R$ 9[9{*}],99'], {
+                    autoUnmask: true,
+                    showMaskOnHover: false,
+                })}
+            />
+            <input
+                className="form-input"
+                placeholder="Estoque"
                 type="number"
-            /> */}
+                maxLength={10}
+                required
+                {...register('stock', {
+                    valueAsNumber: true
+                })}
+            />
+            <Controller
+                name='category_id'
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                    <Select.Root disabled={categories.length < 1} onValueChange={onChange} value={value} >
+                        <Select.Trigger className='form-input relative aria-disabled:cursor-not-allowed' aria-disabled={categories.length < 1}>
+                            <Select.Value
+                                className='text-gray-300 placeholder:text-gray-500'
+                                placeholder={categories.length < 1 ? 'Sem categorias cadastradas' : 'Selecione categoria'}
+                            />
+                            <Select.Icon className="absolute right-2">
+                                <ChevronDown />
+                            </Select.Icon>
+                        </Select.Trigger>
+                        <Select.Content>
+                            <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600'>
+                                <Select.Group>
+                                    {categories.map((category, i) => {
+                                        return <Select.Item
+                                            className='hover:bg-gray-600 text-gray-300 p-4 rounded cursor-pointer'
+                                            key={i}
+                                            value={String(category.id)}>
+                                            <Select.ItemText>{category.description}</Select.ItemText>
+                                        </Select.Item>
+                                    })}
+                                </Select.Group>
+                            </Select.Viewport>
+                        </Select.Content>
+                    </Select.Root>
+                )}>
+
+            </Controller>
             <button
                 disabled={isSubmitting}
                 type='submit'
