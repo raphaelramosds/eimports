@@ -132,6 +132,8 @@ JOIN
     product_purchase_order ON purchase_order.id = product_purchase_order.purchase_order_id
 JOIN
     product ON product_purchase_order.product_id = product.id
+WHERE
+    purchase_order.id = 3
 ORDER BY
     purchase_order.id, product.name;
 ```
