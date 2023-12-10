@@ -101,12 +101,20 @@ export class WebServer {
     }
 
     static async SettleOC({ token, sale_id }: { token: string, sale_id: number }) {
-        const response = await axios.put(`${URL}/purchase-orders/settle/${sale_id}`, {
+        // const response = await axios.patch(`${URL}/purchase-orders/settle/${sale_id}`, {
+        //     headers: {
+        //         Authorization: `Bearer ${token}`
+        //     }
+        // })
+        // return response.data
+
+        const res = await fetch(`${URL}/purchase-orders/settle/${sale_id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
-            }
+            },
+            method: 'PUT'
         })
-        return response.data
+        return res.json().then(res => res.data)
     }
 
     static async GetSales({ token }: { token: string }) {
@@ -120,6 +128,35 @@ export class WebServer {
 
     static async GetTurnover({ token, product_id }: { token: string, product_id: number }) {
         const response = await axios.get(`${URL}/products/turnover/${product_id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async GetCustomers({ token }: { token: string }) {
+        const response = await axios.get(`${URL}/clients`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async CreateCostumer({ token, name, phone_num }:
+        { token: string, name: string, phone_num: string }) {
+        const response = await axios.post(`${URL}/clients`,
+            { name, phone_num }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data
+    }
+
+    static async DeleteCustomer({ token, id }: { token: string, id: number }) {
+        const response = await axios.delete(`${URL}/clients/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

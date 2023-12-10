@@ -5,6 +5,7 @@ import { UserContext } from "@/contexts/UserContext"
 import { WebServer } from "@/services/WebServer"
 import clsx from "clsx"
 import { X } from "lucide-react"
+import { toast } from "react-toastify"
 import { useContextSelector } from "use-context-selector"
 
 export function CategoriesList() {
@@ -12,11 +13,16 @@ export function CategoriesList() {
     const { categories, deleteCategory, fetchCategories } = useContextSelector(CategoriesContext, context => context)
 
     async function handleDeleteCategory(id: number) {
-        const deletedCategory = await WebServer.DeleteCategory({
-            token, id
+        toast.promise(async () => {
+            const deletedCategory = await WebServer.DeleteCategory({
+                token, id
+            })
+            deleteCategory(id)
+        }, {
+            pending: 'Deletando categoria...',
+            success: 'Categoria deletada com sucesso',
+            error: 'Erro ao deletar categoria'
         })
-        deleteCategory(id)
-        console.log('Delete Category: ', deletedCategory)
     }
 
     return (

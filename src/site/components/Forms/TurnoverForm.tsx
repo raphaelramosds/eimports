@@ -48,7 +48,7 @@ export function TurnoverForm() {
                     name='product_id'
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                        <Select.Root disabled={products.length < 1} onValueChange={onChange}>
+                        <Select.Root disabled={products.length < 1} onValueChange={onChange} value={value}>
                             <Select.Trigger className='form-input relative aria-disabled:cursor-not-allowed grow' aria-disabled={products.length < 1}>
                                 <Select.Value
                                     className='text-gray-300 placeholder:text-gray-500'

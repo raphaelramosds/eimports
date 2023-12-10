@@ -39,8 +39,7 @@ export function TurnoverChart() {
                     }
                 </div>
             </div>
-            <Card className="bg-gray-700">
-                <Title>Giro de Estoque</Title>
+            <div className="form-wrapper">
                 <BarChart
                     className="mt-6 bg-gray-700"
                     data={chartData}
@@ -51,7 +50,7 @@ export function TurnoverChart() {
                     yAxisWidth={48}
                     onValueChange={(v) => setHighlightData(v)}
                 />
-            </Card>
+            </div>
         </div>
     )
 }

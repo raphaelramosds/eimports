@@ -85,8 +85,8 @@
   --red-300: #F75A68;
   --red-500: #AB222E;
   --red-700: #7A1921;
-  
-  --toastify-color-success: #d30ce6;
+  --toastify-color-light: #7A1921;
+  --toastify-color-dark: #7A1921;
 }
 
 * {

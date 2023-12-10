@@ -5,6 +5,7 @@ import { UserContext } from "@/contexts/UserContext"
 import { WebServer } from "@/services/WebServer"
 import clsx from "clsx"
 import { X } from "lucide-react"
+import { toast } from "react-toastify"
 import { useContextSelector } from "use-context-selector"
 
 export function ProductsList() {
@@ -12,11 +13,16 @@ export function ProductsList() {
     const { products, deleteProduct } = useContextSelector(ProductsContext, context => context)
 
     async function handleDeleteProduct(id: number) {
-        const deletedProduct = await WebServer.DeleteProduct({
-            token, id
+        toast.promise(async () => {
+            const deletedProduct = await WebServer.DeleteProduct({
+                token, id
+            })
+            deleteProduct(id)
+        }, {
+            pending: 'Deletando produto...',
+            success: 'Produto deletado com sucesso',
+            error: 'Erro ao deletar produto'
         })
-        deleteProduct(id)
-        console.log('Delete Product: ', deleteProduct)
     }
 
     return (

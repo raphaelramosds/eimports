@@ -1,27 +1,23 @@
 'use client'
 
 import { Customer } from "@/@types/Customer";
-import { createCustomerAction, deleteCustomerAction } from "@/reducers/customers/actions";
+import { createCustomerAction, deleteCustomerAction, fetchCostumersAction } from "@/reducers/customers/actions";
 import { CustomersState, customersReducer } from "@/reducers/customers/reducer";
-import { useCallback, useReducer } from "react";
+import { WebServer } from "@/services/WebServer";
+import { useCallback, useEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface CustomersContextType extends CustomersState {
     createCustomer: (customer: Customer) => boolean;
-    deleteCustomer: (id: string) => void;
+    deleteCustomer: (id: number) => void;
+    fetchCustomers: (customers: Customer[]) => void;
 }
 
 export const CustomersContext = createContext({} as CustomersContextType)
 
 export function CustomersContextProvider({ children }: { children: React.ReactNode }) {
     const [state, dispatch] = useReducer(customersReducer, {
-        customers: [
-            {
-                id: 1,
-                name: 'Niedson',
-                phone: '84991293636'
-            }
-        ]
+        customers: []
     })
 
     const { customers } = state
@@ -35,12 +31,36 @@ export function CustomersContextProvider({ children }: { children: React.ReactNo
         }
     }, [])
 
-    const deleteCustomer = useCallback((id: string) => {
+    const deleteCustomer = useCallback((id: number) => {
         dispatch(deleteCustomerAction(id))
     }, [])
 
+    const fetchCustomers = useCallback((customers: Customer[]) => {
+        dispatch(fetchCostumersAction(customers))
+    }, [])
+
+    useEffect(() => {
+        let user
+        const userJSON = localStorage.getItem('@eimports:user-1.0.0')
+        if (userJSON) {
+            user = JSON.parse(userJSON)
+        }
+        async function getCustomers(token: string) {
+            try {
+                const customersData = await WebServer.GetCustomers({ token })
+                fetchCustomers(customersData)
+                console.log('Fetch Customers: ', customersData)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        if (user.access_token) {
+            getCustomers(user.access_token)
+        }
+    }, [])
+
     return (
-        <CustomersContext.Provider value={{ customers, createCustomer, deleteCustomer }}>
+        <CustomersContext.Provider value={{ customers, createCustomer, deleteCustomer, fetchCustomers }}>
             {children}
         </CustomersContext.Provider>
     )

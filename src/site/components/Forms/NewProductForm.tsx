@@ -11,6 +11,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import { z } from 'zod'
 import { useHookFormMask } from 'use-mask-input'
+import { toast } from 'react-toastify'
 
 const newProductFormSchema = z.object({
     name: z.string().min(3).max(50),
@@ -40,7 +41,7 @@ export function NewProductForm() {
     const registerWithMask = useHookFormMask(register)
 
     async function onSubmit(data: NewProductFormInputs) {
-        try {
+        toast.promise(async () => {
             const newProduct = await WebServer.CreateProduct({
                 token,
                 category_id: Number(data.category_id),
@@ -58,12 +59,12 @@ export function NewProductForm() {
                 quotation: data.quotation,
             })
             reset()
-        } catch (e) {
-            console.log(e)
-        }
+        }, {
+            pending: 'Adicionando produto...',
+            success: 'Produto adicionado com sucesso!',
+            error: 'Erro ao adicionar produto!'
+        })
     }
-
-    console.log(errors)
 
     return (
         <form

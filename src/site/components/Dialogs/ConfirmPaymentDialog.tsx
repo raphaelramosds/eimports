@@ -4,25 +4,33 @@ import { UserContext } from '@/contexts/UserContext'
 import { WebServer } from '@/services/WebServer'
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
+import { useRef } from 'react'
 import { toast } from 'react-toastify'
 import { useContextSelector } from 'use-context-selector'
 
 export function ConfirmPaymentDialog({ sale }: { sale: Sale }) {
     const token = useContextSelector(UserContext, context => context.access_token)
     const refresh = useContextSelector(SalesContext, context => context.refresh)
+    const holdSale = useContextSelector(SalesContext, context => context.holdSale)
+    const ref = useRef<HTMLButtonElement>(null)
 
     function settleOC() {
+        console.log(token, sale.id)
         toast.promise(async () => {
             console.log(token, sale.id)
             let i = await WebServer.SettleOC({ token, sale_id: sale.id! })
             console.log(i)
             refresh(token)
+            ref.current?.click()
+            holdSale(null)
         }, {
             pending: 'Processando pagamento...',
             success: 'Pagamento confirmado!',
             error: 'Erro ao confirmar pagamento!'
         })
     }
+
+    console.log(sale)
 
     return (
         <Dialog.Portal>
@@ -34,7 +42,7 @@ export function ConfirmPaymentDialog({ sale }: { sale: Sale }) {
                     >
                         Deseja confirmar o pagamento dessa compra?
                     </Dialog.Title>
-                    <Dialog.Close className='absolute top-2 right-2'>
+                    <Dialog.Close ref={ref} className='absolute top-2 right-2'>
                         <X size={24} color='var(--gray-300)' />
                     </Dialog.Close>
                     <div className='flex items-center justify-center gap-4 p-6'>

@@ -2,13 +2,28 @@
 'use client'
 
 import { CustomersContext } from "@/contexts/CustomersContext"
+import { UserContext } from "@/contexts/UserContext"
+import { WebServer } from "@/services/WebServer"
 import clsx from "clsx"
 import { X } from "lucide-react"
+import { toast } from "react-toastify"
 import { useContextSelector } from "use-context-selector"
 
 export function CustomersList() {
+    const token = useContextSelector(UserContext, context => context.access_token)
     const customers = useContextSelector(CustomersContext, context => context.customers)
     const deleteCustomer = useContextSelector(CustomersContext, context => context.deleteCustomer)
+
+    function handleDeleteCustomer(id: number) {
+        toast.promise(async () => {
+            const deletedCustomer = await WebServer.DeleteCustomer({ id, token })
+            deleteCustomer(id)
+        }, {
+            pending: 'Deletando cliente...',
+            success: 'Cliente deletado!',
+            error: 'Erro ao deletar cliente.'
+        })
+    }
 
     return (
         <div className="form-wrapper">
@@ -25,13 +40,13 @@ export function CustomersList() {
                             <div>
                                 <h6 className="text-base text-gray-100">{customer.name}</h6>
                                 <div className="flex gap-4 ">
-                                    <h6 className="text-xs text-green-300 before:content-['Telefone:_'] before:text-gray-300">{customer.phone}</h6>
+                                    <h6 className="text-xs text-green-300 before:content-['Telefone:_'] before:text-gray-300">{customer.phone_num}</h6>
                                     {/* <h6 className="text-xs text-green-300 before:content-['CPF/CNPJ:_'] before:text-gray-300">{customer.cpf_cnpj}</h6> */}
                                 </div>
                             </div>
                             <button
                                 className="text-gray-100 hover:text-red-300 hover:transition-colors"
-                                onClick={() => { }}>
+                                onClick={() => handleDeleteCustomer(customer.id)}>
                                 <X size={20} />
                             </button>
                         </li>

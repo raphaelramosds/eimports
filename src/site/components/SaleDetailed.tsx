@@ -11,9 +11,12 @@ export function SaleDetailed({ sale }: { sale: Sale }) {
             "bg-gray-600 rounded-md",
         )}>
             <header className='flex justify-between items-start gap-6 border-b border-gray-800/40 pb-6'>
-                <div>
-                    <h2 className='text-lg text-gray-100'>{sale.client.name}</h2>
-                    <span className='text-md text-gray-300'>{new Date(sale.purchase).toLocaleDateString('pr-br', { timeZone: 'UTC' })}</span>
+                <div className='flex flex-col gap-2'>
+                    <h2 className='text-xl text-gray-100'>{sale.client.name}</h2>
+                    <div className='flex gap-8'>
+                        <h3 className='text-mdtext-gray-300'>Data de compra: <span className='text-green-300'>{new Date(sale.purchase).toLocaleDateString('pr-br', { timeZone: 'UTC' })}</span></h3>
+                        <h3 className='text-mdtext-gray-300'>Data de pagamento: <span className='text-green-300'>{sale.settlement ? new Date(sale.settlement).toLocaleDateString('pr-br', { timeZone: 'UTC' }) : 'Sem pagamento'}</span></h3>
+                    </div>
                 </div>
                 <div className='flex items-center gap-2'>
                     <span className={clsx(
@@ -77,7 +80,7 @@ export function SaleDetailed({ sale }: { sale: Sale }) {
                                 Confirmar pagamento
                             </button>
                         </Dialog.Trigger>
-                        <ConfirmPaymentDialog sale={sale}/>
+                        <ConfirmPaymentDialog sale={sale} />
                     </Dialog.Root>
                 </div>
             </footer>

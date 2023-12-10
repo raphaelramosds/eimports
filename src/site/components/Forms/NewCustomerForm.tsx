@@ -7,16 +7,20 @@ import { useContextSelector } from "use-context-selector"
 import { z } from "zod"
 // import { useHookFormMask } from "use-mask-input"
 import { useState } from "react"
+import { useHookFormMask } from "use-mask-input"
+import { WebServer } from "@/services/WebServer"
+import { UserContext } from "@/contexts/UserContext"
+import { toast } from "react-toastify"
 
 const newCustomerFormSchema = z.object({
     name: z.string().min(3).max(50),
     phone: z.string().min(10).max(20),
-    cpf_cnpj: z.string().min(11).max(20)
 })
 
 type NewCustomerFormInputs = z.infer<typeof newCustomerFormSchema>
 
 export function NewCustomerForm() {
+    const token = useContextSelector(UserContext, context => context.access_token)
     const createCustomer = useContextSelector(CustomersContext, context => context.createCustomer)
 
     const {
@@ -27,21 +31,32 @@ export function NewCustomerForm() {
     } = useForm<NewCustomerFormInputs>({
         resolver: zodResolver(newCustomerFormSchema),
     })
-    // const registerWithMask = useHookFormMask(register)
+    const registerWithMask = useHookFormMask(register)
     const [isValid, setIsValid] = useState<boolean>(true)
 
     async function onSubmit(data: NewCustomerFormInputs) {
-        const isNewCustomerValid = createCustomer({
-            id: 1,
-            name: data.name,
-            phone: data.phone,
+        toast.promise(async () => {
+            const newCustomer = await WebServer.CreateCostumer({
+                name: data.name,
+                phone_num: data.phone,
+                token
+            })
+            const isNewCustomerValid = createCustomer({
+                id: newCustomer.id,
+                name: data.name,
+                phone_num: data.phone,
+            })
+            if (isNewCustomerValid) {
+                setIsValid(true)
+                reset()
+            } else {
+                setIsValid(false)
+            }
+        }, {
+            pending: 'Adicionando cliente...',
+            success: 'Cliente adicionado!',
+            error: 'Erro ao adicionar cliente.'
         })
-        if (isNewCustomerValid) {
-            setIsValid(true)
-            reset()
-        } else {
-            setIsValid(false)
-        }
     }
 
     console.log(errors)
@@ -62,7 +77,7 @@ export function NewCustomerForm() {
                 required
                 {...register('name')}
             />
-            {/* <input
+            <input
                 className="form-input"
                 placeholder="Telefone"
                 type="text"
@@ -70,20 +85,11 @@ export function NewCustomerForm() {
                 {...registerWithMask('phone', ['(99) 9999-9999', '(99) 99999-9999'], {
                     showMaskOnHover: false,
                     autoUnmask: true,
+
                 })}
-            /> */}
-            {/* <input
-                className="form-input"
-                placeholder="CPF/CNPJ"
-                type="text"
-                required
-                {...registerWithMask('cpf_cnpj', ['999.999.999-99', '99.999.999/9999-99'], {
-                    showMaskOnHover: false,
-                    autoUnmask: true,
-                })}
-            /> */}
+            />
             <span className="text-xs text-red-300">
-                {(errors.name || errors.cpf_cnpj || errors.phone) ?
+                {(errors.name || errors.phone) ?
                     'Dados inválidos, verifique e tente novamente.'
                     : !isValid && 'Cliente já existe.'}
             </span>

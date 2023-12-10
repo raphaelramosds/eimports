@@ -1,11 +1,10 @@
 'use client'
 
 import { Product } from "@/@types/Product";
-import { User } from "@/@types/User";
 import { createProductAction, deleteProductAction, fetchProductsAction } from "@/reducers/products/actions";
 import { ProductsState, productsReducer } from "@/reducers/products/reducer";
 import { WebServer } from "@/services/WebServer";
-import { useCallback, useEffect, useLayoutEffect, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface ProductsContextType extends ProductsState {
