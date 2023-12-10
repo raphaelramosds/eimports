@@ -23,7 +23,7 @@ class ActiveController extends  \yii\rest\ActiveController
         unset($behaviors['authenticator']);
 
         $behaviors['corsFilter'] = [
-            'class' => \yii\filters\Cors::className(),
+            'class' => \yii\filters\Cors::class,
         ];
 
         $behaviors['authenticator'] = [
