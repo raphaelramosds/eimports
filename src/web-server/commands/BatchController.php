@@ -88,11 +88,10 @@ class BatchController extends Controller
 
         // Populate purchase orders
         $purchase_orders = [
-            ['id' => 1, 'purchase' => '2023-01-15', 'settlement' => '2023-01-15', 'receipt' => 'Receipt_001', 'client_id' => 1, 'seller_id' => 1],
-            ['id' => 2, 'purchase' => '2023-01-10', 'settlement' => '2023-01-10', 'receipt' => 'Receipt_002', 'client_id' => 2, 'seller_id' => 2],
-            ['id' => 3, 'purchase' => '2023-02-05', 'settlement' => '2023-02-06', 'receipt' => 'Receipt_003', 'client_id' => 3, 'seller_id' => 1],
-            ['id' => 4, 'purchase' => '2023-02-20', 'settlement' => '2023-02-21', 'receipt' => 'Receipt_004', 'client_id' => 4, 'seller_id' => 2],
-            ['id' => 5, 'purchase' => '2023-02-15', 'settlement' => '2023-02-16', 'receipt' => 'Receipt_005', 'client_id' => 5, 'seller_id' => 1],
+            ['id' => 1, 'purchase' => '2023-01-15', 'settlement' => '2023-01-15', 'receipt' => 'Receipt_001', 'client_id' => 2, 'seller_id' => 1],
+            ['id' => 2, 'purchase' => '2023-01-10', 'settlement' => '2023-01-10', 'receipt' => 'Receipt_002', 'client_id' => 2, 'seller_id' => 1],
+            ['id' => 3, 'purchase' => '2023-02-05', 'settlement' => '2023-02-06', 'receipt' => 'Receipt_003', 'client_id' => 4, 'seller_id' => 1],
+            ['id' => 4, 'purchase' => '2023-02-20', 'settlement' => '2023-02-21', 'receipt' => 'Receipt_004', 'client_id' => 4, 'seller_id' => 1],
         ];
         \Yii::$app->db->createCommand()
             ->batchInsert(PurchaseOrder::tableName(), array_keys($purchase_orders[1]), $purchase_orders)
@@ -109,8 +108,6 @@ class BatchController extends Controller
             ['purchase_order_id' => 3, 'product_id' => 1, 'price' => 2516, 'quantity' => 2],
             ['purchase_order_id' => 4, 'product_id' => 7, 'price' => 2999, 'quantity' => 1],
             ['purchase_order_id' => 4, 'product_id' => 8, 'price' => 299, 'quantity' => 4],
-            ['purchase_order_id' => 5, 'product_id' => 9, 'price' => 199, 'quantity' => 7],
-            ['purchase_order_id' => 5, 'product_id' => 10, 'price' => 299, 'quantity' => 5],
         ];
 
         $columns = ['purchase_order_id', 'product_id', 'price', 'quantity'];
