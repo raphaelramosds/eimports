@@ -120,7 +120,7 @@ export function NewSaleForm() {
                             <ChevronDown />
                         </Select.Icon>
                     </Select.Trigger>
-                    <Select.Content position='popper' className='z-20'>
+                    <Select.Content position='item-aligned' className='z-20'>
                         <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600 z-50'>
                             <Select.Group>
                                 {customers
@@ -150,7 +150,7 @@ export function NewSaleForm() {
                         <ChevronDown />
                     </Select.Icon>
                 </Select.Trigger>
-                <Select.Content position='popper'>
+                <Select.Content position='item-aligned'>
                     <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600'>
                         <Select.Group>
                             {products

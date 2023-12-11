@@ -30,12 +30,13 @@ export function CustomersList() {
             <h2 className="form-title">
                 Clientes
             </h2>
-            <ul className="flex flex-col rounded overflow-hidden max-h-[600px] overflow-y-auto">
+            <ul className="flex flex-col rounded overflow-hidden max-h-[600px] overflow-y-auto [&>li:not(:last-child)]:border-b">
                 {customers.length > 0
                     ? customers.map((customer, i) => (
                         <li key={i} className={clsx(
                             "flex p-4 items-center justify-between",
                             "bg-gray-800 hover:bg-gray-900",
+                            "border-gray-700"
                         )}>
                             <div>
                                 <h6 className="text-base text-gray-100">{customer.name}</h6>

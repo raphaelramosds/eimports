@@ -35,18 +35,19 @@ export function TurnoverChart() {
                                     <span>das vendas do mês</span>
                                 </div>
                             </>
-                            : <h1 className="text-lg">Nenhum mês selecionado</h1>
+                            : <h1 className="text-base">Nenhum mês selecionado</h1>
                     }
                 </div>
             </div>
             <div className="form-wrapper">
+                <h2 className="text-green-300">{product?.name}</h2>
                 <BarChart
                     className="mt-6 bg-gray-700"
                     data={chartData}
                     index="monthYear"
-                    categories={["Vendas no mês", "Percentual das vendas"]}
+                    categories={["Vendas no mês"]}
                     colors={["emerald", "lime"]}
-                    // valueFormatter={valueFormatter}
+                    showAnimation={true}
                     yAxisWidth={48}
                     onValueChange={(v) => setHighlightData(v)}
                 />

@@ -1,7 +1,7 @@
 'use client'
 
 import { Sale } from "@/@types/Sale";
-import { createSaleAction, fetchSalesAction, holdSaleAction } from "@/reducers/sales/actions";
+import { createSaleAction, fetchSalesAction, holdSaleAction, updatePaymentFilterAction } from "@/reducers/sales/actions";
 import { SalesState, salesReducer } from "@/reducers/sales/reducer";
 import { WebServer } from "@/services/WebServer";
 import { useCallback, useEffect, useReducer } from "react";
@@ -12,6 +12,7 @@ interface SalesContextType extends SalesState {
     fetchSales: (sales: Sale[]) => void;
     createSale: (sale: Sale) => void;
     refresh: (token: string) => void;
+    updatePaymentFilter: (filter: 'payed' | 'pending', flag: boolean) => void
 }
 
 export const SalesContext = createContext({} as SalesContextType)
@@ -30,9 +31,11 @@ export function SalesContextProvider({ children }: { children: React.ReactNode }
     const [salesState, dispatch] = useReducer(salesReducer, {
         onHoldSale: null,
         sales: [],
+        payedFilter: true,
+        pendingFilter: true
     })
 
-    const { onHoldSale, sales } = salesState
+    const { onHoldSale, sales, payedFilter, pendingFilter } = salesState
 
     const holdSale = useCallback((sale: Sale | null) => {
         dispatch(holdSaleAction(sale))
@@ -50,6 +53,10 @@ export function SalesContextProvider({ children }: { children: React.ReactNode }
         getOrders(token)
     }, [])
 
+    const updatePaymentFilter = useCallback((filter: 'payed' | 'pending', flag: boolean) => {
+        dispatch(updatePaymentFilterAction(filter, flag))
+    }, [])
+
     useEffect(() => {
         let user
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
@@ -62,7 +69,7 @@ export function SalesContextProvider({ children }: { children: React.ReactNode }
     }, [])
 
     return (
-        <SalesContext.Provider value={{ onHoldSale, sales, holdSale, fetchSales, createSale, refresh }}>
+        <SalesContext.Provider value={{ onHoldSale, sales, holdSale, fetchSales, createSale, refresh, updatePaymentFilter, payedFilter, pendingFilter }}>
             {children}
         </SalesContext.Provider>
     )

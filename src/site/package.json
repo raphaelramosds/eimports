@@ -21,6 +21,7 @@
     "lucide-react": "^0.292.0",
     "next": "^14.0.5-canary.0",
     "react": "^18.2.0",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
     "react-toastify": "^9.1.3",

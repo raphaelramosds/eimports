@@ -7,11 +7,21 @@ import { useContextSelector } from "use-context-selector";
 import { SalesContext } from "@/contexts/SalesContext";
 import { SaleDetailed } from "@/components/SaleDetailed";
 import { MoveLeft } from "lucide-react";
+import { SalesPaymentStatusFilter } from "@/components/Filters/SalesPaymentStatusFilter";
 
 export default function SalesPage() {
     const sales = useContextSelector(SalesContext, context => context.sales)
     const onHoldSale = useContextSelector(SalesContext, context => context.onHoldSale)
     const holdSale = useContextSelector(SalesContext, context => context.holdSale)
+    const payedFilter = useContextSelector(SalesContext, context => context.payedFilter)
+    const pendingFilter = useContextSelector(SalesContext, context => context.pendingFilter)
+
+    function filteredSales() {
+        if (payedFilter && pendingFilter) return sales
+        if (payedFilter) return sales.filter(sale => sale.settlement)
+        if (pendingFilter) return sales.filter(sale => !sale.settlement)
+        return []
+    }
 
     return (
         <div className="h-full flex flex-col-reverse lg:flex-col">
@@ -37,16 +47,14 @@ export default function SalesPage() {
                         </div>
                         : <div className="flex flex-col lg:flex-row items-start gap-6 mt-6">
                             <section className="flex flex-col min-w-[200px]">
-                                <div className="bg-gray-600 rounded-md px-4 py-6">
-                                    Filtros
-                                </div>
+                                <SalesPaymentStatusFilter />
                             </section>
                             <section className={clsx(
                                 "grow flex flex-col gap-4",
                                 "overflow-y-auto max-h-[calc(100dvh-83px-1.5rem-24px)] pr-4"
                             )}>
                                 {
-                                    sales.map(sale => (
+                                    filteredSales().map(sale => (
                                         <SaleUnit sale={sale} key={sale.id} />
                                     ))
                                 }

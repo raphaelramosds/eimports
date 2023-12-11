@@ -1,10 +1,10 @@
 'use client'
 
-import { CategoriesList } from "@/components/CategoriesList";
+import { CategoriesList } from "@/components/Lists/CategoriesList";
 import { NewCategoryForm } from "@/components/Forms/NewCategoryForm";
 import { NewProductForm } from "@/components/Forms/NewProductForm";
 import { SearchProductForm } from "@/components/Forms/SearchProductForm";
-import { ProductsList } from "@/components/ProductsList";
+import { ProductsList } from "@/components/Lists/ProductsList";
 import * as Tabs from "@radix-ui/react-tabs";
 
 export default function InventoryPage() {
