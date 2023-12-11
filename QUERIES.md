@@ -1,7 +1,5 @@
 # Consultas ao BD
 
-As consultas que devem ser executadas para cumprir os requisitos da primeira versão do sistema são:
-
 ## Listar produtos com suas categorias
 
 - Consulta
