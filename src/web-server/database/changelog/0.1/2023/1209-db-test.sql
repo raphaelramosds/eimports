@@ -55,8 +55,7 @@ CREATE TABLE product (
     category_id INT,
     seller_id INT NOT NULL,
     CONSTRAINT fk_product_category
-        FOREIGN KEY (category_id) REFERENCES category (id)
-        ON DELETE CASCADE,
+        FOREIGN KEY (category_id) REFERENCES category (id),
     CONSTRAINT fk_product_seller
         FOREIGN KEY (seller_id) REFERENCES seller (id)
         ON DELETE CASCADE
@@ -74,5 +73,4 @@ CREATE TABLE product_purchase_order (
         ON DELETE CASCADE,
     CONSTRAINT fk_product_purchase_order_product
         FOREIGN KEY (product_id) REFERENCES product (id)
-        ON DELETE CASCADE
 );
