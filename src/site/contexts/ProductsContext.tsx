@@ -34,23 +34,24 @@ export function ProductsContextProvider({ children }: { children: React.ReactNod
         dispatch(fetchProductsAction(products))
     }, [])
 
+    async function getProducts(token: string) {
+        try {
+            const productsData = await WebServer.GetProducts({ token })
+            fetchProducts(productsData)
+            console.log('Fetch Products: ', productsData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     useEffect(() => {
         let user
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
             user = JSON.parse(userJSON)
-        }
-        async function getProducts(token: string) {
-            try {
-                const productsData = await WebServer.GetProducts({ token })
-                fetchProducts(productsData)
-                console.log('Fetch Products: ', productsData)
-            } catch (e) {
-                console.log(e)
+            if (user.access_token) {
+                getProducts(user.access_token)
             }
-        }
-        if (user.access_token) {
-            getProducts(user.access_token)
         }
     }, [])
 

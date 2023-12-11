@@ -39,23 +39,24 @@ export function CustomersContextProvider({ children }: { children: React.ReactNo
         dispatch(fetchCostumersAction(customers))
     }, [])
 
+    async function getCustomers(token: string) {
+        try {
+            const customersData = await WebServer.GetCustomers({ token })
+            fetchCustomers(customersData)
+            console.log('Fetch Customers: ', customersData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     useEffect(() => {
         let user
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
             user = JSON.parse(userJSON)
-        }
-        async function getCustomers(token: string) {
-            try {
-                const customersData = await WebServer.GetCustomers({ token })
-                fetchCustomers(customersData)
-                console.log('Fetch Customers: ', customersData)
-            } catch (e) {
-                console.log(e)
+            if (user.access_token) {
+                getCustomers(user.access_token)
             }
-        }
-        if (user.access_token) {
-            getCustomers(user.access_token)
         }
     }, [])
 

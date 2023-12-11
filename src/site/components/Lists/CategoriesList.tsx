@@ -30,7 +30,7 @@ export function CategoriesList() {
             <h2 className="form-title">
                 Categorias
             </h2>
-            <ul className="flex flex-col rounded overflow-hidden max-h-[500px] overflow-y-auto [&>li:not(:last-child)]:border-b">
+            <ul className="flex flex-col rounded overflow-hidden max-h-[400px] overflow-y-auto [&>li:not(:last-child)]:border-b">
                 {categories.length > 0
                     ? categories.map((category, i) => (
                         <li key={i} className={clsx(

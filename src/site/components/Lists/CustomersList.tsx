@@ -30,7 +30,7 @@ export function CustomersList() {
             <h2 className="form-title">
                 Clientes
             </h2>
-            <ul className="flex flex-col rounded overflow-hidden max-h-[600px] overflow-y-auto [&>li:not(:last-child)]:border-b">
+            <ul className="flex flex-col rounded overflow-hidden max-h-[400px] overflow-y-auto [&>li:not(:last-child)]:border-b">
                 {customers.length > 0
                     ? customers.map((customer, i) => (
                         <li key={i} className={clsx(

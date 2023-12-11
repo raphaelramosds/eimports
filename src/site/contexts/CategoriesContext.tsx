@@ -34,23 +34,24 @@ export function CategoriesContextProvider({ children }: { children: React.ReactN
         dispatch(fetchCategoriesAction(categories))
     }, [])
 
+    async function getCategories(token: string) {
+        try {
+            const categoriesData = await WebServer.GetCategories({ token })
+            fetchCategories(categoriesData)
+            console.log('Fetch Categories: ', categoriesData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     useEffect(() => {
         let user
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
             user = JSON.parse(userJSON)
-        }
-        async function getCategories(token: string) {
-            try {
-                const categoriesData = await WebServer.GetCategories({ token })
-                fetchCategories(categoriesData)
-                console.log('Fetch Categories: ', categoriesData)
-            } catch (e) {
-                console.log(e)
+            if (user.access_token) {
+                getCategories(user.access_token)
             }
-        }
-        if (user.access_token) {
-            getCategories(user.access_token)
         }
     }, [])
 

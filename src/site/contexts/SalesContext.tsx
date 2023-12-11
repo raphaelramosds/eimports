@@ -62,9 +62,9 @@ export function SalesContextProvider({ children }: { children: React.ReactNode }
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
             user = JSON.parse(userJSON)
-        }
-        if (user.access_token) {
-            getOrders(user.access_token)
+            if (user.access_token) {
+                getOrders(user.access_token)
+            }
         }
     }, [])
 

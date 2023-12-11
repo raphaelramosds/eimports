@@ -55,6 +55,7 @@ const AccountPages = [
 export function SideMenu() {
     const pathname = usePathname()
     const name = useContextSelector(UserContext, context => context.name)
+    const logout = useContextSelector(UserContext, context => context.logout)
 
     return (
         <aside className={clsx(
@@ -101,6 +102,7 @@ export function SideMenu() {
                     {
                         AccountPages.map((page, index) =>
                             <Link
+                                onClick={logout}
                                 data-active={pathname === page.href}
                                 href={page.href}
                                 key={index}
