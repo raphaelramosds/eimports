@@ -12,6 +12,8 @@ import { useContextSelector } from 'use-context-selector'
 import { z } from 'zod'
 import { useHookFormMask } from 'use-mask-input'
 import { toast } from 'react-toastify'
+import { parse } from 'path'
+import { Parser } from '@/services/Parser'
 
 const newProductFormSchema = z.object({
     name: z.string().min(3).max(50),
@@ -32,7 +34,7 @@ export function NewProductForm() {
         register,
         handleSubmit,
         control,
-        reset,
+        resetField,
         formState: { isSubmitting, errors },
     } = useForm<NewProductFormInputs>({
         resolver: zodResolver(newProductFormSchema)
@@ -42,29 +44,38 @@ export function NewProductForm() {
 
     async function onSubmit(data: NewProductFormInputs) {
         toast.promise(async () => {
-            const newProduct = await WebServer.CreateProduct({
-                token,
-                category_id: Number(data.category_id),
-                name: data.name,
-                description: data.description,
-                stock: data.stock,
-                quotation: data.quotation,
-            })
-            createProduct({
-                id: newProduct.id,
-                category_id: Number(data.category_id),
-                name: data.name,
-                description: data.description,
-                stock: data.stock,
-                quotation: data.quotation,
-            })
-            reset()
+            try {
+                const newProduct = await WebServer.CreateProduct({
+                    token,
+                    category_id: Number(data.category_id),
+                    name: data.name,
+                    description: data.description,
+                    stock: data.stock,
+                    quotation: Parser.parseCurrencyFromForm(data.quotation),
+                })
+                createProduct({
+                    id: newProduct.id,
+                    category_id: Number(data.category_id),
+                    name: data.name,
+                    description: data.description,
+                    stock: data.stock,
+                    quotation: Parser.parseCurrencyFromForm(data.quotation),
+                })
+                resetField('description')
+                resetField('name')
+                resetField('stock')
+                resetField('quotation')
+            } catch (e) {
+                console.log(e)
+            }
+
         }, {
             pending: 'Adicionando produto...',
             success: 'Produto adicionado com sucesso!',
             error: 'Erro ao adicionar produto!'
         })
     }
+
 
     return (
         <form
@@ -94,8 +105,9 @@ export function NewProductForm() {
                 type="text"
                 required
                 {...registerWithMask('quotation', ['R$ 9[9{*}],99'], {
-                    autoUnmask: true,
+                    autoUnmask: false,
                     showMaskOnHover: false,
+                    placeholder: '0'
                 })}
             />
             <input

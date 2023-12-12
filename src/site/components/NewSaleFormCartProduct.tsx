@@ -1,15 +1,15 @@
 import { Product } from "@/@types/Product";
+import { Parser } from "@/services/Parser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHookFormMask } from 'use-mask-input';
 import { z } from "zod";
 
 const newSaleCartProductFormSchema = z.object({
-    quantity: z.number(),
-    price: z.number()
+    quantity: z.number().min(1),
+    price: z.string().min(3)
 })
 
 type newSaleCartProductFormInputs = z.infer<typeof newSaleCartProductFormSchema>
@@ -25,15 +25,13 @@ interface NewSaleFormCartProductProps {
 export function NewSaleFormCartProduct({ product, removeFromCart, updateProductQuantity, updateProductPrice, cartProduct }: NewSaleFormCartProductProps) {
     const {
         register,
-        watch
     } = useForm<newSaleCartProductFormInputs>({
         resolver: zodResolver(newSaleCartProductFormSchema),
         mode: 'all'
     })
+    const registerWithMask = useHookFormMask(register)
 
-    useEffect(() => {
-        
-    }, [])
+    console.log(cartProduct)
 
     return (
         <div
@@ -53,14 +51,28 @@ export function NewSaleFormCartProduct({ product, removeFromCart, updateProductQ
                         onBlur={(e) => updateProductQuantity(product.id, Number(e.target.value))}
                         onChange={(e) => updateProductQuantity(product.id, Number(e.target.value))}
                     />
-                    <input required type="number" placeholder='Preço' className='form-input'
-                        {...register('price')}
-                        onBlur={(e) => updateProductPrice(product.id, Number(e.target.value))}
-                        onChange={(e) => updateProductPrice(product.id, Number(e.target.value))}
+                    <input required type="text" placeholder='Preço' className='form-input'
+                        {...registerWithMask('price', ['R$9{*},9{2}'], {
+                            autoUnmask: false,
+                            showMaskOnHover: false,
+                            placeholder: '0',
+                            onBeforeMask: (value) => {
+                                return value.replace('.', ',')
+                            },
+                           
+                        })}
+                        value={cartProduct.price}
+                        onBlur={(e) => updateProductPrice(product.id, Parser.parseCurrencyFromForm(e.target.value))}
+                        onChange={(e) => {
+                            console.log(e.target.value)
+                            console.log(Parser.parseCurrencyFromForm(e.target.value))
+                            updateProductPrice(product.id, Parser.parseCurrencyFromForm(e.target.value))
+                        }}
                     />
                 </div>
             </div>
             <button
+                type="button"
                 className="text-gray-100 hover:text-red-300 hover:transition-colors"
                 onClick={() => removeFromCart(product.id)}>
                 <X size={20} />
