@@ -4,7 +4,7 @@ import { Customer } from "@/@types/Customer";
 import { createCustomerAction, deleteCustomerAction, fetchCostumersAction } from "@/reducers/customers/actions";
 import { CustomersState, customersReducer } from "@/reducers/customers/reducer";
 import { WebServer } from "@/services/WebServer";
-import { useCallback, useEffect, useReducer } from "react";
+import { useCallback, useLayoutEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface CustomersContextType extends CustomersState {
@@ -49,11 +49,10 @@ export function CustomersContextProvider({ children }: { children: React.ReactNo
         }
     }
 
-    useEffect(() => {
-        let user
+    useLayoutEffect(() => {
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
-            user = JSON.parse(userJSON)
+            const user = JSON.parse(userJSON)
             if (user.access_token) {
                 getCustomers(user.access_token)
             }
