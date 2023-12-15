@@ -13,7 +13,7 @@ Muitos vendedores, especialmente aqueles que operam em pequena escala, têm uma 
 
 ## Versão inicial
 
-Na primeira versão do sistema, os cinco requisitos abaixo devem ser cumpridos
+Dentre os requisitos listados na seção de Documentação, no item Engenharia de Requisitos, cinco foram selecionados para compôr a versão inicial do sistema. Eles foram
 
 - Autenticar usuário
 - Cadastrar ordem de compra
@@ -32,19 +32,19 @@ Portanto, o usuário que controla o estoque deve ser capaz de
 ### Documentação
 
 - Engenharia de Requisitos
-    - [Casos de Uso](./CdU.md)
-    - [Diagrama de casos de uso](./Diagrama%20CdU.pdf)
-    - [Histórias de usuários](./HUs.md)
-    - [Vídeo da apresentação](https://drive.google.com/file/d/10voitNwHleYkfHrKjGWaMnGzj_5zkVzp/view?pli=1)
+    - [Casos de Uso](./docs/CdU.md)
+    - [Diagrama de casos de uso](./docs/Diagrama%20CdU.pdf)
+    - [Histórias de usuários](./docs/HUs.md)
+    - [Apresentação dos casos de uso](https://drive.google.com/file/d/10voitNwHleYkfHrKjGWaMnGzj_5zkVzp/view?pli=1)
 
 - Banco de dados
-    - [Diagrama Entidade Relacionamento](./BD-MER.pdf)
-    - [Modelo Relacional](./BD-ER.pdf)
-    - [Consultas ao BD](./QUERIES.md)
+    - [Diagrama Entidade Relacionamento](./docs/MER.pdf)
+    - [Modelo Relacional](./docs/MR.pdf)
+    - [Consultas ao BD](./docs/QUERIES.md)
 
 - Documentação da API
-    - [Apresentação da API](./src/web-server/)
-    - [Endpoints](https://documenter.getpostman.com/view/31179296/2s9YeN2UPQ)
+    - [Código da API](./src/web-server/)
+    - [Documentação dos endpoints](https://documenter.getpostman.com/view/31179296/2s9YeN2UPQ)
 
 - Documentação do frontend
-    - [Apresentação do frontend](./src/site/)
+    - [Código do frontend](./src/site/)

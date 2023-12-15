@@ -1,6 +1,6 @@
 # Web server
 
-O web server deste projeto consiste em uma API desenvolvida pelo [Yii framework](https://www.yiiframework.com/). Este documento possui os pré requisitos para criar o ambiente de desenvolvimento dessa API e a configuração do ambiente propriamente dita.
+O web server deste projeto consiste em uma API desenvolvida com o [Yii framework](https://www.yiiframework.com/), na sua segunda versão. Este documento possui os pré requisitos para criar o ambiente de desenvolvimento dessa API e a configuração do ambiente propriamente dita.
 
 ## Pré requisitos
 

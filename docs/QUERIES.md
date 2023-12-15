@@ -1,8 +1,18 @@
 # Consultas ao BD
 
-## Listar produtos com suas categorias
+As consultas ao BD mostradas abaixo foram feitas em cima de um banco de dados criado com o comando
 
-- Consulta
+```sql
+CREATE DATABASE eimports
+```
+
+Além disso os comandos para criação das tabelas e inserções das tuplas estão nos seguintes links
+
+- [Criação das tabelas](../src/web-server/database/scripts/db.sql)
+- [Inserção das tuplas](../src/web-server/database/scripts/insert.sql)
+
+
+## Listar produtos com suas categorias
 
 ```sql
 SELECT 
@@ -20,8 +30,6 @@ ORDER BY
 ```
 
 ## Listar clientes e suas ordens de compra em um determinado mês
-
-- Consulta
 
 ```sql
 SELECT
@@ -46,8 +54,6 @@ ORDER BY
 
 ## Calcular giro de estoque de um produto em um mês
 
-- Consulta
-
 ```sql
 SELECT 
     DATE_FORMAT(po.purchase, '%Y-%m') AS month_year,
@@ -67,8 +73,6 @@ GROUP BY
 ```
 
 ## Listar quantidade de produtos vendidos por categoria em um intervalo de dias
-
-- Consulta
 
 ```sql
 
@@ -93,8 +97,6 @@ GROUP BY
 
 ## Listar todas as ordens de compra em um intervalo de dias
 
-- Consulta
-
 ```sql
 SELECT
     purchase_order.id AS order_id,
@@ -116,8 +118,6 @@ ORDER BY
 ```
 
 ## Listar os produtos vendidos em uma ordem de compra
-
-- Consulta
 
 ```sql
 SELECT

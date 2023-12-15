@@ -1,7 +1,7 @@
 -- Inserir vendedores
 INSERT INTO seller (id, login, password, name) VALUES
-(1, 'seller1', 'password1', 'Seller 1'),
-(2, 'seller2', 'password2', 'Seller 2');
+(1, 'admin', 'root', 'Admin'),
+(2, 'visitante', 'root', 'Visitante');
 
 -- Inserir categorias
 INSERT INTO category (id, description, seller_id) VALUES
