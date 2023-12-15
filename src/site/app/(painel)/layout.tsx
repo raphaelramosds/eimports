@@ -30,7 +30,7 @@ export default function PainelLayout({ children }: { children: React.ReactNode }
                     <CategoriesContextProvider>
                         <SalesContextProvider>
                             <TurnoverContextProvider>
-                                <ToastContainer theme="dark" toastClassName="bg-gray-100"  />
+                                <ToastContainer theme="dark" toastClassName="top-[83px]" autoClose={2000}/>
                                 <SideMenu />
                                 <main className="flex w-full h-screen max-w-[100dvw] overflow-hidden">
                                     <div className="ml-16 grow">

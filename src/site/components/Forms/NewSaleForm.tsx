@@ -10,7 +10,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { useContextSelector } from 'use-context-selector'
 import { z } from 'zod'
 import { CustomersContext } from '@/contexts/CustomersContext'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Product } from '@/@types/Product'
 import clsx from 'clsx'
 import { NewSaleFormCartProduct } from '../NewSaleFormCartProduct'
@@ -36,11 +36,11 @@ export function NewSaleForm() {
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([])
 
     const {
-        register,
         handleSubmit,
-        reset,
+        resetField,
         setValue,
         control,
+        watch,
         getValues,
         formState: { isSubmitting, errors },
     } = useForm<NewSaleFormInputs>({
@@ -78,7 +78,12 @@ export function NewSaleForm() {
         const products = getValues().products || []
         console.log(products)
         setSelectedProducts([...selectedProducts, product])
-        setValue('products', [...products, { id: product.id, price: 1, quantity: 1 }])
+        setValue('products', [...products, { id: product.id, price: 1.00, quantity: 1 }])
+    }
+
+    function clearForm() {
+        setValue('products', [])
+        setSelectedProducts([])
     }
 
     async function onSubmit(data: NewSaleFormInputs) {
@@ -89,8 +94,7 @@ export function NewSaleForm() {
                 products: data.products
             })
             refresh(token)
-            reset()
-            setSelectedProducts([])
+            clearForm()
         }, {
             error: 'Erro ao criar venda',
             success: 'Venda criada com sucesso',
@@ -100,6 +104,8 @@ export function NewSaleForm() {
 
 
     console.log(errors)
+    const e = watch('products')
+    console.log(e)
 
     return (
         <form
@@ -111,7 +117,7 @@ export function NewSaleForm() {
                     onValueChange={onChange}
                     value={value}
                 >
-                    <Select.Trigger className='form-input relative aria-disabled:cursor-not-allowed' aria-disabled={customers.length < 1}>
+                    <Select.Trigger value={value} className='form-input relative aria-disabled:cursor-not-allowed' aria-disabled={customers.length < 1}>
                         <Select.Value
                             className='text-gray-300 placeholder:text-gray-500'
                             placeholder={products.length < 1 ? 'Sem clientes cadastrados' : 'Clique para selecionar cliente'}
@@ -120,7 +126,7 @@ export function NewSaleForm() {
                             <ChevronDown />
                         </Select.Icon>
                     </Select.Trigger>
-                    <Select.Content position='popper' className='z-20'>
+                    <Select.Content position='item-aligned' className='z-20'>
                         <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600 z-50'>
                             <Select.Group>
                                 {customers
@@ -150,7 +156,7 @@ export function NewSaleForm() {
                         <ChevronDown />
                     </Select.Icon>
                 </Select.Trigger>
-                <Select.Content position='popper'>
+                <Select.Content position='item-aligned'>
                     <Select.Viewport className='bg-gray-800 p-2 rounded-md border border-gray-600'>
                         <Select.Group>
                             {products

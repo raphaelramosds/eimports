@@ -4,7 +4,7 @@ import { Category } from "@/@types/Category";
 import { createCategoryAction, deleteCategoryAction, fetchCategoriesAction } from "@/reducers/categories/actions";
 import { CategoriesState, categoriesReducer } from "@/reducers/categories/reducer";
 import { WebServer } from "@/services/WebServer";
-import { useCallback, useEffect, useLayoutEffect, useReducer } from "react";
+import { useCallback, useLayoutEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface CategoriesContextType extends CategoriesState {
@@ -34,23 +34,23 @@ export function CategoriesContextProvider({ children }: { children: React.ReactN
         dispatch(fetchCategoriesAction(categories))
     }, [])
 
-    useEffect(() => {
-        let user
+    async function getCategories(token: string) {
+        try {
+            const categoriesData = await WebServer.GetCategories({ token })
+            fetchCategories(categoriesData)
+            console.log('Fetch Categories: ', categoriesData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    useLayoutEffect(() => {
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
-            user = JSON.parse(userJSON)
-        }
-        async function getCategories(token: string) {
-            try {
-                const categoriesData = await WebServer.GetCategories({ token })
-                fetchCategories(categoriesData)
-                console.log('Fetch Categories: ', categoriesData)
-            } catch (e) {
-                console.log(e)
+            const user = JSON.parse(userJSON)
+            if (user.access_token) {
+                getCategories(user.access_token)
             }
-        }
-        if (user.access_token) {
-            getCategories(user.access_token)
         }
     }, [])
 

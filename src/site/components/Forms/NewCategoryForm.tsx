@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form"
 import { useContextSelector } from "use-context-selector"
 import { z } from "zod"
 import { toast } from 'react-toastify'
+import { ThreeDots } from "../Loadings/ThreeDots"
 
 const newCategoryFormSchema = z.object({
     description: z.string(),
@@ -20,6 +21,7 @@ export function NewCategoryForm() {
     const token = useContextSelector(UserContext, context => context.access_token)
     const createCategory = useContextSelector(CategoriesContext, context => context.createCategory)
     const [isValid, setIsValid] = useState<boolean>(true)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const {
         register,
@@ -31,6 +33,7 @@ export function NewCategoryForm() {
     })
 
     async function onSubmit(data: NewCategoryFormInputs) {
+        setIsLoading(true)
         toast.promise(async () => {
             const newCategory = await WebServer.CreateCategory({
                 token,
@@ -47,12 +50,13 @@ export function NewCategoryForm() {
             } else {
                 setIsValid(false)
             }
+
         }, {
             error: 'Erro ao adicionar categoria.',
             success: 'Categoria adicionada com sucesso.',
             pending: 'Adicionando categoria...'
         })
-
+        setIsLoading(false)
     }
 
     return (
@@ -75,7 +79,7 @@ export function NewCategoryForm() {
                 type="submit"
                 disabled={isSubmitting}
                 className="form-submit mt-4"
-            >Adicionar</button>
+            >{isLoading ? <ThreeDots /> : 'Adicionar'}</button>
         </form>
     )
 }

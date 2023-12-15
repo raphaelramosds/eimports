@@ -7,6 +7,8 @@ import { WebServer } from "@/services/WebServer"
 import { useContextSelector } from "use-context-selector"
 import { UserContext } from "@/contexts/UserContext"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { ThreeDots } from "../Loadings/ThreeDots"
 
 const loginFormSchema = z.object({
     login: z.string().min(3, 'Usuário inválido'),
@@ -17,6 +19,7 @@ type LoginFormInputs = z.infer<typeof loginFormSchema>
 
 export function LoginForm() {
     const updateUser = useContextSelector(UserContext, context => context.updateUser)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const router = useRouter()
 
     const {
@@ -28,12 +31,15 @@ export function LoginForm() {
     })
 
     async function onSubmit(data: LoginFormInputs) {
+        setIsLoading(true)
         try {
             const userData = await WebServer.Login({ login: data.login, password: data.password })
             updateUser({ access_token: userData.data.access_token, name: userData.data.name, login: userData.data.login })
             router.push('/sales')
+            setIsLoading(false)
         } catch (e) {
             console.log(e)
+            setIsLoading(false)
         }
     }
 
@@ -64,7 +70,7 @@ export function LoginForm() {
             <button
                 className="form-submit mt-4"
                 disabled={isSubmitting}
-            >Entrar</button>
+            >{isLoading ? <ThreeDots /> : 'Entrar'}</button>
         </form>
     )
 }

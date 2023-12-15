@@ -4,7 +4,7 @@ import { Customer } from "@/@types/Customer";
 import { createCustomerAction, deleteCustomerAction, fetchCostumersAction } from "@/reducers/customers/actions";
 import { CustomersState, customersReducer } from "@/reducers/customers/reducer";
 import { WebServer } from "@/services/WebServer";
-import { useCallback, useEffect, useReducer } from "react";
+import { useCallback, useLayoutEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface CustomersContextType extends CustomersState {
@@ -39,23 +39,23 @@ export function CustomersContextProvider({ children }: { children: React.ReactNo
         dispatch(fetchCostumersAction(customers))
     }, [])
 
-    useEffect(() => {
-        let user
+    async function getCustomers(token: string) {
+        try {
+            const customersData = await WebServer.GetCustomers({ token })
+            fetchCustomers(customersData)
+            console.log('Fetch Customers: ', customersData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    useLayoutEffect(() => {
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
-            user = JSON.parse(userJSON)
-        }
-        async function getCustomers(token: string) {
-            try {
-                const customersData = await WebServer.GetCustomers({ token })
-                fetchCustomers(customersData)
-                console.log('Fetch Customers: ', customersData)
-            } catch (e) {
-                console.log(e)
+            const user = JSON.parse(userJSON)
+            if (user.access_token) {
+                getCustomers(user.access_token)
             }
-        }
-        if (user.access_token) {
-            getCustomers(user.access_token)
         }
     }, [])
 

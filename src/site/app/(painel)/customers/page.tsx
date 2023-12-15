@@ -1,4 +1,4 @@
-import { CustomersList } from "@/components/CustomersList";
+import { CustomersList } from "@/components/Lists/CustomersList";
 import { NewCustomerForm } from "@/components/Forms/NewCustomerForm";
 import { SearchCustomerForm } from "@/components/Forms/SearchCustomerForm";
 

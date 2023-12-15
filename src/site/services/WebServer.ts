@@ -52,7 +52,7 @@ export class WebServer {
     }
 
     static async CreateProduct({ token, name, description, category_id, quotation, stock }:
-        { token: string, name: string, description: string, category_id: number, quotation: string, stock: number }) {
+        { token: string, name: string, description: string, category_id: number, quotation: number, stock: number }) {
         const response = await axios.post(`${URL}/products`,
             { name, description, category_id, quotation, stock }, {
             headers: {

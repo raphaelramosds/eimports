@@ -5,6 +5,8 @@ import { produce } from 'immer'
 export interface SalesState {
     onHoldSale: Sale | null;
     sales: Sale[];
+    payedFilter: boolean;
+    pendingFilter: boolean
 }
 
 export function salesReducer(state: SalesState, action: any) {
@@ -25,6 +27,12 @@ export function salesReducer(state: SalesState, action: any) {
             {
                 return produce(state, (draft) => {
                     draft.sales = action.payload
+                })
+            }
+        case SalesActionTypes.UPDATE_PAYMENT_FILTER:
+            {
+                return produce(state, (draft) => {
+                    action.payload.filter == 'payed' ? draft.payedFilter = action.payload.flag : draft.pendingFilter = action.payload.flag
                 })
             }
         default:

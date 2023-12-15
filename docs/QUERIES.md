@@ -1,10 +1,18 @@
 # Consultas ao BD
 
-As consultas que devem ser executadas para cumprir os requisitos da primeira versão do sistema são:
+As consultas ao BD mostradas abaixo foram feitas em cima de um banco de dados criado com o comando
+
+```sql
+CREATE DATABASE eimports
+```
+
+Além disso os comandos para criação das tabelas e inserções das tuplas estão nos seguintes links
+
+- [Criação das tabelas](../src/web-server/database/scripts/db.sql)
+- [Inserção das tuplas](../src/web-server/database/scripts/insert.sql)
+
 
 ## Listar produtos com suas categorias
-
-- Consulta
 
 ```sql
 SELECT 
@@ -22,8 +30,6 @@ ORDER BY
 ```
 
 ## Listar clientes e suas ordens de compra em um determinado mês
-
-- Consulta
 
 ```sql
 SELECT
@@ -48,8 +54,6 @@ ORDER BY
 
 ## Calcular giro de estoque de um produto em um mês
 
-- Consulta
-
 ```sql
 SELECT 
     DATE_FORMAT(po.purchase, '%Y-%m') AS month_year,
@@ -69,8 +73,6 @@ GROUP BY
 ```
 
 ## Listar quantidade de produtos vendidos por categoria em um intervalo de dias
-
-- Consulta
 
 ```sql
 
@@ -95,8 +97,6 @@ GROUP BY
 
 ## Listar todas as ordens de compra em um intervalo de dias
 
-- Consulta
-
 ```sql
 SELECT
     purchase_order.id AS order_id,
@@ -115,4 +115,23 @@ WHERE
     purchase_order.purchase BETWEEN '2023-01-01' AND '2023-02-28'
 ORDER BY
     purchase_order.purchase;
+```
+
+## Listar os produtos vendidos em uma ordem de compra
+
+```sql
+SELECT
+    purchase_order.id AS order_id,
+    product.name AS product_name,
+    product_purchase_order.price AS sold_price
+FROM
+    purchase_order
+JOIN
+    product_purchase_order ON purchase_order.id = product_purchase_order.purchase_order_id
+JOIN
+    product ON product_purchase_order.product_id = product.id
+WHERE
+    purchase_order.id = 3
+ORDER BY
+    purchase_order.id, product.name;
 ```

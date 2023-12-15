@@ -4,7 +4,7 @@ import { Product } from "@/@types/Product";
 import { createProductAction, deleteProductAction, fetchProductsAction } from "@/reducers/products/actions";
 import { ProductsState, productsReducer } from "@/reducers/products/reducer";
 import { WebServer } from "@/services/WebServer";
-import { useCallback, useEffect, useReducer } from "react";
+import { useCallback, useLayoutEffect, useReducer } from "react";
 import { createContext } from "use-context-selector";
 
 interface ProductsContextType extends ProductsState {
@@ -34,23 +34,23 @@ export function ProductsContextProvider({ children }: { children: React.ReactNod
         dispatch(fetchProductsAction(products))
     }, [])
 
-    useEffect(() => {
-        let user
+    async function getProducts(token: string) {
+        try {
+            const productsData = await WebServer.GetProducts({ token })
+            fetchProducts(productsData)
+            console.log('Fetch Products: ', productsData)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    useLayoutEffect(() => {
         const userJSON = localStorage.getItem('@eimports:user-1.0.0')
         if (userJSON) {
-            user = JSON.parse(userJSON)
-        }
-        async function getProducts(token: string) {
-            try {
-                const productsData = await WebServer.GetProducts({ token })
-                fetchProducts(productsData)
-                console.log('Fetch Products: ', productsData)
-            } catch (e) {
-                console.log(e)
+            const user = JSON.parse(userJSON)
+            if (user.access_token) {
+                getProducts(user.access_token)
             }
-        }
-        if (user.access_token) {
-            getProducts(user.access_token)
         }
     }, [])
 
