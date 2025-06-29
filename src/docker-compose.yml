@@ -1,0 +1,35 @@
+version: '2'
+services:
+  php:
+    image: yiisoftware/yii2-php:7.4-apache
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./web-server:/app:delegated
+    ports:
+      - '8000:80'
+    environment:
+      PHP_USER_ID: 1000
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        composer install --prefer-dist --no-cache &&\
+        php -S 0.0.0.0:80 -t web
+
+  next:
+    build:
+      context: ./site
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./site:/home/node/app:delegated
+
+  db:
+    container_name: db
+    image: mysql:8.3
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-eimports}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+    ports:
+      - "3307:3306"
