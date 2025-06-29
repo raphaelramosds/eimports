@@ -14,6 +14,8 @@ services:
       - -c
       - |
         composer install --prefer-dist --no-cache &&\
+        php yii migrate &&\
+        php yii batch/seed &&\
         php -S 0.0.0.0:80 -t web
 
   next:
