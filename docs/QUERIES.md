@@ -8,8 +8,8 @@ CREATE DATABASE eimports
 
 Além disso os comandos para criação das tabelas e inserções das tuplas estão nos seguintes links
 
-- [Criação das tabelas](../src/web-server/database/scripts/db.sql)
-- [Inserção das tuplas](../src/web-server/database/scripts/insert.sql)
+- [Criação das tabelas](database/db.sql)
+- [Inserção das tuplas](database/insert.sql)
 
 
 ## Listar produtos com suas categorias

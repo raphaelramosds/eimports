@@ -2,7 +2,7 @@
 
 O web server deste projeto consiste em uma API desenvolvida com o [Yii framework](https://www.yiiframework.com/), na sua segunda versão. Este documento possui os pré requisitos para criar o ambiente de desenvolvimento dessa API e a configuração do ambiente propriamente dita.
 
-## Pré requisitos
+## Ambiente local (sem Docker)
 
 ### Instale o PHP
 
@@ -20,12 +20,7 @@ O web server deste projeto consiste em uma API desenvolvida com o [Yii framework
 ### Instale o Composer
 
 - Visite [Composer](https://getcomposer.org/download/)
-- Baixe e instale o arquivo Composer-Setup.exe 
-
-### Instale o Liquibase
-
-- Visite [Liquibase](https://www.liquibase.com/download?_ga=2.145749556.1694703356.1699633086-22718613.1699633086#download-liquibase)
-- Baixe e instale o executável Installer for Windows
+- Baixe e instale o arquivo Composer-Setup.exe
 
 
 ### Instale o MariaDB Server
@@ -34,7 +29,7 @@ O web server deste projeto consiste em uma API desenvolvida com o [Yii framework
 
 > Na instalação do MariaDB, coloque a porta do TCP para 3360
 
-## Configuração do ambiente
+### Configuração do ambiente
 
 Vá até a pasta da API
 
@@ -54,19 +49,6 @@ Crie a base de dados
 CREATE DATABASE eimports
 ```
 
-Crie um arquivo chamado `liquibase.properties` e coloque as seguinte linhas
-
-```
-changeLogFile=database/changelog/db-changelog-master.xml
-url=jdbc:mariadb://localhost:3360/eimports
-username=USER
-password=PASSWORD
-logLevel=severe
-liquibase.hub.mode=off
-```
-
-> Substitua USER e PASSWORD pelo usuário e senha que você criou na instalação do MariaDB
-
 Instale as dependências do composer
 
 ```
@@ -75,16 +57,16 @@ composer update
 
 > O composer vai interromper a instalação e te pedir um access token. Você pode criá-lo rapidamente visitando [Github - personal acess tokens](https://github.com/settings/tokens), e acessando Generate new tokens > Generate new token (classic). Não selecione nada em Select scopes.
 
-Inicie o liquibase
-
-```
-liquibase update
-```
-
 Inicie a aplicação Yii
 
 ```
 php -S localhost:8080 -t web
+```
+
+Execute as migrations
+
+```
+php yii migrate
 ```
 
 ### Populando o sistema
@@ -92,13 +74,13 @@ php -S localhost:8080 -t web
 Para popular o banco de dados com vários registros pré-definidos
 
 ```
-.\yii batch/seed
+php yii batch/seed
 ```
 
 Para deletar todos os registros do banco de dados
 
 ```
-.\yii batch/fresh
+php yii batch/fresh
 ```
 
 ## Acesse o sistema
